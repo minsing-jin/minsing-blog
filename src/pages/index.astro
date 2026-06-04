@@ -9,6 +9,8 @@ import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import Card from "@/components/Card.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import AdSlot from "@/components/AdSlot.astro";
+import NewsletterCta from "@/components/NewsletterCta.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
@@ -35,7 +37,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <section id="hero" class="border-border border-b pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        만들고 배우는 과정을 공개합니다.
       </h1>
       <a
         target="_blank"
@@ -53,19 +55,17 @@ const homePath = getRelativeLocaleUrl(locale, "");
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        완성된 성공담보다 실제 여정을 기록합니다. 개발, AI, 제품 만들기, 창업,
+        학습을 하며 무엇을 시도했고 어디서 막혔고 무엇을 바꿨는지 남깁니다.
       </p>
       <p class="mt-2">
-        Read the blog posts or check
+        처음 오셨다면
         <LinkButton
           class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/posts/start-public-journey/"
         >
-          README
-        </LinkButton> for more info.
+          왜 공개적으로 기록하는지
+        </LinkButton>부터 읽어보세요.
       </p>
       {
         socials.length > 0 && (
@@ -78,6 +78,8 @@ const homePath = getRelativeLocaleUrl(locale, "");
         )
       }
     </section>
+
+    <NewsletterCta />
 
     {
       featuredPosts.length > 0 && (
@@ -114,6 +116,8 @@ const homePath = getRelativeLocaleUrl(locale, "");
         </section>
       )
     }
+
+    <AdSlot label="스폰서 또는 광고" />
 
     <div class="my-8 text-center">
       <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>

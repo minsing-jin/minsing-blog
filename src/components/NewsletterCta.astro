@@ -1,0 +1,60 @@
+---
+type Props = {
+  compact?: boolean;
+};
+
+const { compact = false } = Astro.props;
+const newsletterAction = import.meta.env.PUBLIC_NEWSLETTER_ACTION ?? "";
+---
+
+<section
+  class:list={[
+    "border-border bg-muted/40 my-10 rounded-2xl border p-6",
+    { "my-6 p-5": compact },
+  ]}
+>
+  <p class="text-accent text-sm font-semibold tracking-wide uppercase">
+    공개 여정 구독
+  </p>
+  <h2 class:list={["mt-2 font-bold", compact ? "text-xl" : "text-2xl"]}>
+    글이 올라오면 이메일로 보내드릴게요.
+  </h2>
+  <p class="text-muted-foreground mt-3">
+    개발, 창업, 배움, 실패와 회고를 짧고 솔직하게 기록합니다. 검색으로 스쳐가는
+    독자가 아니라 여정을 따라오는 팬을 만들기 위한 뉴스레터입니다.
+  </p>
+  {
+    newsletterAction ? (
+      <form
+        class="mt-5 flex flex-col gap-3 sm:flex-row"
+        action={newsletterAction}
+        method="post"
+        target="_blank"
+      >
+        <label class="sr-only" for="newsletter-email">
+          이메일
+        </label>
+        <input
+          id="newsletter-email"
+          name="email"
+          type="email"
+          required
+          placeholder="you@example.com"
+          class="border-border bg-background min-h-12 flex-1 rounded-xl border px-4"
+        />
+        <button
+          type="submit"
+          class="bg-accent text-accent-foreground min-h-12 rounded-xl px-5 font-semibold"
+        >
+          구독하기
+        </button>
+      </form>
+    ) : (
+      <p class="border-border bg-background mt-5 rounded-xl border p-4 text-sm">
+        아직 뉴스레터 폼이 연결되지 않았습니다. Cloudflare Pages 환경변수
+        <code>PUBLIC_NEWSLETTER_ACTION</code>에 Kit, Buttondown, beehiiv 등의
+        subscribe form action URL을 넣으면 폼이 활성화됩니다.
+      </p>
+    )
+  }
+</section>
