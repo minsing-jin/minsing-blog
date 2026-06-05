@@ -20,6 +20,20 @@ Cloudflare Pages 무료 플랜을 추천합니다.
 4. Framework preset은 `Astro`를 선택합니다.
 5. 환경변수를 설정합니다.
 
+## GitHub Actions 자동 배포
+
+이 저장소에는 `.github/workflows/deploy.yml`이 포함되어 있습니다. GitHub 저장소
+Settings → Secrets and variables → Actions에 아래 secret을 추가하면 `main` push
+때마다 Cloudflare Pages에 자동 배포됩니다.
+
+- `CLOUDFLARE_API_TOKEN`: Cloudflare Pages edit/deploy 권한이 있는 API token
+
+이미 생성된 Pages 프로젝트:
+
+- Project name: `misning-blog`
+- Production URL: `https://misning-blog.pages.dev`
+- Account ID: `bf19085d64b471222f2360870b9fbd6f`
+
 ## 환경변수
 
 - `PUBLIC_NEWSLETTER_ACTION`: Kit, Buttondown, beehiiv 등의 구독 form action URL
@@ -35,3 +49,9 @@ Cloudflare Pages 무료 플랜을 추천합니다.
 4. Google Search Console에 등록합니다.
 5. AdSense를 신청합니다.
 6. 승인 후 `PUBLIC_ADSENSE_CLIENT`와 실제 ad slot id를 넣습니다.
+
+## Search Console
+
+- Property URL: `https://misning-blog.pages.dev`
+- Sitemap: `https://misning-blog.pages.dev/sitemap-index.xml`
+- RSS: `https://misning-blog.pages.dev/rss.xml`
