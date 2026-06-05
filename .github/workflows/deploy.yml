@@ -37,7 +37,7 @@ jobs:
         with:
           apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
           accountId: bf19085d64b471222f2360870b9fbd6f
-          command: pages deploy dist --project-name=misning-blog --branch=main
+          command: pages deploy dist --project-name=minsing-blog --branch=main
 
       - name: Skip deploy
         if: env.CLOUDFLARE_API_TOKEN == ''

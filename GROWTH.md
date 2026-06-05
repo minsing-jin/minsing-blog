@@ -2,9 +2,9 @@
 
 ## 검색 노출
 
-- Google Search Console에 `https://misning-blog.pages.dev`를 등록합니다.
-- Sitemap URL은 `https://misning-blog.pages.dev/sitemap-index.xml`입니다.
-- RSS URL은 `https://misning-blog.pages.dev/rss.xml`입니다.
+- Google Search Console에 `https://minsing-blog.pages.dev`를 등록합니다.
+- Sitemap URL은 `https://minsing-blog.pages.dev/sitemap-index.xml`입니다.
+- RSS URL은 `https://minsing-blog.pages.dev/rss.xml`입니다.
 - 글 제목은 검색 가능한 문제 중심으로 씁니다.
 - 모든 글은 직접 경험, 선택 이유, 결과를 포함해야 합니다.
 
@@ -30,7 +30,7 @@
 추천 도메인 형태:
 
 - `jinmin.dev`
-- `misning.dev`
+- `minsing.dev`
 - `minseong.blog`
 - `journeyofminseong.com`
 

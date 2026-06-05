@@ -30,8 +30,8 @@ Settings → Secrets and variables → Actions에 아래 secret을 추가하면 
 
 이미 생성된 Pages 프로젝트:
 
-- Project name: `misning-blog`
-- Production URL: `https://misning-blog.pages.dev`
+- Project name: `minsing-blog`
+- Production URL: `https://minsing-blog.pages.dev`
 - Account ID: `bf19085d64b471222f2360870b9fbd6f`
 
 ## 환경변수
@@ -52,6 +52,6 @@ Settings → Secrets and variables → Actions에 아래 secret을 추가하면 
 
 ## Search Console
 
-- Property URL: `https://misning-blog.pages.dev`
-- Sitemap: `https://misning-blog.pages.dev/sitemap-index.xml`
-- RSS: `https://misning-blog.pages.dev/rss.xml`
+- Property URL: `https://minsing-blog.pages.dev`
+- Sitemap: `https://minsing-blog.pages.dev/sitemap-index.xml`
+- RSS: `https://minsing-blog.pages.dev/rss.xml`
