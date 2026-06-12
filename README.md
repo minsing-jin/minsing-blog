@@ -34,6 +34,9 @@ description: "검색 결과와 공유 카드에 보일 설명"
 본문
 ```
 
+Obsidian에서 작성한 글은 [OBSIDIAN.md](./OBSIDIAN.md)의 방식으로 연결할 수 있습니다.
+기본값은 `publish: true`가 붙은 노트만 `src/content/posts`로 동기화합니다.
+
 ## 수익화 준비
 
 AdSense 승인 전에는 광고 영역이 안내 박스로 표시됩니다. 승인 후 Cloudflare Pages 환경변수에 아래 값을 넣으면 광고가 활성화됩니다.

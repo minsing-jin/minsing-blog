@@ -10,6 +10,8 @@
     "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
     "preview": "astro preview",
     "sync": "astro sync",
+    "obsidian:sync": "node scripts/sync-obsidian-posts.mjs",
+    "obsidian:dry-run": "node scripts/sync-obsidian-posts.mjs --dry-run",
     "astro": "astro",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
