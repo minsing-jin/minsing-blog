@@ -18,7 +18,7 @@ const t = useTranslations(Astro.currentLocale);
 {
   page.lastPage > 1 && (
     <nav
-      class="mt-auto mb-8 flex justify-center gap-4"
+      class="mt-auto mb-8 flex items-center justify-center gap-4"
       role="navigation"
       aria-label="Pagination Navigation"
     >
@@ -31,7 +31,9 @@ const t = useTranslations(Astro.currentLocale);
         <IconArrowLeft class="inline-block rtl:rotate-180" />
         {t.pagination.prev}
       </LinkButton>
-      {page.currentPage} / {page.lastPage}
+      <span class="text-muted-foreground">
+        {page.currentPage} / {page.lastPage}
+      </span>
       <LinkButton
         disabled={!page.url.next}
         href={page.url.next as string}

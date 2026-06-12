@@ -25,6 +25,7 @@ const {
   timezone: postTimezone,
 } = Astro.props;
 
+const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(Astro.currentLocale);
 
 const isModified = modDatetime && modDatetime > pubDatetime;
@@ -33,7 +34,9 @@ const datetime = dayjs(isModified ? modDatetime : pubDatetime).tz(
   postTimezone ?? config.site.timezone
 );
 
-const date = datetime.format("D MMM, YYYY");
+const date = locale.startsWith("ko")
+  ? datetime.format("YYYY년 M월 D일")
+  : datetime.format("D MMM, YYYY");
 ---
 
 <div

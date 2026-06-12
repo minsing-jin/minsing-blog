@@ -24,11 +24,11 @@ const adsenseSlot = import.meta.env.PUBLIC_ADSENSE_SLOT;
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </aside>
-  ) : (
+  ) : import.meta.env.DEV ? (
     <aside class="border-border not-prose text-muted-foreground my-8 rounded-xl border border-dashed p-4 text-sm">
       AdSense 승인 후 Cloudflare Pages 환경변수
       <code>PUBLIC_ADSENSE_CLIENT</code>와 <code>PUBLIC_ADSENSE_SLOT</code>를
       넣으면 이 영역이 광고 슬롯으로 바뀝니다.
     </aside>
-  )
+  ) : null
 }

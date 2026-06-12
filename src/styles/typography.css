@@ -13,10 +13,6 @@
       @apply text-foreground mb-3;
     }
 
-    h3 {
-      @apply italic;
-    }
-
     p,
     strong,
     ol,
@@ -28,7 +24,7 @@
     }
 
     a {
-      @apply text-foreground hover:text-accent wrap-break-word decoration-dashed underline-offset-4 focus-visible:no-underline;
+      @apply text-accent hover:text-accent/80 wrap-break-word decoration-dashed underline-offset-4 focus-visible:no-underline;
     }
 
     ul {
@@ -106,7 +102,7 @@
       @apply relative inline-block w-full bg-red-500/20 before:absolute before:-left-3 before:text-red-500 before:content-['-'];
     }
     .line.highlighted {
-      @apply inline-block w-full bg-slate-400/20;
+      @apply bg-accent/10 inline-block w-full;
     }
     .highlighted-word {
       @apply border-border rounded-sm border px-0.5 py-px;

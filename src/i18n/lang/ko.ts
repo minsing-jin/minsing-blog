@@ -39,7 +39,7 @@ export default {
   },
   pages: {
     tagTitle: "태그",
-    tagDesc: "이 태그가 달린 모든 글",
+    tagDesc: '"{{tag}}" 태그가 달린 모든 글',
 
     tagsTitle: "태그",
     tagsDesc: "글에 사용된 모든 태그",
@@ -66,6 +66,8 @@ export default {
   notFound: {
     title: "404 Not Found",
     message: "페이지를 찾을 수 없습니다",
+    hint: "주소가 바뀌었거나 아직 만들지 않은 페이지일 수 있어요.",
     goHome: "홈으로 돌아가기",
+    viewPosts: "전체 글 보기",
   },
 } satisfies UIStrings;

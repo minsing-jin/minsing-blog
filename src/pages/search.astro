@@ -144,8 +144,20 @@ const t = useTranslations(locale);
       border: 1px solid var(--border);
     }
 
+    input::placeholder {
+      color: var(--muted-foreground);
+      opacity: 1;
+    }
+
     input:focus-visible {
       outline: 1px solid var(--accent);
+    }
+
+    mark {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+      border-radius: 0.25rem;
+      padding-inline: 0.15em;
     }
 
     .pagefind-ui__result-title a {
@@ -161,6 +173,10 @@ const t = useTranslations(locale);
       text-decoration-line: none;
       outline-width: 2px;
       outline-style: dashed;
+    }
+
+    .pagefind-ui__result-excerpt {
+      color: var(--muted-foreground);
     }
 
     .pagefind-ui__result:last-of-type {

@@ -39,7 +39,7 @@ export default {
   },
   pages: {
     tagTitle: "Tag",
-    tagDesc: "All the articles with the tag",
+    tagDesc: 'All the articles with the tag "{{tag}}".',
 
     tagsTitle: "Tags",
     tagsDesc: "All the tags used in posts.",
@@ -66,6 +66,8 @@ export default {
   notFound: {
     title: "404 Not Found",
     message: "Page Not Found",
+    hint: "The URL may have changed, or this page hasn't been built yet.",
     goHome: "Go back home",
+    viewPosts: "Browse all posts",
   },
 } satisfies UIStrings;

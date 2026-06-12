@@ -4,7 +4,9 @@ type Props = {
 };
 
 const { compact = false } = Astro.props;
+// PUBLIC_NEWSLETTER_ACTION: Kit/Buttondown/beehiiv subscribe form action URL
 const newsletterAction = import.meta.env.PUBLIC_NEWSLETTER_ACTION ?? "";
+const rssUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`;
 ---
 
 <section
@@ -44,16 +46,25 @@ const newsletterAction = import.meta.env.PUBLIC_NEWSLETTER_ACTION ?? "";
         />
         <button
           type="submit"
-          class="bg-accent text-accent-foreground min-h-12 rounded-xl px-5 font-semibold"
+          class="bg-accent text-accent-foreground hover:bg-accent/90 min-h-12 rounded-xl px-5 font-semibold transition-colors"
         >
           구독하기
         </button>
       </form>
     ) : (
-      <p class="border-border bg-background mt-5 rounded-xl border p-4 text-sm">
-        아직 뉴스레터 폼이 연결되지 않았습니다. Cloudflare Pages 환경변수
-        <code>PUBLIC_NEWSLETTER_ACTION</code>에 Kit, Buttondown, beehiiv 등의
-        subscribe form action URL을 넣으면 폼이 활성화됩니다.
+      <p class="text-muted-foreground mt-5 text-sm">
+        뉴스레터는 준비 중입니다. 그동안{" "}
+        <a class="text-accent underline underline-offset-4" href={rssUrl}>
+          RSS
+        </a>
+        로 구독하거나{" "}
+        <a
+          class="text-accent underline underline-offset-4"
+          href="mailto:developerminsing@gmail.com"
+        >
+          이메일
+        </a>
+        로 알림을 요청해 주세요.
       </p>
     )
   }

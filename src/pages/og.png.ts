@@ -3,6 +3,7 @@ import satori from "satori";
 import sharp from "sharp";
 import { fontData, experimental_getFontFileURL } from "astro:assets";
 import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
+import { loadGoogleFont } from "@/utils/loadGoogleFont";
 import config from "@/config";
 
 export const GET: APIRoute = async context => {
@@ -14,13 +15,18 @@ export const GET: APIRoute = async context => {
     throw new Error("Cannot find the font path.");
   }
 
-  const [regularData, boldData] = await Promise.all([
+  // Dynamic subset: only fetch the glyphs actually rendered in the image.
+  const subsetText = `${config.site.title}${config.site.description}${new URL(config.site.url).hostname}`;
+
+  const [regularData, boldData, krRegular, krBold] = await Promise.all([
     fetch(experimental_getFontFileURL(regularFontPath, context.url)).then(res =>
       res.arrayBuffer()
     ),
     fetch(experimental_getFontFileURL(boldFontPath, context.url)).then(res =>
       res.arrayBuffer()
     ),
+    loadGoogleFont("Noto Sans KR", subsetText, 400),
+    loadGoogleFont("Noto Sans KR", subsetText, 700),
   ]);
 
   const svg = await satori(
@@ -28,13 +34,14 @@ export const GET: APIRoute = async context => {
       type: "div",
       props: {
         style: {
-          background: "#fefbfb",
+          background: "#fcfcfd", // theme.css --background
+          color: "#23272e", // theme.css --foreground
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "Google Sans Code",
+          fontFamily: '"Noto Sans KR", "Google Sans Code"',
         },
         children: [
           {
@@ -44,8 +51,8 @@ export const GET: APIRoute = async context => {
                 position: "absolute",
                 top: "-1px",
                 right: "-1px",
-                border: "4px solid #000",
-                background: "#ecebeb",
+                border: "4px solid #0a66a8", // theme.css --accent
+                background: "#eef0f3", // theme.css --muted
                 opacity: "0.9",
                 borderRadius: "4px",
                 display: "flex",
@@ -60,8 +67,8 @@ export const GET: APIRoute = async context => {
             type: "div",
             props: {
               style: {
-                border: "4px solid #000",
-                background: "#fefbfb",
+                border: "4px solid #0a66a8", // theme.css --accent
+                background: "#fcfcfd", // theme.css --background
                 borderRadius: "4px",
                 display: "flex",
                 justifyContent: "center",
@@ -125,7 +132,11 @@ export const GET: APIRoute = async context => {
                         children: {
                           type: "span",
                           props: {
-                            style: { overflow: "hidden", fontWeight: "bold" },
+                            style: {
+                              overflow: "hidden",
+                              fontWeight: "bold",
+                              color: "#0a66a8", // theme.css --accent
+                            },
                             children: new URL(config.site.url).hostname,
                           },
                         },
@@ -153,6 +164,18 @@ export const GET: APIRoute = async context => {
         {
           name: "Google Sans Code",
           data: boldData,
+          weight: 700,
+          style: "normal",
+        },
+        {
+          name: "Noto Sans KR",
+          data: krRegular,
+          weight: 400,
+          style: "normal",
+        },
+        {
+          name: "Noto Sans KR",
+          data: krBold,
           weight: 700,
           style: "normal",
         },

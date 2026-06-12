@@ -64,6 +64,8 @@ export interface UIStrings {
   notFound: {
     title: string;
     message: string;
+    hint: string;
     goHome: string;
+    viewPosts: string;
   };
 }

@@ -20,14 +20,22 @@ const t = useTranslations(locale);
   >
     <div class="mb-14 flex flex-col items-center justify-center">
       <h1 class="text-accent text-9xl font-bold">404</h1>
-      <span aria-hidden="true"> ¯\_(ツ)_/¯ </span>
       <p class="mt-4 text-2xl sm:text-3xl">{t.notFound.message}</p>
-      <LinkButton
-        href={getRelativeLocaleUrl(locale, "")}
-        class="my-6 text-lg underline decoration-dashed underline-offset-8"
-      >
-        {t.notFound.goHome}
-      </LinkButton>
+      <p class="text-muted-foreground mt-3">{t.notFound.hint}</p>
+      <div class="my-6 flex flex-wrap justify-center gap-6">
+        <LinkButton
+          href={getRelativeLocaleUrl(locale, "")}
+          class="text-lg underline decoration-dashed underline-offset-8"
+        >
+          {t.notFound.goHome}
+        </LinkButton>
+        <LinkButton
+          href={getRelativeLocaleUrl(locale, "posts")}
+          class="text-lg underline decoration-dashed underline-offset-8"
+        >
+          {t.notFound.viewPosts}
+        </LinkButton>
+      </div>
     </div>
   </main>
 
