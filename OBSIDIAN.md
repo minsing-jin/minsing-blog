@@ -29,7 +29,11 @@ OBSIDIAN_POSTS_DIR=obsidian-publish
 
 ## 3. Obsidian 노트 frontmatter
 
-노트 맨 위에 아래 형식을 넣습니다.
+Hermes/Discord 승인 흐름을 쓸 때는 사용자가 직접 frontmatter를 넣지 않아도
+됩니다. Obsidian에는 그냥 글을 쓰고, Hermes가 승인 시 필요한 값을 자동으로
+추가합니다.
+
+직접 수동 게시하거나 테스트할 때만 노트 맨 위에 아래 형식을 넣습니다.
 
 ```md
 ---
@@ -47,7 +51,7 @@ status: "evergreen"
 본문
 ```
 
-필수에 가까운 값:
+수동 게시 시 필수에 가까운 값:
 
 - `publish: true`: 이 값이 있어야 동기화됩니다.
 - `title`: 없으면 파일명을 제목으로 씁니다.
@@ -129,12 +133,22 @@ Wrangler 배포 경로를 사용합니다.
 ## Hermes / Discord 승인
 
 Hermes가 연결된 Discord에서 승인 후 게시하려면 `HERMES.md`의 명령을 사용합니다.
+사용자는 frontmatter를 쓰지 않고 글만 작성해도 됩니다. Hermes가 승인할 때
+`publish`, `title`, `pubDatetime`, `description`, `tags`, `summary`, `status`를
+자동으로 보강합니다.
+
 핵심 명령은 아래와 같습니다.
 
 ```sh
-pnpm hermes:approve -- --file obsidian-publish/글.md --deploy
+pnpm hermes:approve -- --file "글.md" --deploy
 ```
 
-승인 전 초안은 `publish: pending`, `draft: true`라서 공개되지 않습니다. 승인하면
-Hermes가 `publish: true`, `draft: false`로 바꾸고 기존 빌드/커밋/푸시/Cloudflare
-배포 흐름을 실행합니다.
+거절은 아래처럼 처리합니다.
+
+```sh
+pnpm hermes:reject -- --file "글.md"
+```
+
+승인 전 초안은 `publish: pending` 또는 frontmatter 없음 상태라서 공개되지
+않습니다. 승인하면 Hermes가 `publish: true`, `draft: false`로 바꾸고 기존
+빌드/커밋/푸시/Cloudflare 배포 흐름을 실행합니다.

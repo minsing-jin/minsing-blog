@@ -39,6 +39,8 @@ if (args.command === "list") {
 } else if (args.command === "approve") {
   const notePath = await approveNote();
   await runPublish({ notePath });
+} else if (args.command === "reject") {
+  await rejectNote();
 } else {
   fail(`Unknown command: ${args.command}`);
 }
@@ -110,12 +112,14 @@ function printHelp() {
   pnpm hermes:list
   pnpm hermes:draft -- --title "글 제목" --body "본문"
   pnpm hermes:approve -- --file obsidian-publish/draft.md --deploy
+  pnpm hermes:reject -- --file obsidian-publish/draft.md
   pnpm hermes:publish -- --title "글 제목" --body "본문" --deploy
 
 Commands:
   list      Show notes that are pending, draft, or publishable
   draft     Create a publish: pending draft in the Obsidian publish inbox
-  approve   Flip an inbox note to publish: true and run the publish pipeline
+  approve   Add required metadata, flip publish: true, and run publish
+  reject    Mark an inbox note as rejected without publishing
   publish   Create a publish: true note and run the publish pipeline
 
 Safety:
@@ -196,16 +200,67 @@ async function approveNote() {
   if (!existsSync(notePath)) fail(`Note does not exist: ${relative(notePath)}`);
 
   const raw = await fs.readFile(notePath, "utf8");
-  const rendered = setFrontmatterValues(raw, {
+  const parsed = splitFrontmatter(raw);
+  const frontmatter = Object.fromEntries(
+    parseFrontmatterBlocks(parsed.frontmatter).map(block => [block.key, block])
+  );
+  const title =
+    args.title ||
+    getStringValue(frontmatter.title?.value) ||
+    path.basename(notePath, path.extname(notePath));
+  const description =
+    args.summary ||
+    getStringValue(frontmatter.description?.value) ||
+    getStringValue(frontmatter.summary?.value) ||
+    makeDescription(parsed.body);
+  const tags =
+    args.tags.length > 0 ? args.tags : parseTags(frontmatter.tags) || ["blog"];
+
+  const updates = {
+    description: toYamlString(description),
     draft: "false",
     modDatetime: new Date().toISOString(),
+    pubDatetime:
+      args.pubDatetime ||
+      getStringValue(frontmatter.pubDatetime?.value) ||
+      getStringValue(frontmatter.published?.value) ||
+      getStringValue(frontmatter.date?.value) ||
+      getStringValue(frontmatter.created?.value) ||
+      new Date().toISOString(),
     publish: "true",
     status: toYamlString(args.status ?? "published"),
-  });
+    summary: toYamlString(
+      args.summary || getStringValue(frontmatter.summary?.value) || description
+    ),
+    tags: toYamlArray(tags),
+    title: toYamlString(title),
+  };
+
+  if (args.concepts.length > 0) updates.concepts = toYamlArray(args.concepts);
+  if (args.related.length > 0) updates.related = toYamlArray(args.related);
+
+  const rendered = setFrontmatterValues(raw, updates);
 
   await fs.writeFile(notePath, rendered);
   console.log(`approved ${relative(notePath)}`);
   return notePath;
+}
+
+async function rejectNote() {
+  if (!args.file) fail("Missing --file for reject.");
+  const notePath = resolveSafeNotePath(args.file);
+  if (!existsSync(notePath)) fail(`Note does not exist: ${relative(notePath)}`);
+
+  const raw = await fs.readFile(notePath, "utf8");
+  const rendered = setFrontmatterValues(raw, {
+    draft: "true",
+    modDatetime: new Date().toISOString(),
+    publish: "false",
+    status: toYamlString(args.status ?? "rejected"),
+  });
+
+  await fs.writeFile(notePath, rendered);
+  console.log(`rejected ${relative(notePath)}`);
 }
 
 async function runPublish({ notePath }) {
@@ -374,6 +429,27 @@ function parseList(raw) {
     .filter(Boolean);
 }
 
+function parseTags(block) {
+  if (!block) return null;
+
+  const raw = block.lines.join("\n");
+  const inline = block.value.match(/^\[(.*)\]$/);
+  if (inline) {
+    const tags = parseList(inline[1]);
+    return tags.length > 0 ? tags : null;
+  }
+
+  const listTags = raw
+    .split("\n")
+    .map(line => line.match(/^\s*-\s*(.+)$/)?.[1])
+    .filter(Boolean)
+    .map(tag => stripQuotes(tag).trim());
+  if (listTags.length > 0) return listTags;
+
+  const single = stripQuotes(block.value).trim();
+  return single ? [single] : null;
+}
+
 function makeDescription(body) {
   const paragraph =
     body
@@ -405,6 +481,10 @@ function getStringValue(rawValue) {
 
 function toYamlString(value) {
   return JSON.stringify(value);
+}
+
+function toYamlArray(values) {
+  return `[${values.map(toYamlString).join(", ")}]`;
 }
 
 function stripQuotes(value) {
