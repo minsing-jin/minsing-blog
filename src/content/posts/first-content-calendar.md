@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T18:00:00+09:00
 title: "첫 콘텐츠 캘린더를 이렇게 잡았다"
 featured: false
+category: "Founder Notes"
 tags: ["content", "calendar", "writing"]
 description: "블로그를 꾸준히 운영하기 위한 첫 콘텐츠 캘린더와 발행 기준."
 ---

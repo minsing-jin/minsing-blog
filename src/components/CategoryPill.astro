@@ -1,0 +1,26 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getCategorySlug } from "@/utils/categories";
+import config from "@/config";
+
+type Props = {
+  category: string;
+  size?: "sm" | "md";
+};
+
+const { category, size = "md" } = Astro.props;
+const locale = Astro.currentLocale ?? config.site.lang;
+const slug = getCategorySlug(category);
+---
+
+<a
+  href={getRelativeLocaleUrl(locale, `categories/${slug}`)}
+  class:list={[
+    "border-accent/35 text-accent inline-flex w-fit items-center rounded-full border font-semibold tracking-wide uppercase",
+    "hover:bg-accent hover:text-background transition-colors",
+    { "px-2.5 py-1 text-[0.68rem]": size === "sm" },
+    { "px-3 py-1.5 text-xs": size === "md" },
+  ]}
+>
+  {category}
+</a>

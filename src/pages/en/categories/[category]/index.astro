@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import CategoryPill from "@/components/CategoryPill.astro";
+import { getUniqueCategories } from "@/utils/getUniqueCategories";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import config from "@/config";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const categories = getUniqueCategories(posts);
+
+  return categories.map(category => ({
+    params: { category: category.category },
+    props: {
+      categoryDescription: category.description,
+      categoryName: category.categoryName,
+      posts: getSortedPosts(
+        posts.filter(post => post.data.category === category.categoryName)
+      ),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { categoryDescription, categoryName, posts } = Astro.props;
+---
+
+<Layout title={`${categoryName} | ${config.site.title}`}>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle={categoryName}
+    pageDesc={`All posts in ${categoryName}. Korean originals are linked until English translations are approved.`}
+  >
+    <p class="text-muted-foreground mb-6">{categoryDescription}</p>
+    {
+      posts.length > 0 ? (
+        <ul>
+          {posts.map(post => (
+            <li class="my-6">
+              <CategoryPill category={post.data.category} size="sm" />
+              <a
+                href={getPostUrl(post.id, post.filePath, "ko")}
+                class="text-accent mt-2 inline-block text-lg font-medium underline-offset-4 hover:underline"
+              >
+                {post.data.title}
+              </a>
+              <p class="text-muted-foreground">{post.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-muted-foreground">
+          No public posts in this category yet.
+        </p>
+      )
+    }
+  </Main>
+  <Footer />
+</Layout>

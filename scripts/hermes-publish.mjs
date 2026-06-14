@@ -49,6 +49,7 @@ function parseArgs(argv) {
   const parsed = {
     body: undefined,
     bodyFile: undefined,
+    category: undefined,
     command: "help",
     concepts: [],
     deploy: false,
@@ -87,6 +88,7 @@ function parseArgs(argv) {
     else if (arg === "--title") parsed.title = argv[++i];
     else if (arg === "--body") parsed.body = argv[++i];
     else if (arg === "--body-file") parsed.bodyFile = argv[++i];
+    else if (arg === "--category") parsed.category = argv[++i];
     else if (arg === "--stdin") parsed.stdin = true;
     else if (arg === "--summary") parsed.summary = argv[++i];
     else if (arg === "--status") parsed.status = argv[++i];
@@ -111,7 +113,7 @@ function printHelp() {
   console.log(`Usage:
   pnpm hermes:list
   pnpm hermes:draft -- --title "글 제목" --body "본문"
-  pnpm hermes:approve -- --file obsidian-publish/draft.md --deploy
+  pnpm hermes:approve -- --file obsidian-publish/draft.md --category "Build Log" --deploy
   pnpm hermes:reject -- --file obsidian-publish/draft.md
   pnpm hermes:publish -- --title "글 제목" --body "본문" --deploy
 
@@ -124,6 +126,7 @@ Commands:
 
 Safety:
   Hermes can only create or approve Markdown files inside OBSIDIAN_POSTS_DIR.
+  Categories are normalized to: AI & Agents, Build Log, Open Source, Founder Notes.
   Raw inbox notes stay ignored by git; only synced blog posts are committed.`);
 }
 
@@ -166,12 +169,18 @@ async function createNote({ publish, draft }) {
   }
 
   const summary = args.summary || makeDescription(body);
+  const category = inferCategory({
+    frontmatter: {},
+    notePath,
+    tags: args.tags,
+  });
   const frontmatterLines = [
     `publish: ${publish}`,
     `draft: ${draft ? "true" : "false"}`,
     `title: ${toYamlString(args.title)}`,
     `pubDatetime: ${args.pubDatetime ?? new Date().toISOString()}`,
     `description: ${toYamlString(summary)}`,
+    `category: ${toYamlString(category)}`,
     `status: ${toYamlString(args.status ?? (draft ? "pending" : "published"))}`,
   ];
 
@@ -215,8 +224,14 @@ async function approveNote() {
     makeDescription(parsed.body);
   const tags =
     args.tags.length > 0 ? args.tags : parseTags(frontmatter.tags) || ["blog"];
+  const category = inferCategory({
+    frontmatter,
+    notePath,
+    tags,
+  });
 
   const updates = {
+    category: toYamlString(category),
     description: toYamlString(description),
     draft: "false",
     modDatetime: new Date().toISOString(),
@@ -448,6 +463,62 @@ function parseTags(block) {
 
   const single = stripQuotes(block.value).trim();
   return single ? [single] : null;
+}
+
+function inferCategory({ frontmatter, notePath, tags }) {
+  const directCategory = normalizePublicCategory(args.category);
+  if (directCategory) return directCategory;
+
+  const existingCategory = normalizePublicCategory(
+    getStringValue(frontmatter.category?.value)
+  );
+  if (existingCategory) return existingCategory;
+
+  const relativePath = path.relative(sourceDir, notePath);
+  const topFolder = relativePath
+    .split(path.sep)
+    .map(segment => segment.trim())
+    .filter(Boolean)[0];
+  const folderCategory = normalizePublicCategory(topFolder);
+  if (folderCategory) return folderCategory;
+
+  return normalizePublicCategory(tags.join(" ")) ?? "Founder Notes";
+}
+
+function normalizePublicCategory(value) {
+  const normalized = String(value ?? "")
+    .toLowerCase()
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!normalized) return null;
+
+  if (
+    /\b(open source|opensource|oss|github|community|library|package)\b/.test(
+      normalized
+    )
+  ) {
+    return "Open Source";
+  }
+  if (/\b(ai|agent|agents|llm|gpt|model|automation|automate)\b/.test(normalized)) {
+    return "AI & Agents";
+  }
+  if (
+    /\b(build|built|log|logs|ship|shipping|deploy|cloudflare|astro|project|product|dev|engineering)\b/.test(
+      normalized
+    )
+  ) {
+    return "Build Log";
+  }
+  if (
+    /\b(founder|startup|growth|creator|learning|personal|journey|writing|newsletter|seo|content|calendar|business)\b/.test(
+      normalized
+    )
+  ) {
+    return "Founder Notes";
+  }
+
+  return null;
 }
 
 function makeDescription(body) {

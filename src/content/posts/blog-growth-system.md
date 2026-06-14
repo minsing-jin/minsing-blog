@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T12:00:00+09:00
 title: "블로그를 사람들이 다시 보게 만드는 구조"
 featured: true
+category: "Founder Notes"
 tags: ["growth", "creator", "blog"]
 description: "조회수만 보는 블로그가 아니라, 다시 돌아오는 독자를 만드는 구조를 정리했다."
 ---

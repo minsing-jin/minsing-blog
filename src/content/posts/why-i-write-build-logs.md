@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T14:00:00+09:00
 title: "빌드 로그를 쓰는 이유"
 featured: false
+category: "Build Log"
 tags: ["build-log", "writing", "learning"]
 description: "완성된 회고보다 진행 중인 빌드 로그가 더 중요한 이유."
 ---

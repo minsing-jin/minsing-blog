@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T17:00:00+09:00
 title: "블로그 광고 수익을 현실적으로 보는 법"
 featured: false
+category: "Founder Notes"
 tags: ["adsense", "monetization", "blog"]
 description: "초기 블로그에서 광고 수익을 기대할 때 먼저 알아야 할 현실적인 기준."
 ---

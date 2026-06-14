@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T11:00:00+09:00
 title: "이 블로그를 어떻게 만들었나"
 featured: false
+category: "Build Log"
 tags: ["astro", "cloudflare", "blog"]
 description: "템플릿 기반으로 Astro 블로그를 만들고 Cloudflare Pages에 올리는 구조."
 ---

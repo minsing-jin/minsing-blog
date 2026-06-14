@@ -2,6 +2,7 @@ import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 import config from "@/config";
+import { DEFAULT_CATEGORY, PUBLIC_CATEGORY_NAMES } from "@/utils/categories";
 
 export const BLOG_PATH = "src/content/posts";
 
@@ -15,6 +16,7 @@ const posts = defineCollection({
       title: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
+      category: z.enum(PUBLIC_CATEGORY_NAMES).default(DEFAULT_CATEGORY),
       tags: z.array(z.string()).default(["others"]),
       summary: z.string().optional(),
       concepts: z.array(z.string()).default([]),

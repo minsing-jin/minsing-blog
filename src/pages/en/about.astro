@@ -1,0 +1,35 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`About | ${config.site.title}`}
+  description="About what Minsing is building and learning in public."
+>
+  <Header />
+  <Breadcrumb />
+  <Main pageTitle="About" class="app-prose">
+    <p>
+      I am Minsing Jin. This blog is a public record of what I build, learn,
+      break, fix, and rethink.
+    </p>
+    <p>
+      I write about software, AI agents, open source, product experiments,
+      founder learning, and the operating systems behind a better life.
+    </p>
+    <h2>What I Write About</h2>
+    <ul>
+      <li>What I shipped or tried to ship</li>
+      <li>Where I got stuck and what changed</li>
+      <li>Notes from reading, building, and experimenting</li>
+      <li>Product and engineering decisions</li>
+      <li>Long-term public learning projects</li>
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`Contact | ${config.site.title}`}
+  description="How to contact Minsing Jin."
+>
+  <Header />
+  <Breadcrumb />
+  <Main pageTitle="Contact" class="app-prose">
+    <p>
+      Use the channels below for writing, projects, collaboration, or feedback.
+    </p>
+    <h2>Email</h2>
+    <p>
+      <a href="mailto:developerminsing@gmail.com">developerminsing@gmail.com</a>
+    </p>
+    <h2>GitHub</h2>
+    <p>
+      <a
+        href="https://github.com/minsing-jin"
+        target="_blank"
+        rel="noopener noreferrer">github.com/minsing-jin</a
+      >
+    </p>
+    <h2>Response Priority</h2>
+    <p>
+      I prioritize project proposals, thoughtful feedback on writing, and
+      messages with a clear reason to follow or join the public journey.
+    </p>
+  </Main>
+  <Footer />
+</Layout>

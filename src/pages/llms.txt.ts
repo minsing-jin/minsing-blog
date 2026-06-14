@@ -13,13 +13,15 @@ export const GET: APIRoute = async () => {
     config.site.description,
     "",
     `Site: ${siteUrl.href}`,
+    `English site: ${new URL("/en/", siteUrl).href}`,
     `Language: ${config.site.lang}`,
     "",
     "## Publishing contract",
     "",
     "- Obsidian notes are published only when frontmatter has publish: true.",
     "- Hermes/Discord approval should write or approve notes in obsidian-publish/ and then run the blog publish command.",
-    "- LLM wiki fields are summary, concepts, related, and status.",
+    "- Public categories are AI & Agents, Build Log, Open Source, and Founder Notes.",
+    "- LLM wiki fields are category, summary, concepts, related, and status.",
     "",
     "## Posts",
     "",
@@ -39,6 +41,7 @@ export const GET: APIRoute = async () => {
       lines.push(`Updated: ${data.modDatetime.toISOString()}`);
     }
     lines.push(`Summary: ${data.summary ?? data.description}`);
+    lines.push(`Category: ${data.category}`);
     if (data.status) lines.push(`Status: ${data.status}`);
     if (data.tags.length > 0) lines.push(`Tags: ${data.tags.join(", ")}`);
     if (data.concepts.length > 0) {

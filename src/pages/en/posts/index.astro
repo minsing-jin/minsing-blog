@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import CategoryPill from "@/components/CategoryPill.astro";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import config from "@/config";
+
+const posts = getSortedPosts(await getCollection("posts"));
+---
+
+<Layout
+  title={`Posts | ${config.site.title}`}
+  description="All public posts. English translations will be added through the approval workflow."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Posts"
+    pageDesc="Korean originals are listed first. English translations will be added as approved editions."
+  >
+    <ul>
+      {
+        posts.map(post => (
+          <li class="my-6">
+            <CategoryPill category={post.data.category} size="sm" />
+            <a
+              href={getPostUrl(post.id, post.filePath, "ko")}
+              class="text-accent mt-2 inline-block text-lg font-medium underline-offset-4 hover:underline"
+            >
+              {post.data.title}
+            </a>
+            <p class="text-muted-foreground">{post.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

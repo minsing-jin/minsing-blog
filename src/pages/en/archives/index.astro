@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`Archives | ${config.site.title}`}
+  description="Archives currently point to Korean original posts."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Archives"
+    pageDesc="Archives currently point to Korean original posts."
+  >
+    <LinkButton href="/archives/">Open archives</LinkButton>
+  </Main>
+  <Footer />
+</Layout>

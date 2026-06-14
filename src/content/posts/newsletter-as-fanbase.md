@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T16:00:00+09:00
 title: "뉴스레터는 팬을 만드는 가장 작은 시스템이다"
 featured: false
+category: "Founder Notes"
 tags: ["newsletter", "creator", "growth"]
 description: "검색 유입과 달리 뉴스레터가 블로그 팬을 만드는 이유."
 ---

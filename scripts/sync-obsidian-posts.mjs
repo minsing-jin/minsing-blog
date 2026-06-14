@@ -86,6 +86,7 @@ for (const sourcePath of notes) {
   seenOutputs.set(outputName, sourcePath);
 
   const rendered = renderPost({
+    sourceDir,
     sourcePath,
     sourceStat,
     parsed,
@@ -272,7 +273,7 @@ function matchesPublishValue(rawValue, expected) {
   return normalizeScalar(rawValue) === normalizeScalar(expected);
 }
 
-function renderPost({ sourcePath, sourceStat, parsed, frontmatter }) {
+function renderPost({ sourceDir, sourcePath, sourceStat, parsed, frontmatter }) {
   const sourceTitle = getStringValue(frontmatter.title?.value);
   const title = sourceTitle || path.basename(sourcePath, path.extname(sourcePath));
   const pubDatetime =
@@ -286,11 +287,18 @@ function renderPost({ sourcePath, sourceStat, parsed, frontmatter }) {
     getStringValue(frontmatter.summary?.value) ||
     makeDescription(parsed.body);
   const tags = parseTags(frontmatter.tags);
+  const category = inferCategory({
+    frontmatter,
+    sourceDir,
+    sourcePath,
+    tags,
+  });
 
   const frontmatterLines = [
     `title: ${toYamlString(title)}`,
     `pubDatetime: ${pubDatetime}`,
     `description: ${toYamlString(description)}`,
+    `category: ${toYamlString(category)}`,
   ];
 
   if (tags.length > 0) {
@@ -372,6 +380,63 @@ function parseTags(block) {
 
   const single = stripQuotes(block.value).trim();
   return single ? [single] : [];
+}
+
+function inferCategory({ frontmatter, sourceDir, sourcePath, tags }) {
+  const directCategory = normalizePublicCategory(
+    getStringValue(frontmatter.category?.value)
+  );
+  if (directCategory) return directCategory;
+
+  const relativeDir = path.relative(sourceDir, path.dirname(sourcePath));
+  const topFolder = relativeDir
+    .split(path.sep)
+    .map(segment => segment.trim())
+    .filter(Boolean)[0];
+  const folderCategory = normalizePublicCategory(topFolder);
+  if (folderCategory) return folderCategory;
+
+  return inferCategoryFromTags(tags);
+}
+
+function inferCategoryFromTags(tags) {
+  return normalizePublicCategory(tags.join(" ")) ?? "Founder Notes";
+}
+
+function normalizePublicCategory(value) {
+  const normalized = String(value ?? "")
+    .toLowerCase()
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!normalized) return null;
+
+  if (
+    /\b(open source|opensource|oss|github|community|library|package)\b/.test(
+      normalized
+    )
+  ) {
+    return "Open Source";
+  }
+  if (/\b(ai|agent|agents|llm|gpt|model|automation|automate)\b/.test(normalized)) {
+    return "AI & Agents";
+  }
+  if (
+    /\b(build|built|log|logs|ship|shipping|deploy|cloudflare|astro|project|product|dev|engineering)\b/.test(
+      normalized
+    )
+  ) {
+    return "Build Log";
+  }
+  if (
+    /\b(founder|startup|growth|creator|learning|personal|journey|writing|newsletter|seo|content|calendar|business)\b/.test(
+      normalized
+    )
+  ) {
+    return "Founder Notes";
+  }
+
+  return null;
 }
 
 function makeDescription(body) {

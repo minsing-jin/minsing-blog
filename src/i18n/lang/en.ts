@@ -4,10 +4,12 @@ export default {
   nav: {
     home: "Home",
     posts: "Posts",
+    categories: "Categories",
     tags: "Tags",
     about: "About",
     archives: "Archives",
     search: "Search",
+    contact: "Contact",
   },
   post: {
     publishedAt: "Published at",
@@ -43,6 +45,12 @@ export default {
 
     tagsTitle: "Tags",
     tagsDesc: "All the tags used in posts.",
+
+    categoryTitle: "Category",
+    categoryDesc: 'All posts in "{{category}}".',
+    categoriesTitle: "Categories",
+    categoriesDesc: "Public clusters that make the blog easier to browse.",
+    categoryEmpty: "No public posts in this category yet.",
 
     postsTitle: "Posts",
     postsDesc: "All the articles I've posted.",

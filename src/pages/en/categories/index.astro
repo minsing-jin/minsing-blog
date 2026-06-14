@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import { getUniqueCategories } from "@/utils/getUniqueCategories";
+import config from "@/config";
+
+const categories = getUniqueCategories(await getCollection("posts"));
+---
+
+<Layout
+  title={`Categories | ${config.site.title}`}
+  description="Brand-level clusters for Minsing Log."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Categories"
+    pageDesc="The blog is grouped into a few public clusters for easier browsing."
+  >
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {
+        categories.map(category => (
+          <li class="border-border rounded-2xl border p-5">
+            <a
+              href={`/en/categories/${category.category}/`}
+              class="text-accent text-lg font-semibold underline-offset-4 hover:underline"
+            >
+              {category.categoryName}
+            </a>
+            <p class="text-muted-foreground mt-2">{category.description}</p>
+            <p class="mt-3 text-sm">
+              {category.count} {category.count === 1 ? "post" : "posts"}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

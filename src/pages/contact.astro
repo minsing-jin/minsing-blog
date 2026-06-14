@@ -5,20 +5,30 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
 import config from "@/config";
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const pageTitle = locale === "en" ? "Contact" : "연락";
+const pageDescription =
+  locale === "en"
+    ? "How to contact Minsing Jin."
+    : "진민성에게 연락하는 방법입니다.";
 ---
 
 <Layout
-  title={`연락 | ${config.site.title}`}
-  description="진민성에게 연락하는 방법입니다."
+  title={`${pageTitle} | ${config.site.title}`}
+  description={pageDescription}
 >
   <Header />
   <Breadcrumb />
-  <Main pageTitle="연락" class="app-prose">
+  <Main pageTitle={pageTitle} class="app-prose">
     <p>
-      글, 프로젝트, 협업, 피드백과 관련해 연락하고 싶다면 아래 채널을 사용해
-      주세요.
+      {
+        locale === "en"
+          ? "Use the channels below for writing, projects, collaboration, or feedback."
+          : "글, 프로젝트, 협업, 피드백과 관련해 연락하고 싶다면 아래 채널을 사용해 주세요."
+      }
     </p>
-    <h2>이메일</h2>
+    <h2>{locale === "en" ? "Email" : "이메일"}</h2>
     <p>
       <a href="mailto:developerminsing@gmail.com">developerminsing@gmail.com</a>
     </p>
@@ -30,10 +40,13 @@ import config from "@/config";
         rel="noopener noreferrer">github.com/minsing-jin</a
       >
     </p>
-    <h2>응답 기준</h2>
+    <h2>{locale === "en" ? "Response Priority" : "응답 기준"}</h2>
     <p>
-      프로젝트 제안, 글에 대한 피드백, 공개 여정을 함께 보고 싶은 이유가 있는
-      메시지를 우선해서 확인합니다.
+      {
+        locale === "en"
+          ? "I prioritize project proposals, thoughtful feedback on writing, and messages with a clear reason to follow or join the public journey."
+          : "프로젝트 제안, 글에 대한 피드백, 공개 여정을 함께 보고 싶은 이유가 있는 메시지를 우선해서 확인합니다."
+      }
     </p>
   </Main>
   <Footer />

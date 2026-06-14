@@ -2,10 +2,12 @@ export interface UIStrings {
   nav: {
     home: string;
     posts: string;
+    categories: string;
     tags: string;
     about: string;
     archives: string;
     search: string;
+    contact: string;
   };
   post: {
     publishedAt: string;
@@ -41,6 +43,12 @@ export interface UIStrings {
 
     tagsTitle: string;
     tagsDesc: string;
+
+    categoryTitle: string;
+    categoryDesc: string;
+    categoriesTitle: string;
+    categoriesDesc: string;
+    categoryEmpty: string;
 
     postsTitle: string;
     postsDesc: string;

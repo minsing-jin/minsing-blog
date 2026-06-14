@@ -8,6 +8,7 @@ import Footer from "@/components/Footer.astro";
 import config from "@/config";
 
 const about = await getEntry("pages", "about");
+const locale = Astro.currentLocale ?? config.site.lang;
 
 if (!about) {
   throw new Error(
@@ -16,11 +17,16 @@ if (!about) {
 }
 
 const { Content } = await render(about);
+const pageTitle = locale === "en" ? "About" : about.data.title;
+const pageDescription =
+  locale === "en"
+    ? "About what Minsing is building and learning in public."
+    : about.data.description;
 ---
 
 <Layout
-  title={`${about.data.title} | ${config.site.title}`}
-  description={about.data.description}
+  title={`${pageTitle} | ${config.site.title}`}
+  description={pageDescription}
   ogImage={about.data.ogImage}
   canonicalURL={about.data.canonicalURL}
 >
@@ -28,8 +34,38 @@ const { Content } = await render(about);
 
   <Breadcrumb />
 
-  <Main pageTitle={about.data.title} class="app-prose">
-    <Content />
+  <Main pageTitle={pageTitle} class="app-prose">
+    {
+      locale === "en" ? (
+        <>
+          <p>
+            I am Minsing Jin. This blog is a public record of what I build,
+            learn, break, fix, and rethink.
+          </p>
+          <p>
+            I write about software, products, AI agents, open source, startup
+            thinking, learning systems, and the operating systems behind a
+            better life.
+          </p>
+          <h2>What I Write About</h2>
+          <ul>
+            <li>What I shipped or tried to ship</li>
+            <li>Where I got stuck and what changed</li>
+            <li>Notes from reading, building, and experimenting</li>
+            <li>Product and engineering decisions</li>
+            <li>Long-term public learning projects</li>
+          </ul>
+          <h2>Why Public Writing</h2>
+          <p>
+            I do not want this to be a polished success archive. I want it to
+            show the actual process, so people can understand how I think and
+            what I am becoming through the work.
+          </p>
+        </>
+      ) : (
+        <Content />
+      )
+    }
   </Main>
 
   <Footer />

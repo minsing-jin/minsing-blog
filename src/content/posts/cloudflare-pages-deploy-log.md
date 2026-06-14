@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T13:00:00+09:00
 title: "Cloudflare Pages로 블로그를 배포하면서 배운 것"
 featured: false
+category: "Build Log"
 tags: ["cloudflare", "deploy", "astro"]
 description: "노트북 서버가 아니라 Cloudflare Pages로 블로그를 올리며 정리한 배포 구조."
 ---

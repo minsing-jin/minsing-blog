@@ -41,6 +41,7 @@ publish: true
 title: "글 제목"
 pubDatetime: 2026-06-13T09:00:00+09:00
 description: "검색 결과와 공유 카드에 보일 설명"
+category: "Build Log"
 tags: ["journey", "build-in-public"]
 summary: "LLM과 독자가 먼저 읽을 핵심 요약"
 concepts: ["build-in-public", "creator"]
@@ -57,6 +58,8 @@ status: "evergreen"
 - `title`: 없으면 파일명을 제목으로 씁니다.
 - `pubDatetime`: 없으면 파일 수정 시간을 사용합니다.
 - `description`: 없으면 본문 첫 문단에서 자동 생성합니다.
+- `category`: 공개 블로그의 큰 클러스터입니다. 허용값은 `AI & Agents`,
+  `Build Log`, `Open Source`, `Founder Notes`입니다.
 - `summary`: 글 상세의 `LLM wiki` 블록과 `/llms.txt`에 노출됩니다.
 - `concepts`: 글이 다루는 핵심 개념 목록입니다.
 - `related`: 연결할 글의 slug 또는 제목 목록입니다.
@@ -134,8 +137,8 @@ Wrangler 배포 경로를 사용합니다.
 
 Hermes가 연결된 Discord에서 승인 후 게시하려면 `HERMES.md`의 명령을 사용합니다.
 사용자는 frontmatter를 쓰지 않고 글만 작성해도 됩니다. Hermes가 승인할 때
-`publish`, `title`, `pubDatetime`, `description`, `tags`, `summary`, `status`를
-자동으로 보강합니다.
+`publish`, `title`, `pubDatetime`, `description`, `category`, `tags`, `summary`,
+`status`를 자동으로 보강합니다.
 
 핵심 명령은 아래와 같습니다.
 
@@ -152,3 +155,16 @@ pnpm hermes:reject -- --file "글.md"
 승인 전 초안은 `publish: pending` 또는 frontmatter 없음 상태라서 공개되지
 않습니다. 승인하면 Hermes가 `publish: true`, `draft: false`로 바꾸고 기존
 빌드/커밋/푸시/Cloudflare 배포 흐름을 실행합니다.
+
+## 카테고리 규칙
+
+Obsidian 최상위 폴더는 내부 정리 구조이고, 공개 블로그에는 아래 4개 카테고리만
+노출합니다.
+
+- `AI & Agents`
+- `Build Log`
+- `Open Source`
+- `Founder Notes`
+
+Hermes는 Obsidian 최상위 폴더를 참고해 위 카테고리 중 하나로 매핑합니다. 애매한
+경우 Discord에서 확인한 뒤 승인합니다.

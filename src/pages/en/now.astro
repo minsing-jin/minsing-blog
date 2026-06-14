@@ -1,0 +1,37 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import NewsletterCta from "@/components/NewsletterCta.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`Now | ${config.site.title}`}
+  description="What Minsing is building and learning right now."
+>
+  <Header />
+  <Breadcrumb />
+  <Main pageTitle="Now" class="app-prose">
+    <p>
+      This page tracks the projects, learning loops, and public notes I am
+      focused on right now.
+    </p>
+    <h2>Current Focus</h2>
+    <ul>
+      <li>Building useful products faster with software and AI agents</li>
+      <li>Operating this blog as a public learning and branding system</li>
+      <li>Turning what I learn into writing, code, and small products</li>
+    </ul>
+    <h2>This Month's Writing Themes</h2>
+    <ul>
+      <li>How the blog publishing system is being built</li>
+      <li>Weekly build logs and automation notes</li>
+      <li>Reasons for readers to come back before monetization</li>
+    </ul>
+    <NewsletterCta compact />
+  </Main>
+  <Footer />
+</Layout>

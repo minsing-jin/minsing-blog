@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T09:00:00+09:00
 title: "나는 왜 공개적으로 기록하기 시작하는가"
 featured: true
+category: "Founder Notes"
 tags: ["journey", "meta", "build-in-public"]
 description: "검색 유입만 노리는 블로그가 아니라, 내 여정을 따라오는 사람들을 만들기 위한 첫 기록."
 ---

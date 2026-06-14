@@ -27,8 +27,8 @@ pnpm hermes:draft -- --title "글 제목" --body-file /path/to/body.md
 ```
 
 승인 후 배포. 사용자가 frontmatter를 직접 쓰지 않아도, Hermes가 승인 시 필요한
-`publish`, `title`, `pubDatetime`, `description`, `tags`, `summary`, `status`를
-자동으로 보강합니다.
+`publish`, `title`, `pubDatetime`, `description`, `category`, `tags`, `summary`,
+`status`를 자동으로 보강합니다.
 
 ```sh
 pnpm hermes:approve -- --file "글-제목.md" --deploy
@@ -70,6 +70,7 @@ pnpm hermes:draft -- \
 ```sh
 pnpm hermes:approve -- \
   --file "작성한 글.md" \
+  --category "Build Log" \
   --summary "이 글의 핵심 요약" \
   --concepts "llm-wiki,obsidian,hermes" \
   --tags "blog,reflection" \
@@ -78,12 +79,25 @@ pnpm hermes:approve -- \
 
 지원 frontmatter:
 
+- `category`: 공개 블로그의 큰 클러스터
 - `summary`: LLM과 독자가 먼저 읽는 짧은 요약
 - `concepts`: 글이 다루는 핵심 개념 목록
 - `related`: 연결할 글의 slug 또는 제목
 - `status`: `pending`, `published`, `evergreen`, `working` 같은 상태
 
 이 메타데이터는 글 상세 페이지의 `LLM wiki` 블록과 `/llms.txt`에 노출됩니다.
+
+## 공개 카테고리 정책
+
+Obsidian 최상위 폴더는 내부 정리 구조입니다. Hermes는 그 폴더명을 그대로 공개하지
+않고, 아래 4개 공개 카테고리 중 하나로 매핑합니다.
+
+- `AI & Agents`: LLM, agent, 자동화, AI-native workflow
+- `Build Log`: 제품 만들기, 배포, 시스템 구축, 실험 로그
+- `Open Source`: 공개 저장소, 오픈소스 기여, 커뮤니티 도구
+- `Founder Notes`: 창업, 성장, 학습, 개인 전략, 공개 여정
+
+애매하면 자동 게시하지 말고 Discord에서 카테고리 확인을 요청합니다.
 
 ## 안전 규칙
 
@@ -115,6 +129,8 @@ Hermes에 아래 내용을 system prompt 또는 project instruction으로 넣습
 - 사용자는 Obsidian에 글만 쓴다.
 - 사용자는 Discord에서 승인/거절만 한다.
 - frontmatter, slug, summary, concepts, related, tags, publish 값은 네가 관리한다.
+- category는 AI & Agents, Build Log, Open Source, Founder Notes 중 하나만 사용한다.
+- Obsidian 최상위 폴더는 참고만 하고, 내부 폴더명을 그대로 블로그에 노출하지 않는다.
 - 승인 전에는 절대 공개 배포하지 않는다.
 
 블로그 repo:
@@ -128,12 +144,14 @@ Obsidian source:
 2. 글을 읽고 Discord에 아래 미리보기를 보여준다.
    - 제목
    - 3줄 요약
+   - 공개 category
    - 추천 태그
    - concepts
    - related 후보
+   - 영어 버전이 필요한지 여부
    - 공개될지 여부
 3. 사용자가 승인하면 블로그 repo에서 아래 명령을 실행한다.
-   pnpm hermes:approve -- --file "<Obsidian 파일명 또는 상대경로>" --summary "<요약>" --tags "<태그들>" --concepts "<개념들>" --related "<관련글들>" --deploy
+   pnpm hermes:approve -- --file "<Obsidian 파일명 또는 상대경로>" --category "<공개 카테고리>" --summary "<요약>" --tags "<태그들>" --concepts "<개념들>" --related "<관련글들>" --deploy
 4. 사용자가 거절하면 아래 명령을 실행한다.
    pnpm hermes:reject -- --file "<Obsidian 파일명 또는 상대경로>"
 5. 배포 성공 후 공개 URL을 Discord에 알려준다.
@@ -144,4 +162,5 @@ Obsidian source:
 - 비공개 일기, 계정, 키, 개인정보, 대화 로그는 게시 후보에서 제외하거나 경고한다.
 - 글이 너무 거칠면 바로 게시하지 말고 수정 제안을 먼저 한다.
 - 사용자가 "바로 올려"라고 해도 승인 확인 1회는 반드시 받는다.
+- 영어 버전은 /en/에서 UI가 영어로 보인다. 영문 본문이 필요하면 원문 게시와 별도 승인으로 영문 번역 초안을 제안한다.
 ```

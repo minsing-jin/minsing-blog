@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T10:00:00+09:00
 title: "앞으로 100일 동안 공개적으로 기록할 것들"
 featured: true
+category: "Founder Notes"
 tags: ["100-days", "learning", "creator"]
 description: "100일 동안 블로그에 남길 글의 주제와 운영 방식을 정리했다."
 ---

@@ -25,6 +25,24 @@ const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const homePath = getRelativeLocaleUrl(locale, "");
+const hero =
+  locale === "en"
+    ? {
+        eyebrow: "Build in Public",
+        title: "I document what I build and learn.",
+        description:
+          "This blog is a public record of shipping software, exploring AI agents, building products, and learning in the open.",
+        intro: "If this is your first visit, start with",
+        introLink: "why I started writing in public",
+      }
+    : {
+        eyebrow: "Build in Public",
+        title: "만들고 배우는 과정을 공개합니다.",
+        description:
+          "완성된 성공담보다 실제 여정을 기록합니다. 개발, AI, 제품 만들기, 창업, 학습을 하며 무엇을 시도했고 어디서 막혔고 무엇을 바꿨는지 남깁니다.",
+        intro: "처음 오셨다면",
+        introLink: "왜 공개적으로 기록하는지",
+      };
 ---
 
 <Layout>
@@ -37,25 +55,25 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <section id="hero" class="border-border border-b pt-10 pb-8">
       <p class="text-accent text-sm font-semibold tracking-widest uppercase">
-        Build in Public
+        {hero.eyebrow}
       </p>
       <h1
         class="mt-3 mb-5 text-4xl leading-tight font-bold sm:mb-6 sm:text-5xl"
       >
-        만들고 배우는 과정을<br class="max-sm:hidden" /> 공개합니다.
+        {hero.title}
       </h1>
       <p class="text-muted-foreground max-w-prose text-lg">
-        완성된 성공담보다 실제 여정을 기록합니다. 개발, AI, 제품 만들기, 창업,
-        학습을 하며 무엇을 시도했고 어디서 막혔고 무엇을 바꿨는지 남깁니다.
+        {hero.description}
       </p>
       <p class="mt-3">
-        처음 오셨다면
+        {hero.intro}
         <LinkButton
           class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="/posts/start-public-journey/"
+          href={getRelativeLocaleUrl(locale, "posts/start-public-journey")}
         >
-          왜 공개적으로 기록하는지
-        </LinkButton>부터 읽어보세요.
+          {hero.introLink}
+        </LinkButton>
+        {locale === "en" ? "." : "부터 읽어보세요."}
       </p>
       <div class="mt-6 flex max-sm:flex-col sm:items-center">
         {
@@ -123,7 +141,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
       )
     }
 
-    <AdSlot label="스폰서 또는 광고" />
+    <AdSlot label={locale === "en" ? "Sponsor or ad" : "스폰서 또는 광고"} />
 
     <div class="my-8 text-center">
       <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>

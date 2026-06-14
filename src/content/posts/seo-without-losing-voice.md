@@ -3,6 +3,7 @@ author: "진민성"
 pubDatetime: 2026-06-04T15:00:00+09:00
 title: "SEO를 하되 내 목소리를 잃지 않는 법"
 featured: false
+category: "Founder Notes"
 tags: ["seo", "writing", "creator"]
 description: "검색 노출을 준비하면서도 글이 기계적인 요약문이 되지 않게 하는 기준."
 ---
