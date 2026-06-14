@@ -38,6 +38,10 @@ title: "글 제목"
 pubDatetime: 2026-06-13T09:00:00+09:00
 description: "검색 결과와 공유 카드에 보일 설명"
 tags: ["journey", "build-in-public"]
+summary: "LLM과 독자가 먼저 읽을 핵심 요약"
+concepts: ["build-in-public", "creator"]
+related: ["start-public-journey"]
+status: "evergreen"
 ---
 
 본문
@@ -49,6 +53,10 @@ tags: ["journey", "build-in-public"]
 - `title`: 없으면 파일명을 제목으로 씁니다.
 - `pubDatetime`: 없으면 파일 수정 시간을 사용합니다.
 - `description`: 없으면 본문 첫 문단에서 자동 생성합니다.
+- `summary`: 글 상세의 `LLM wiki` 블록과 `/llms.txt`에 노출됩니다.
+- `concepts`: 글이 다루는 핵심 개념 목록입니다.
+- `related`: 연결할 글의 slug 또는 제목 목록입니다.
+- `status`: `working`, `evergreen`, `published`처럼 글의 상태를 표시합니다.
 
 ## 4. 동기화
 
@@ -112,7 +120,21 @@ Wrangler 배포 경로를 사용합니다.
 ## 동기화 규칙
 
 - `draft: true`인 노트는 동기화하지 않습니다.
-- Obsidian wiki link `[[글]]`은 일반 텍스트 `글`로 변환합니다.
+- Obsidian wiki link `[[글]]`은 블로그 내부 링크 `/posts/글/`로 변환합니다.
+- Obsidian wiki link `[[글|라벨]]`은 `[라벨](/posts/글/)`로 변환합니다.
 - Obsidian embed `![[image.png]]`는 `[첨부: image.png]` 텍스트로 변환합니다.
 - 출력 파일명은 `slug` frontmatter가 있으면 그 값을, 없으면 파일명을 사용합니다.
 - source 폴더의 하위 폴더 구조는 `src/content/posts` 아래에도 유지됩니다.
+
+## Hermes / Discord 승인
+
+Hermes가 연결된 Discord에서 승인 후 게시하려면 `HERMES.md`의 명령을 사용합니다.
+핵심 명령은 아래와 같습니다.
+
+```sh
+pnpm hermes:approve -- --file obsidian-publish/글.md --deploy
+```
+
+승인 전 초안은 `publish: pending`, `draft: true`라서 공개되지 않습니다. 승인하면
+Hermes가 `publish: true`, `draft: false`로 바꾸고 기존 빌드/커밋/푸시/Cloudflare
+배포 흐름을 실행합니다.

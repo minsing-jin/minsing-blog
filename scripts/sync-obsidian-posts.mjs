@@ -283,6 +283,7 @@ function renderPost({ sourcePath, sourceStat, parsed, frontmatter }) {
     sourceStat.mtime.toISOString();
   const description =
     getStringValue(frontmatter.description?.value) ||
+    getStringValue(frontmatter.summary?.value) ||
     makeDescription(parsed.body);
   const tags = parseTags(frontmatter.tags);
 
@@ -307,6 +308,10 @@ function renderPost({ sourcePath, sourceStat, parsed, frontmatter }) {
     "canonicalURL",
     "hideEditPost",
     "timezone",
+    "summary",
+    "concepts",
+    "related",
+    "status",
   ]) {
     const block = frontmatter[key];
     if (!block) continue;
@@ -383,8 +388,32 @@ function makeDescription(body) {
 function normalizeObsidianMarkdown(markdown) {
   return markdown
     .replace(/!\[\[([^\]]+)\]\]/g, (_, target) => `[첨부: ${target}]`)
-    .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
-    .replace(/\[\[([^\]]+)\]\]/g, "$1");
+    .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, (_, target, label) =>
+      renderWikiLink(target, label)
+    )
+    .replace(/\[\[([^\]]+)\]\]/g, (_, target) =>
+      renderWikiLink(target, target)
+    );
+}
+
+function renderWikiLink(target, label) {
+  const cleanTarget = stripQuotes(String(target).trim());
+  const cleanLabel = stripQuotes(String(label).trim());
+  const [fileTarget, heading] = cleanTarget.split("#");
+  const baseTarget = fileTarget.replace(/\.(md|mdx)$/i, "").trim();
+
+  if (!baseTarget) return cleanLabel || cleanTarget;
+
+  const pathSegments = baseTarget
+    .split("/")
+    .map(segment => slugifyStr(segment))
+    .filter(Boolean);
+  if (pathSegments.length === 0) return cleanLabel || cleanTarget;
+
+  const href = `/posts/${pathSegments.join("/")}/${
+    heading ? `#${slugifyStr(heading)}` : ""
+  }`;
+  return `[${cleanLabel || cleanTarget}](${href})`;
 }
 
 function stripMarkdown(markdown) {

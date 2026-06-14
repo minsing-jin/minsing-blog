@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import PostLayout from "@/layouts/PostLayout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -70,10 +71,23 @@ const {
   modDatetime,
   timezone,
   tags,
+  summary,
+  concepts,
+  related,
+  status,
   hideEditPost,
 } = post.data;
 
 const { Content } = await render(post);
+const hasWikiMeta =
+  Boolean(summary) ||
+  concepts.length > 0 ||
+  related.length > 0 ||
+  Boolean(status);
+const getRelatedHref = (item: string) => {
+  if (/^https?:\/\//i.test(item) || item.startsWith("/")) return item;
+  return getRelativeLocaleUrl(locale, `posts/${slugifyStr(item)}`);
+};
 
 let ogImageUrl: string | undefined;
 
@@ -133,6 +147,53 @@ const ogImage = ogImageUrl
       </span>
       <EditPost {hideEditPost} {post} class="max-sm:hidden" />
     </div>
+
+    {
+      hasWikiMeta && (
+        <aside class="border-accent/40 bg-muted/30 mt-6 rounded-2xl border border-dashed p-5 text-sm">
+          <div class="mb-3 flex flex-wrap items-center gap-2">
+            <span class="bg-accent text-background rounded-full px-3 py-1 text-xs font-semibold">
+              LLM wiki
+            </span>
+            {status && (
+              <span class="border-accent/40 text-muted-foreground rounded-full border px-3 py-1 text-xs">
+                status: {status}
+              </span>
+            )}
+          </div>
+          {summary && <p class="text-foreground mb-4 text-base">{summary}</p>}
+          {concepts.length > 0 && (
+            <div class="mb-3">
+              <p class="text-foreground mb-2 font-semibold">개념</p>
+              <ul class="flex flex-wrap gap-2">
+                {concepts.map(concept => (
+                  <li class="bg-background text-muted-foreground rounded-full px-3 py-1">
+                    {concept}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {related.length > 0 && (
+            <div>
+              <p class="text-foreground mb-2 font-semibold">연결된 글</p>
+              <ul class="flex flex-wrap gap-2">
+                {related.map(item => (
+                  <li>
+                    <a
+                      class="bg-background text-accent rounded-full px-3 py-1 underline-offset-4 hover:underline"
+                      href={getRelatedHref(item)}
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      )
+    }
 
     <article
       id="article"
