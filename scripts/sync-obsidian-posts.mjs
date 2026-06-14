@@ -151,7 +151,7 @@ function printHelp() {
   pnpm obsidian:sync -- --source "/path/to/vault/Blog"
 
 Environment:
-  OBSIDIAN_POSTS_DIR=/absolute/path/to/vault/Blog
+  OBSIDIAN_POSTS_DIR=obsidian-publish
   OBSIDIAN_VAULT_DIR=/absolute/path/to/vault
   OBSIDIAN_POSTS_SUBDIR=Blog
   OBSIDIAN_REQUIRE_PUBLISH=1

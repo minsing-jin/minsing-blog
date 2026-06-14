@@ -6,22 +6,25 @@
 
 ## 1. 게시 폴더 정하기
 
-Obsidian vault 안에 블로그용 폴더를 하나 만듭니다.
+기본 게시 폴더는 이 저장소 안의 `obsidian-publish/`입니다. macOS가
+`Documents` 폴더 접근을 막을 수 있으므로, 이 폴더를 Obsidian에서 별도 vault로
+열어 쓰는 방식을 권장합니다.
 
 예시:
 
 ```text
-My Vault/
-  Blog/
+minsing-blog/
+  obsidian-publish/
     첫 글.md
 ```
 
 ## 2. `.env`에 경로 연결
 
-`.env.example`을 참고해 `.env`에 실제 경로를 넣습니다.
+`.env.example`을 참고해 `.env`에 실제 경로를 넣습니다. 기본값은 이미 로컬
+publish inbox를 가리킵니다.
 
 ```sh
-OBSIDIAN_POSTS_DIR="/Users/jinminseong/path/to/My Vault/Blog"
+OBSIDIAN_POSTS_DIR=obsidian-publish
 ```
 
 ## 3. Obsidian 노트 frontmatter
@@ -61,17 +64,50 @@ pnpm obsidian:dry-run
 pnpm obsidian:sync
 ```
 
-동기화 후 기존 배포 흐름대로 빌드, 커밋, 푸시, 배포합니다.
+동기화 후 빌드, 커밋, 푸시까지 한 번에 실행하려면:
 
 ```sh
-pnpm build
-git add src/content/posts
-git commit -m "Publish Obsidian posts"
-git push origin main
+pnpm obsidian:publish
+```
+
+GitHub Actions 자동 배포 secret이 없을 때도 로컬 Wrangler 로그인으로 Cloudflare
+Pages까지 배포하려면:
+
+```sh
+pnpm obsidian:publish:deploy
+```
+
+## 5. 자동 업데이트
+
+터미널을 켜 둔 동안 자동으로 감시하려면:
+
+```sh
+pnpm obsidian:watch:deploy
+```
+
+Obsidian 노트가 바뀌면 아래 흐름을 자동 실행합니다.
+
+1. `publish: true` 노트 동기화
+2. `pnpm build`
+3. `git commit`
+4. `git push origin main`
+5. Cloudflare Pages 배포
+
+macOS 로그인 후에도 계속 자동 실행하려면 LaunchAgent를 설치합니다.
+
+```sh
+pnpm obsidian:install-auto
+```
+
+해제:
+
+```sh
+pnpm obsidian:install-auto -- --uninstall
 ```
 
 현재 GitHub Actions 자동 배포는 `CLOUDFLARE_API_TOKEN` secret이 있어야 동작합니다.
-secret이 없으면 push 후 Cloudflare Pages 수동 배포가 필요합니다.
+secret이 없으면 `obsidian:watch:deploy` 또는 `obsidian:publish:deploy`처럼 로컬
+Wrangler 배포 경로를 사용합니다.
 
 ## 동기화 규칙
 
