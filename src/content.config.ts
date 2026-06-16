@@ -17,6 +17,11 @@ const posts = defineCollection({
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
       category: z.enum(PUBLIC_CATEGORY_NAMES).default(DEFAULT_CATEGORY),
+      language: z.enum(["ko", "en"]).default("ko"),
+      translationOf: z.string().optional(),
+      translationStatus: z
+        .enum(["original", "draft", "review", "approved"])
+        .optional(),
       tags: z.array(z.string()).default(["others"]),
       summary: z.string().optional(),
       concepts: z.array(z.string()).default([]),

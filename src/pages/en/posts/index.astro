@@ -8,9 +8,16 @@ import Footer from "@/components/Footer.astro";
 import CategoryPill from "@/components/CategoryPill.astro";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import {
+  getEnglishOrKoreanPosts,
+  getEnglishPostUrl,
+  isEnglishPost,
+} from "@/utils/localizedPosts";
 import config from "@/config";
 
-const posts = getSortedPosts(await getCollection("posts"));
+const posts = getSortedPosts(
+  getEnglishOrKoreanPosts(await getCollection("posts"))
+);
 ---
 
 <Layout
@@ -29,7 +36,11 @@ const posts = getSortedPosts(await getCollection("posts"));
           <li class="my-6">
             <CategoryPill category={post.data.category} size="sm" />
             <a
-              href={getPostUrl(post.id, post.filePath, "ko")}
+              href={
+                isEnglishPost(post)
+                  ? getEnglishPostUrl(post)
+                  : getPostUrl(post.id, post.filePath, "ko")
+              }
               class="text-accent mt-2 inline-block text-lg font-medium underline-offset-4 hover:underline"
             >
               {post.data.title}

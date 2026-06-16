@@ -57,6 +57,7 @@ function parseArgs(argv) {
     file: undefined,
     force: false,
     help: false,
+    language: undefined,
     message: undefined,
     noBuild: false,
     noPush: false,
@@ -67,6 +68,8 @@ function parseArgs(argv) {
     summary: undefined,
     tags: [],
     title: undefined,
+    translationOf: undefined,
+    translationStatus: undefined,
   };
 
   let index = 0;
@@ -89,9 +92,12 @@ function parseArgs(argv) {
     else if (arg === "--body") parsed.body = argv[++i];
     else if (arg === "--body-file") parsed.bodyFile = argv[++i];
     else if (arg === "--category") parsed.category = argv[++i];
+    else if (arg === "--language") parsed.language = argv[++i];
     else if (arg === "--stdin") parsed.stdin = true;
     else if (arg === "--summary") parsed.summary = argv[++i];
     else if (arg === "--status") parsed.status = argv[++i];
+    else if (arg === "--translation-of") parsed.translationOf = argv[++i];
+    else if (arg === "--translation-status") parsed.translationStatus = argv[++i];
     else if (arg === "--pubDatetime") parsed.pubDatetime = argv[++i];
     else if (arg === "--tags") parsed.tags.push(...parseList(argv[++i]));
     else if (arg === "--concepts") parsed.concepts.push(...parseList(argv[++i]));
@@ -113,7 +119,9 @@ function printHelp() {
   console.log(`Usage:
   pnpm hermes:list
   pnpm hermes:draft -- --title "글 제목" --body "본문"
+  pnpm hermes:draft -- --language en --translation-of korean-post-slug --title "English title" --body "Body"
   pnpm hermes:approve -- --file obsidian-publish/draft.md --category "Build Log" --deploy
+  pnpm hermes:approve -- --file "English/draft.md" --language en --translation-of korean-post-slug --deploy
   pnpm hermes:reject -- --file obsidian-publish/draft.md
   pnpm hermes:publish -- --title "글 제목" --body "본문" --deploy
 
@@ -127,6 +135,7 @@ Commands:
 Safety:
   Hermes can only create or approve Markdown files inside OBSIDIAN_POSTS_DIR.
   Categories are normalized to: AI & Agents, Build Log, Open Source, Founder Notes.
+  English approvals use language: en and are synced under src/content/posts/en/.
   Raw inbox notes stay ignored by git; only synced blog posts are committed.`);
 }
 
@@ -174,6 +183,7 @@ async function createNote({ publish, draft }) {
     notePath,
     tags: args.tags,
   });
+  const language = normalizeLanguage(args.language);
   const frontmatterLines = [
     `publish: ${publish}`,
     `draft: ${draft ? "true" : "false"}`,
@@ -181,6 +191,7 @@ async function createNote({ publish, draft }) {
     `pubDatetime: ${args.pubDatetime ?? new Date().toISOString()}`,
     `description: ${toYamlString(summary)}`,
     `category: ${toYamlString(category)}`,
+    `language: ${toYamlString(language)}`,
     `status: ${toYamlString(args.status ?? (draft ? "pending" : "published"))}`,
   ];
 
@@ -188,6 +199,16 @@ async function createNote({ publish, draft }) {
   frontmatterLines.push(`tags: [${tags.map(toYamlString).join(", ")}]`);
 
   if (args.summary) frontmatterLines.push(`summary: ${toYamlString(args.summary)}`);
+  if (args.translationOf) {
+    frontmatterLines.push(`translationOf: ${toYamlString(args.translationOf)}`);
+  }
+  if (args.translationStatus) {
+    frontmatterLines.push(
+      `translationStatus: ${toYamlString(args.translationStatus)}`
+    );
+  } else if (language === "en") {
+    frontmatterLines.push(`translationStatus: ${toYamlString("approved")}`);
+  }
   if (args.concepts.length > 0) {
     frontmatterLines.push(
       `concepts: [${args.concepts.map(toYamlString).join(", ")}]`
@@ -229,6 +250,9 @@ async function approveNote() {
     notePath,
     tags,
   });
+  const language = normalizeLanguage(
+    args.language || getStringValue(frontmatter.language?.value)
+  );
 
   const updates = {
     category: toYamlString(category),
@@ -243,6 +267,7 @@ async function approveNote() {
       getStringValue(frontmatter.created?.value) ||
       new Date().toISOString(),
     publish: "true",
+    language: toYamlString(language),
     status: toYamlString(args.status ?? "published"),
     summary: toYamlString(
       args.summary || getStringValue(frontmatter.summary?.value) || description
@@ -251,6 +276,18 @@ async function approveNote() {
     title: toYamlString(title),
   };
 
+  if (args.translationOf || frontmatter.translationOf) {
+    updates.translationOf = toYamlString(
+      args.translationOf || getStringValue(frontmatter.translationOf?.value)
+    );
+  }
+  if (args.translationStatus || frontmatter.translationStatus || language === "en") {
+    updates.translationStatus = toYamlString(
+      args.translationStatus ||
+        getStringValue(frontmatter.translationStatus?.value) ||
+        "approved"
+    );
+  }
   if (args.concepts.length > 0) updates.concepts = toYamlArray(args.concepts);
   if (args.related.length > 0) updates.related = toYamlArray(args.related);
 
@@ -548,6 +585,11 @@ function stripMarkdown(markdown) {
 function getStringValue(rawValue) {
   if (!rawValue) return "";
   return stripQuotes(rawValue).trim();
+}
+
+function normalizeLanguage(value) {
+  const normalized = String(value || "ko").toLowerCase().trim();
+  return normalized === "en" || normalized === "english" ? "en" : "ko";
 }
 
 function toYamlString(value) {

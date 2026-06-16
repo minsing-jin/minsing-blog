@@ -63,6 +63,9 @@ status: "evergreen"
 - `summary`: 글 상세의 `LLM wiki` 블록과 `/llms.txt`에 노출됩니다.
 - `concepts`: 글이 다루는 핵심 개념 목록입니다.
 - `related`: 연결할 글의 slug 또는 제목 목록입니다.
+- `language`: 기본은 `ko`입니다. 영문 번역본은 `en`을 사용합니다.
+- `translationOf`: 영문 번역본이 연결되는 한국어 원문 slug입니다.
+- `translationStatus`: `draft`, `review`, `approved` 같은 번역 승인 상태입니다.
 - `status`: `working`, `evergreen`, `published`처럼 글의 상태를 표시합니다.
 
 ## 4. 동기화
@@ -71,6 +74,12 @@ status: "evergreen"
 
 ```sh
 pnpm obsidian:dry-run
+```
+
+macOS 권한이나 경로 문제가 있으면 먼저 진단합니다.
+
+```sh
+pnpm obsidian:doctor
 ```
 
 문제가 없으면 실제 동기화합니다.
@@ -132,6 +141,8 @@ Wrangler 배포 경로를 사용합니다.
 - Obsidian embed `![[image.png]]`는 `[첨부: image.png]` 텍스트로 변환합니다.
 - 출력 파일명은 `slug` frontmatter가 있으면 그 값을, 없으면 파일명을 사용합니다.
 - source 폴더의 하위 폴더 구조는 `src/content/posts` 아래에도 유지됩니다.
+- `language: en`이거나 `English/`, `en/`, `translations/` 폴더의 글은
+  `src/content/posts/en/` 아래로 동기화됩니다.
 
 ## Hermes / Discord 승인
 
@@ -168,3 +179,20 @@ Obsidian 최상위 폴더는 내부 정리 구조이고, 공개 블로그에는 
 
 Hermes는 Obsidian 최상위 폴더를 참고해 위 카테고리 중 하나로 매핑합니다. 애매한
 경우 Discord에서 확인한 뒤 승인합니다.
+
+## 영문 번역 규칙
+
+영문 번역본은 Obsidian에서 `English/` 또는 `en/` 폴더에 두거나, frontmatter에
+`language: en`을 넣습니다. 동기화 결과는 `src/content/posts/en/` 아래로 들어가며
+공개 URL은 `/en/posts/<slug>/`가 됩니다.
+
+사용자가 직접 frontmatter를 쓰지 않는 경우 Hermes가 승인 시 아래처럼 채웁니다.
+
+```sh
+pnpm hermes:approve -- \
+  --file "English/my-post.md" \
+  --language en \
+  --translation-of "korean-original-slug" \
+  --translation-status approved \
+  --deploy
+```

@@ -6,9 +6,12 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
 import { getUniqueCategories } from "@/utils/getUniqueCategories";
+import { getEnglishOrKoreanPosts } from "@/utils/localizedPosts";
 import config from "@/config";
 
-const categories = getUniqueCategories(await getCollection("posts"));
+const categories = getUniqueCategories(
+  getEnglishOrKoreanPosts(await getCollection("posts"))
+);
 ---
 
 <Layout

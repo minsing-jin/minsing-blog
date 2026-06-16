@@ -10,6 +10,11 @@ import CategoryPill from "@/components/CategoryPill.astro";
 import { getUniqueCategories } from "@/utils/getUniqueCategories";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import {
+  getEnglishOrKoreanPosts,
+  getEnglishPostUrl,
+  isEnglishPost,
+} from "@/utils/localizedPosts";
 import config from "@/config";
 
 export const getStaticPaths = (async () => {
@@ -22,7 +27,9 @@ export const getStaticPaths = (async () => {
       categoryDescription: category.description,
       categoryName: category.categoryName,
       posts: getSortedPosts(
-        posts.filter(post => post.data.category === category.categoryName)
+        getEnglishOrKoreanPosts(
+          posts.filter(post => post.data.category === category.categoryName)
+        )
       ),
     },
   }));
@@ -46,7 +53,11 @@ const { categoryDescription, categoryName, posts } = Astro.props;
             <li class="my-6">
               <CategoryPill category={post.data.category} size="sm" />
               <a
-                href={getPostUrl(post.id, post.filePath, "ko")}
+                href={
+                  isEnglishPost(post)
+                    ? getEnglishPostUrl(post)
+                    : getPostUrl(post.id, post.filePath, "ko")
+                }
                 class="text-accent mt-2 inline-block text-lg font-medium underline-offset-4 hover:underline"
               >
                 {post.data.title}

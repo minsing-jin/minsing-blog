@@ -319,6 +319,9 @@ function renderPost({ sourceDir, sourcePath, sourceStat, parsed, frontmatter }) 
     "summary",
     "concepts",
     "related",
+    "language",
+    "translationOf",
+    "translationStatus",
     "status",
   ]) {
     const block = frontmatter[key];
@@ -338,13 +341,21 @@ function getOutputName(sourcePath, sourceDir, frontmatter) {
   const slug = slugifyStr(rawSlug);
   const ext = path.extname(sourcePath).toLowerCase() === ".mdx" ? ".mdx" : ".md";
   const relativeDir = path.relative(sourceDir, path.dirname(sourcePath));
+  const language = inferLanguage(frontmatter, sourcePath, sourceDir);
 
-  if (!relativeDir || relativeDir === ".") return `${slug}${ext}`;
+  if (!relativeDir || relativeDir === ".") {
+    return language === "en" ? path.join("en", `${slug}${ext}`) : `${slug}${ext}`;
+  }
 
-  return path.join(
-    ...relativeDir.split(path.sep).map(segment => slugifyStr(segment)),
-    `${slug}${ext}`
-  );
+  const segments = relativeDir
+    .split(path.sep)
+    .filter(Boolean)
+    .filter((segment, index) => !isEnglishFolder(segment) || index !== 0)
+    .map(segment => slugifyStr(segment));
+
+  if (language === "en") return path.join("en", ...segments, `${slug}${ext}`);
+
+  return path.join(...segments, `${slug}${ext}`);
 }
 
 function getRawDate(block) {
@@ -401,6 +412,30 @@ function inferCategory({ frontmatter, sourceDir, sourcePath, tags }) {
 
 function inferCategoryFromTags(tags) {
   return normalizePublicCategory(tags.join(" ")) ?? "Founder Notes";
+}
+
+function inferLanguage(frontmatter, sourcePath, sourceDir) {
+  const language = normalizeLanguage(getStringValue(frontmatter.language?.value));
+  if (language) return language;
+
+  const relativeDir = path.relative(sourceDir, path.dirname(sourcePath));
+  const topFolder = relativeDir
+    .split(path.sep)
+    .map(segment => segment.trim())
+    .filter(Boolean)[0];
+
+  return isEnglishFolder(topFolder) ? "en" : "ko";
+}
+
+function normalizeLanguage(value) {
+  const normalized = String(value ?? "").toLowerCase().trim();
+  if (normalized === "en" || normalized === "english") return "en";
+  if (normalized === "ko" || normalized === "korean") return "ko";
+  return null;
+}
+
+function isEnglishFolder(value) {
+  return /^(en|english|translations?|영문|번역)$/i.test(String(value ?? "").trim());
 }
 
 function normalizePublicCategory(value) {

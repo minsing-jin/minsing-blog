@@ -5,6 +5,7 @@ import satori from "satori";
 import sharp from "sharp";
 import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
 import { getPostSlug } from "@/utils/getPostPaths";
+import { getKoreanPosts } from "@/utils/localizedPosts";
 import { loadGoogleFont } from "@/utils/loadGoogleFont";
 import config from "@/config";
 
@@ -13,8 +14,10 @@ export async function getStaticPaths() {
     return [];
   }
 
-  const posts = await getCollection("posts").then(p =>
-    p.filter(({ data }) => !data.draft && !data.ogImage)
+  const posts = getKoreanPosts(
+    await getCollection("posts").then(p =>
+      p.filter(({ data }) => !data.draft && !data.ogImage)
+    )
   );
 
   return posts.map(post => ({

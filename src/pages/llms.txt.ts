@@ -3,9 +3,10 @@ import { getCollection } from "astro:content";
 import config from "@/config";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import { getKoreanPosts } from "@/utils/localizedPosts";
 
 export const GET: APIRoute = async () => {
-  const posts = getSortedPosts(await getCollection("posts"));
+  const posts = getSortedPosts(getKoreanPosts(await getCollection("posts")));
   const siteUrl = new URL(config.site.url);
   const lines = [
     `# ${config.site.title}`,

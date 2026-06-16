@@ -9,11 +9,14 @@ import Card from "@/components/Card.astro";
 import Footer from "@/components/Footer.astro";
 import { getUniqueCategories } from "@/utils/getUniqueCategories";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import { getKoreanPosts } from "@/utils/localizedPosts";
 import { tplStr, useTranslations } from "@/i18n";
 import config from "@/config";
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const posts = getKoreanPosts(
+    await getCollection("posts", ({ data }) => !data.draft)
+  );
   const categories = getUniqueCategories(posts);
 
   return categories.map(category => ({
