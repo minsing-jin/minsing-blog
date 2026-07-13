@@ -2,12 +2,12 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://minsing-blog.pages.dev/",
+    url: "https://jinminseong.com/",
     title: "Minsing Log",
     description:
       "개발, 창업, 배움의 여정을 공개적으로 기록하는 진민성의 블로그.",
     author: "진민성",
-    profile: "https://minsing-blog.pages.dev/about/",
+    profile: "https://jinminseong.com/about/",
     lang: "ko",
     timezone: "Asia/Seoul",
     dir: "ltr",
