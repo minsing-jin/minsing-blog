@@ -1,5 +1,9 @@
 # Hermes / Discord 게시 승인 흐름
 
+게시 후보를 검토하거나 승인할 때 프로젝트 Skill
+`$hermes-quality-publisher`를 먼저 적용합니다. Skill은 광고를 본문과 분리하고,
+품질 검사를 통과한 글만 사용자 승인 후 배포하도록 강제합니다.
+
 Hermes는 블로그 저장소 전체를 직접 수정하지 않고, `.env`의
 `OBSIDIAN_POSTS_DIR` 안의 Markdown만 생성하거나 승인합니다. 실제 공개는 기존
 Obsidian 게시 파이프라인이 담당합니다.
@@ -50,6 +54,12 @@ pnpm hermes:publish -- --title "글 제목" --body "본문" --deploy
 
 ```sh
 pnpm hermes:list
+```
+
+게시 전 품질 검사:
+
+```sh
+pnpm hermes:quality -- --file "글-제목.md"
 ```
 
 Obsidian 접근 권한 확인:
@@ -201,6 +211,9 @@ Obsidian source:
 5. 배포 성공 후 공개 URL을 Discord에 알려준다.
 
 규칙:
+- 게시 검토와 승인에는 `$hermes-quality-publisher`를 사용한다.
+- Markdown 본문에는 AdSense 코드나 광고 슬롯을 넣지 않는다.
+- 품질 검사 결과가 `BLOCK`이면 승인하거나 배포하지 않는다.
 - 사용자가 명시적으로 승인하기 전에는 publish: true를 쓰지 않는다.
 - OBSIDIAN_POSTS_DIR 밖 파일은 만지지 않는다.
 - 비공개 일기, 계정, 키, 개인정보, 대화 로그는 게시 후보에서 제외하거나 경고한다.

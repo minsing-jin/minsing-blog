@@ -34,8 +34,10 @@ if (args.command === "list") {
 } else if (args.command === "draft") {
   await createNote({ publish: "pending", draft: true });
 } else if (args.command === "publish") {
-  const notePath = await createNote({ publish: "true", draft: false });
-  await runPublish({ notePath });
+  const draftPath = await createNote({ publish: "pending", draft: true });
+  args.file = draftPath;
+  const approvedPath = await approveNote();
+  await runPublish({ notePath: approvedPath });
 } else if (args.command === "approve") {
   const notePath = await approveNote();
   await runPublish({ notePath });
@@ -130,10 +132,11 @@ Commands:
   draft     Create a publish: pending draft in the Obsidian publish inbox
   approve   Add required metadata, flip publish: true, and run publish
   reject    Mark an inbox note as rejected without publishing
-  publish   Create a publish: true note and run the publish pipeline
+  publish   Create, quality-check, approve, and run the publish pipeline
 
 Safety:
   Hermes can only create or approve Markdown files inside OBSIDIAN_POSTS_DIR.
+  Approve and publish run the Hermes quality gate before changing publish: true.
   Categories are normalized to: AI & Agents, Build Log, Open Source, Founder Notes.
   English approvals use language: en and are synced under src/content/posts/en/.
   Raw inbox notes stay ignored by git; only synced blog posts are committed.`);
@@ -229,6 +232,8 @@ async function approveNote() {
   const notePath = resolveSafeNotePath(args.file);
   if (!existsSync(notePath)) fail(`Note does not exist: ${relative(notePath)}`);
 
+  runQualityGate(notePath);
+
   const raw = await fs.readFile(notePath, "utf8");
   const parsed = splitFrontmatter(raw);
   const frontmatter = Object.fromEntries(
@@ -296,6 +301,31 @@ async function approveNote() {
   await fs.writeFile(notePath, rendered);
   console.log(`approved ${relative(notePath)}`);
   return notePath;
+}
+
+function runQualityGate(notePath) {
+  const checkerPath = path.join(
+    repoRoot,
+    ".codex",
+    "skills",
+    "hermes-quality-publisher",
+    "scripts",
+    "check-post-quality.mjs"
+  );
+  if (!existsSync(checkerPath)) {
+    fail(`Missing Hermes quality gate: ${relative(checkerPath)}`);
+  }
+
+  const result = spawnSync(process.execPath, [checkerPath, "--file", notePath], {
+    cwd: repoRoot,
+    env: process.env,
+    stdio: "inherit",
+  });
+
+  if (result.error) fail(result.error.message);
+  if (result.status !== 0) {
+    fail(`Hermes quality gate blocked ${relative(notePath)}.`);
+  }
 }
 
 async function rejectNote() {

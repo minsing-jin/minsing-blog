@@ -19,6 +19,7 @@
     "obsidian:watch:deploy": "node scripts/watch-obsidian-posts.mjs --deploy",
     "obsidian:install-auto": "node scripts/install-obsidian-auto-update.mjs",
     "hermes:list": "node scripts/hermes-publish.mjs list",
+    "hermes:quality": "node .codex/skills/hermes-quality-publisher/scripts/check-post-quality.mjs",
     "hermes:draft": "node scripts/hermes-publish.mjs draft",
     "hermes:approve": "node scripts/hermes-publish.mjs approve",
     "hermes:reject": "node scripts/hermes-publish.mjs reject",

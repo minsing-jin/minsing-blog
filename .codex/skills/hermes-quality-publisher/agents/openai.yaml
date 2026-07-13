@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hermes Quality Publisher"
+  short_description: "품질을 지키며 Hermes 블로그 게시 자동화"
+  default_prompt: "Use $hermes-quality-publisher to review, approve, and publish a blog post without weakening its editorial quality for ads."
