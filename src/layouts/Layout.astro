@@ -15,6 +15,8 @@ type Props = {
 };
 
 const { site } = config;
+const adsenseClient =
+  import.meta.env.PUBLIC_ADSENSE_CLIENT || "ca-pub-8199261104103936";
 
 const {
   title = site.title,
@@ -93,16 +95,12 @@ const rssHref = getRelativeLocaleUrl(
     <!-- Filled at runtime by theme.ts to match the current background colour -->
     <meta name="theme-color" content="" />
 
-    {
-      import.meta.env.PUBLIC_ADSENSE_CLIENT && (
-        <script
-          is:inline
-          async
-          crossorigin="anonymous"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
-        />
-      )
-    }
+    <script
+      is:inline
+      async
+      crossorigin="anonymous"
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+    />
 
     <!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) -->
     <slot name="head" />

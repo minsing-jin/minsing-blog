@@ -1,3 +1,1 @@
-# Replace this after Google AdSense approval.
-# Example:
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-8199261104103936, DIRECT, f08c47fec0942fa0
