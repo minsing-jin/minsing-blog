@@ -196,3 +196,7 @@ pnpm hermes:approve -- \
   --translation-status approved \
   --deploy
 ```
+
+## 게시 범위 제한
+
+게시 원본은 Obsidian vault의 `Blog/` 디렉터리로 고정되어 있습니다. `Blog/` 밖의 vault 파일은 절대 읽거나 게시하지 않습니다. `Blog/` 안의 Markdown 파일 중 `publish: true`이고 `draft: false`인 글만 동기화됩니다.

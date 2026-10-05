@@ -37,6 +37,10 @@ if (!sourceDir) {
   );
 }
 
+if (path.basename(sourceDir) !== "Blog") {
+  fail(`Obsidian sync is locked to the Blog directory only. Refusing source: ${sourceDir}`);
+}
+
 await assertReadableDirectory(sourceDir);
 
 const notes = await collectMarkdownFiles(sourceDir);

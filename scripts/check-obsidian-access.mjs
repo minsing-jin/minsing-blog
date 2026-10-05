@@ -18,6 +18,10 @@ if (!sourceDir) {
   );
 }
 
+if (path.basename(sourceDir) !== "Blog") {
+  fail(`Obsidian access is locked to the Blog directory only. Refusing source: ${sourceDir}`);
+}
+
 console.log(`Obsidian source: ${sourceDir}`);
 
 try {
