@@ -38,6 +38,9 @@ try {
     }
   }
 } catch (error) {
+  if (error?.code === "ENOENT") {
+    fail(`Obsidian Blog directory does not exist: ${sourceDir}\nCreate a Blog folder inside the SecondBrain vault, then rerun pnpm obsidian:doctor.`);
+  }
   if (error?.code === "EACCES" || error?.code === "EPERM") {
     fail(
       [
