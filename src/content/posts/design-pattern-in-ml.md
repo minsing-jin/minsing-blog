@@ -2,7 +2,7 @@
 title: "Design Pattern in ML (Asynchronous pattern)"
 pubDatetime: 2024-05-28T15:39:45.384Z
 description: "참고1\\\\. GOAT ml design patter 정리 참고: https&#x3A;//github.com/mercari/ml-system-design-pattern/blob/master/README_ko.md"
-category: "소프트웨어 설계"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Design-Pattern-in-ML"
 velogSeries: ["소프트웨어 설계"]
 ---

@@ -2,7 +2,7 @@
 title: "yield가 뭐야?(feat.제너레이터)"
 pubDatetime: 2023-10-11T06:49:02.032Z
 description: "양보하다"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/yield가-뭐야feat.제너레이터"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

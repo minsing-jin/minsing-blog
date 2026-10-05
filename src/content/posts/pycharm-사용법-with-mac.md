@@ -2,7 +2,7 @@
 title: "Pycharm 사용법 with Mac"
 pubDatetime: 2023-10-09T13:28:13.421Z
 description: "맥북은 맥 drum이다. 백과사전처럼 사용하는 문서입니다. command + F 로 원하는 기능을 찾으세유~"
-category: "Pycharm과 친해지기 with Mac"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Pycharm-사용법-with-Mac"
 velogSeries: ["Pycharm과 친해지기 with Mac"]
 ---

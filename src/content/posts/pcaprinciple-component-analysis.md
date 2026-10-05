@@ -2,7 +2,7 @@
 title: "PCA(Principle Component Analysis)"
 pubDatetime: 2022-10-23T06:59:41.695Z
 description: "pca가 뭐야?"
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/PCAPrinciple-Component-Analysis"
 velogSeries: ["Classical machine learning"]
 ---

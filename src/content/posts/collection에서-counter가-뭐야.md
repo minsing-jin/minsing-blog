@@ -2,7 +2,7 @@
 title: "collection에서 counter가 뭐야?"
 pubDatetime: 2022-12-16T14:56:42.319Z
 description: "딕셔너리의 데이터 개수를 세어보자"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/collection에서-counter가-뭐야"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

@@ -2,7 +2,7 @@
 title: "config.py가 뭐야?"
 pubDatetime: 2024-01-31T11:58:55.612Z
 description: "설정파일이란?"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/config.py가-뭐야"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

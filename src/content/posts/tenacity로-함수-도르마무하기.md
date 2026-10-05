@@ -2,7 +2,7 @@
 title: "Tenacity로 함수 도르마무하기"
 pubDatetime: 2023-12-11T13:00:35.581Z
 description: "오류날때 다시 시도하기위해 도르마무하기"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Tenacity로-함수-도르마무하기"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

@@ -2,7 +2,7 @@
 title: "유용하고 고오오마운 groupby, agg method 써보기"
 pubDatetime: 2023-11-30T13:48:55.787Z
 description: "특정 column에 대해서 grouping시키기"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/유용한-고오오마운-groupby-agg-method-써보기"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

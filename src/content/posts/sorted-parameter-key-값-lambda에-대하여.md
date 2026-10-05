@@ -2,7 +2,7 @@
 title: "Sorted() parameter key 값 lambda에 대하여"
 pubDatetime: 2023-10-11T15:18:19.312Z
 description: "람보르람다"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Sorted-parameter-key-값-lambda에-대하여"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

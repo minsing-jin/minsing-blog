@@ -2,7 +2,7 @@
 title: "여러분은 AI 답변을 어떻게 신뢰하시나요?"
 pubDatetime: 2025-02-10T07:03:43.550Z
 description: "\\bAI 답변 팩트체커: cluehunter"
-category: "Playground"
+category: "Build Log"
 canonicalURL: "https://velog.io/@minsing-jin/여러분은-AI-답변을-어떻게-신뢰하시나요"
 velogSeries: ["Playground"]
 ---

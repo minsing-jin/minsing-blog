@@ -2,7 +2,7 @@
 title: "Error report: Expected corresponding JSX closing tag for <input>"
 pubDatetime: 2023-01-01T13:29:33.652Z
 description: "tailwind css의 tailblock의 footer파일에 코드 추가하던중 발생한 에러"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Error-report-Expected-corresponding-JSX-closing-tag-for-input"
 velogSeries: ["web_study"]
 ---

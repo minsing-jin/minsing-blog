@@ -2,7 +2,7 @@
 title: "Dictionary.pop(Key)"
 pubDatetime: 2023-10-17T05:44:06.495Z
 description: "pop"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Dictionary.popKey"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

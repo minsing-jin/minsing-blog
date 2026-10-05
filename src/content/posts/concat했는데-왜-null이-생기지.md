@@ -2,7 +2,7 @@
 title: "concat했는데 왜 null이 생기지?"
 pubDatetime: 2024-01-04T13:31:53.750Z
 description: "reset_index하세유~"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/concat했는데-왜-null이-생기지"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

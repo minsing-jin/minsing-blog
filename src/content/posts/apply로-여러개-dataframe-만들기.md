@@ -2,7 +2,7 @@
 title: "apply로 여러개 dataframe 만들기"
 pubDatetime: 2023-11-17T07:13:39.936Z
 description: "어떻게 하면 pythonic하고, 가독성이 좋으며 효율적인 코드를 만들 수 있을까하면서 깨달은 아이디어들을 정리하는 글이다.Zip으로 unpack했다."
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/apply로-여러개-dataframe-만들기"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

@@ -2,7 +2,7 @@
 title: ".env 환경변수란?"
 pubDatetime: 2024-01-31T11:56:29.213Z
 description: "환경 변수 정의와 쓰는법"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/.env-환경변수란"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

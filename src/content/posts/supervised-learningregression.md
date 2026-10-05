@@ -2,7 +2,7 @@
 title: "Supervised Learning(Regression)"
 pubDatetime: 2022-10-09T10:49:30.692Z
 description: "Regression에 대해서 알아봅시다."
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Supervised-LearningRegression"
 velogSeries: ["Classical machine learning"]
 ---

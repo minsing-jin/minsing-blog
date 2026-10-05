@@ -2,7 +2,7 @@
 title: "중첩된 여러 자료구조의 Element에 Func mapping하는법"
 pubDatetime: 2025-05-04T14:41:35.911Z
 description: "nest_map을 만드세유https&#x3A;//dotiromoook.tistory.com/28"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/중첩된-여러-자료구조의-Element에-Func-mapping하는법"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

@@ -2,7 +2,7 @@
 title: "UUID"
 pubDatetime: 2023-12-25T12:41:29.028Z
 description: "ㅠㅠ아이디?"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/UUID"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

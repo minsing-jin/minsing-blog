@@ -2,7 +2,7 @@
 title: "RAGchain Benchmark 3줄정리"
 pubDatetime: 2023-12-14T05:57:36.548Z
 description: "benchmark 간단정리"
-category: "RAGchain"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/RAGchain-Benchmark-3줄정리"
 velogSeries: ["RAGchain"]
 ---

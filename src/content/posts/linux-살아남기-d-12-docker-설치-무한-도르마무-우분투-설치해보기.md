@@ -2,7 +2,7 @@
 title: "linux 살아남기 D-12 (Docker 설치)"
 pubDatetime: 2024-05-24T17:22:28.564Z
 description: "도커 렛츠고우"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-살아남기-D-12-Docker-설치-무한-도르마무-우분투-설치해보기"
 velogSeries: ["linux 생존일지"]
 ---

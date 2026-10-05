@@ -12,6 +12,7 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { getKoreanPosts } from "@/utils/localizedPosts";
 import { tplStr, useTranslations } from "@/i18n";
 import config from "@/config";
+import { getImportedCategory } from "@/utils/categories";
 
 export const getStaticPaths = (async () => {
   const posts = getKoreanPosts(
@@ -28,7 +29,9 @@ export const getStaticPaths = (async () => {
         posts.filter(
           post =>
             post.data.category === category.categoryName ||
-            post.data.velogSeries?.includes(category.categoryName)
+            post.data.velogSeries?.some(
+              series => getImportedCategory(series) === category.categoryName
+            )
         )
       ),
     },

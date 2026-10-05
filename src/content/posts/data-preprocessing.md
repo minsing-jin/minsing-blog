@@ -2,7 +2,7 @@
 title: "Data preprocessing"
 pubDatetime: 2022-10-09T08:06:46.521Z
 description: "데이터 전처리 과정"
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Data-preprocessing"
 velogSeries: ["Classical machine learning"]
 ---

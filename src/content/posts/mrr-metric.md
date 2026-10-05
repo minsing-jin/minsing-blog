@@ -2,7 +2,7 @@
 title: "MRR metric"
 pubDatetime: 2023-11-23T11:42:04.566Z
 description: "MRR이 무엇인가?(mean reciprocal rank)"
-category: "RAGchain"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/MRR-metric"
 velogSeries: ["RAGchain"]
 ---

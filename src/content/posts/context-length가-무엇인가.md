@@ -2,7 +2,7 @@
 title: "Context length가 무엇인가?"
 pubDatetime: 2023-12-06T17:06:11.355Z
 description: "LLM이 한번에 처리할 수 있는 토큰수이다. llm에 input sequence에 최대 길이이다.네이스한 설명이것이 중요한 이유는1.모델이 article들을 summarize 하는데에 context length를 넘을 수 없다.2.Long-term planning ta"
-category: "RAGchain"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Context-length가-무엇인가"
 velogSeries: ["RAGchain"]
 ---

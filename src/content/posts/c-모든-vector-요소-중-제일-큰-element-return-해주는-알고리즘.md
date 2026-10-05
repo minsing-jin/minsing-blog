@@ -2,7 +2,7 @@
 title: "C++ 모든 vector 요소 중 제일 큰 element return 해주는 알고리즘"
 pubDatetime: 2024-03-14T05:45:03.193Z
 description: "유용한 알고리즘 – 모든 vector 요소 중 어느것이 큰 요소인지 return 해주는 알고리즘"
-category: "GOAT 알고리즘 (c++, python...)"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/C-모든-vector-요소-중-제일-큰-element-return-해주는-알고리즘"
 velogSeries: ["GOAT 알고리즘 (c++, python...)"]
 ---

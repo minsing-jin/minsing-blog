@@ -2,7 +2,7 @@
 title: "Error note: \\\"Could not find database with ID: 4f7c1e96-8935-4cbb-bcbb-d2d8d392145d. Make sure the relevant pages and databases are shared with your integration.\\\""
 pubDatetime: 2023-01-12T14:51:54.140Z
 description: "notion api postman에서 쓸때 오류"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Error-note-Could-not-find-database-with-ID-4f7c1e96-8935-4cbb-bcbb-d2d8d392145d.-Make-sure-the-relevant-pages-and-databases-are-shared-with-your-integration"
 velogSeries: ["web_study"]
 ---

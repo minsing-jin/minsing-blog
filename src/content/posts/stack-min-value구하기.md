@@ -2,7 +2,7 @@
 title: "Stack -> Min value구하기"
 pubDatetime: 2025-03-28T08:15:33.500Z
 description: "arr 2개stackmin_stackstack은 그대로 구현min_stack은 stack이 반복될때마다 계속 반복적으로 최소값을 각각의 idx로 할당top이라는 Int idx를 Cursor로 활용해서 stack을 구현홀수번째 Idx는 stack짝수번째 idx는 min_"
-category: "자료구조"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Stack-Min-value구하기"
 velogSeries: ["자료구조"]
 ---

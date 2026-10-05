@@ -16,6 +16,7 @@ import {
   isEnglishPost,
 } from "@/utils/localizedPosts";
 import config from "@/config";
+import { getImportedCategory } from "@/utils/categories";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -31,7 +32,9 @@ export const getStaticPaths = (async () => {
           posts.filter(
             post =>
               post.data.category === category.categoryName ||
-              post.data.velogSeries?.includes(category.categoryName)
+              post.data.velogSeries?.some(
+                series => getImportedCategory(series) === category.categoryName
+              )
           )
         )
       ),

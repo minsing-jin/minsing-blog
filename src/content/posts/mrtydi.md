@@ -2,7 +2,7 @@
 title: "RAGchain benchmark Mr.tydi"
 pubDatetime: 2023-11-23T13:46:01.970Z
 description: "타이디 아저씨를 아세유?"
-category: "RAGchain"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Mr.tydi"
 velogSeries: ["RAGchain"]
 ---

@@ -2,7 +2,7 @@
 title: "HalluLens 논문리뷰"
 pubDatetime: 2025-11-03T11:25:43.992Z
 description: "기존의 데이터 리키지가 걱정되는 할루시네이션 벤치마크는 저리가라!"
-category: "ML"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/HalluLens-논문리뷰"
 velogSeries: ["ML"]
 ---

@@ -2,7 +2,7 @@
 title: "Selecting Languages"
 pubDatetime: 2024-03-26T14:42:20.969Z
 description: "과제 제출을 하려다가 포트폴리오를 작성해버림"
-category: "About Minsing"
+category: "Founder Notes"
 canonicalURL: "https://velog.io/@minsing-jin/Selecting-Languages"
 velogSeries: ["About Minsing"]
 ---

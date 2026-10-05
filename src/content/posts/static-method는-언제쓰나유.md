@@ -2,7 +2,7 @@
 title: "static method는 언제쓰나유?"
 pubDatetime: 2023-12-01T14:10:17.173Z
 description: "주로 static method는 유틸리티 메서드를 구현할때 많이 쓴다."
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/static-method는-언제쓰나유"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

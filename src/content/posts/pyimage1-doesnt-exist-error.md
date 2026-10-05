@@ -2,7 +2,7 @@
 title: "pyimage1 doesn't exist error"
 pubDatetime: 2025-07-20T06:32:26.068Z
 description: "문제 요약:main.py에서 AutoComplete.autocomplete()을 실행하면 PostgreSQL 연결은 성공 메시지가 뜨지만 실제 데이터 조회 (User.get_random_meme())에서 동작하지 않거나, GUI가 에러 (pyimage1 doesn't"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/pyimage1-doesnt-exist-error"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

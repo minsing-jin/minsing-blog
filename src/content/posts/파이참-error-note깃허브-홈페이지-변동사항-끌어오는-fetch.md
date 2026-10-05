@@ -2,7 +2,7 @@
 title: "파이참 error note(깃허브 홈페이지 변동사항 끌어오는 fetch)"
 pubDatetime: 2023-09-21T06:08:58.855Z
 description: "conflict 이슈"
-category: "Pycharm과 친해지기 with Mac"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/파이참-error-note깃허브-홈페이지-변동사항-끌어오는-fetch"
 velogSeries: ["Pycharm과 친해지기 with Mac"]
 ---

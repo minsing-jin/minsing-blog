@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-3 (PostgreSQL 설치)"
 pubDatetime: 2024-05-24T16:55:47.355Z
 description: "안쓰는 노트북을 원격으로 접속하여 조종하고자 한다. 안쓰는 노트북과 쓰는 노트북 두개를 들고다니기 너무 무겁다. 이것을 해결하기 위해서 Any Desk라는 리얼타임 타 컴퓨터 접속 장치를 알아보겠습니다~"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-3-Docker-설치-무한-도르마무-우분투-설치해보기"
 velogSeries: ["linux 생존일지"]
 ---

@@ -2,7 +2,7 @@
 title: "POMDP가 뭐야?"
 pubDatetime: 2025-06-29T06:20:11.458Z
 description: "POMDP"
-category: "RL"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/POMDP가-뭐야"
 velogSeries: ["RL"]
 ---

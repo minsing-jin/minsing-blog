@@ -2,7 +2,7 @@
 title: "Error report:구름 ide 다음 서명이 올바르지 않습니다 issue"
 pubDatetime: 2023-02-18T14:30:08.868Z
 description: "쉽지 않은 녀석"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Error-report구름-ide-다음-서명이-올바르지-않습니다-issue"
 velogSeries: ["web_study"]
 ---

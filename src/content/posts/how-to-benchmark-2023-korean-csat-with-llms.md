@@ -2,7 +2,7 @@
 title: "How to Benchmark 2023 Korean CSAT with LLMs"
 pubDatetime: 2024-11-18T06:36:56.323Z
 description: "🔧 How to Benchmark 2023 Korean CSAT with LLMs\\n\\nWe’ve developed experimental code for benchmarking the 2023 Korean CSAT Language section. Use this to estimate the performance of your desired models be..."
-category: "영어홍보글"
+category: "Founder Notes"
 canonicalURL: "https://velog.io/@minsing-jin/How-to-Benchmark-2023-Korean-CSAT-with-LLMs"
 velogSeries: ["영어홍보글"]
 ---

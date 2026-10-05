@@ -2,7 +2,7 @@
 title: "비동기 처리의 작업 과정 원리"
 pubDatetime: 2024-09-11T04:18:11.561Z
 description: "비동기 처리의 작업 과정 원리"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Async-악당-개념들"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

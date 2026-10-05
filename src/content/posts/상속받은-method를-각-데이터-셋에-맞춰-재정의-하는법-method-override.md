@@ -2,7 +2,7 @@
 title: "상속받은 method를 각 데이터 셋에 맞춰 재정의 하는법 = method override"
 pubDatetime: 2023-11-30T15:51:14.968Z
 description: "상속받은 매서드를 자식클래스의 성격에 맞게 맞추는 method override~"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/상속받은-method를-각-데이터-셋에-맞춰-재정의-하는법-method-override"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

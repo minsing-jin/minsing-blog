@@ -2,7 +2,7 @@
 title: "RAGchain 용어사전"
 pubDatetime: 2023-11-20T07:22:28.404Z
 description: "논문보다가 모르는 단어들이 난무해서 내가 보려고 정리해놓는곳이다."
-category: "RAGchain"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/RAGchain-용어사전"
 velogSeries: ["RAGchain"]
 ---

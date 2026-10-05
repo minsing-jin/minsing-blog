@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-6 (Git 설치)"
 pubDatetime: 2024-05-24T17:02:05.461Z
 description: "버전컨트롤 렛츠고우"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-6-Git-설치"
 velogSeries: ["linux 생존일지"]
 ---

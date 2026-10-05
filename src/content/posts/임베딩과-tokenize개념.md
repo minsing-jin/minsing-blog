@@ -2,7 +2,7 @@
 title: "임베딩과 tokenize개념"
 pubDatetime: 2025-05-12T12:24:31.828Z
 description: "sequence(text, frame으로 나뉘어진 f0음성등)을 token으로 나눠서 수치화한것, 인덱싱으로 매핑한것token들에 대해서 의미적인 연관성을 기반으로 배치한것"
-category: "ML"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/임베딩과-tokenize개념"
 velogSeries: ["ML"]
 ---

@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-2(vsCode 설치)"
 pubDatetime: 2024-05-21T15:42:01.438Z
 description: "\\n🍳 VsCode 설치 튜토리얼\\n먼저 Microsoft의 GPG 키를 가져와서 리포지토리를 추가해야 한다.\\n\\npackage list들을 update해야한다.\\n\\nVisual studio code 설치하세유~\\n\\n🍳 느낀점\\nvscode 설치 자체는 크게 어렵지 않다. 개"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/inux-생존일지-D-1-vsCode-설치"
 velogSeries: ["linux 생존일지"]
 ---

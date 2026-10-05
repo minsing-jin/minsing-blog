@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-5 (DVC (DataVersionControl) 설치)"
 pubDatetime: 2024-05-24T17:00:16.635Z
 description: "데이터 버전컨트롤"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-5-dvc-설치"
 velogSeries: ["linux 생존일지"]
 ---

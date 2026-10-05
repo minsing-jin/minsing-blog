@@ -2,7 +2,7 @@
 title: "구름ide 깃허브연동"
 pubDatetime: 2023-01-01T04:03:27.922Z
 description: "5일간의 삽질"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/구름ide-깃허브연동"
 velogSeries: ["web_study"]
 ---

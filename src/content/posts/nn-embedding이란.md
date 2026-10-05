@@ -2,7 +2,7 @@
 title: "nn.Embedding이란"
 pubDatetime: 2025-05-12T11:40:56.093Z
 description: "동기\\n내가 아는 embedding의 개념은 자연어 혹은 entity들을 사용자가 원하는 의미적 유사도대로 임베딩 space에 수치화 해서 배치하는것으로 알고 있다.\\n\\n근데 자연어인 lyrics를 바로 nn.Embedding에 통과 시키는것이 아닌 Lyrics가 이미 v"
-category: "ML"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/nn.Embedding이란"
 velogSeries: ["ML"]
 ---

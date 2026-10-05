@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-11 (Pycharm 설치)"
 pubDatetime: 2024-05-24T17:17:41.283Z
 description: "파이참 렛츠고우"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-11-Pycharm-설치"
 velogSeries: ["linux 생존일지"]
 ---

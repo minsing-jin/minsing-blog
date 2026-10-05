@@ -2,7 +2,7 @@
 title: "yaml 파일이란?"
 pubDatetime: 2024-02-12T03:25:02.855Z
 description: "시스템간 파일을 주고 받는 규칙인데 얌파일이 정말 맛있다."
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/yaml-파일이란"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

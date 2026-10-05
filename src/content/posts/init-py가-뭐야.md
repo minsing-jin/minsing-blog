@@ -2,7 +2,7 @@
 title: "__init__.py가 뭐야?"
 pubDatetime: 2023-10-11T05:58:27.409Z
 description: "import가 왜 안돼유? / 왜 클래스를 만들었는데 못불러유?(TypeError: 'class' object is not callable)"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/init.py가-뭐야"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

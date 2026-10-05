@@ -2,7 +2,7 @@
 title: "정규표현식 re"
 pubDatetime: 2022-11-25T14:45:19.787Z
 description: "문자열의 패턴을 분석해보자"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/정규표현식-re"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

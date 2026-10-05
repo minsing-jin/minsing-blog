@@ -2,7 +2,7 @@
 title: "list comprehension 함수형"
 pubDatetime: 2023-12-06T11:37:00.092Z
 description: "list comprehension의 또다른 용도"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/list-comprehension-함수형"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

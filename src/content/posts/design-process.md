@@ -2,7 +2,7 @@
 title: "Design Process(feat. KPMG 아이디어톤 회고)"
 pubDatetime: 2024-04-04T06:13:50.604Z
 description: "애자일~"
-category: "About Minsing"
+category: "Founder Notes"
 canonicalURL: "https://velog.io/@minsing-jin/Design-Process"
 velogSeries: ["About Minsing"]
 ---

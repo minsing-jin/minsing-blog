@@ -2,7 +2,7 @@
 title: "Random state란?"
 pubDatetime: 2023-11-24T13:04:33.777Z
 description: "pandas에서 sample매서드로 shuffle해서 여러번 실행할때 결과값을 고정"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Random-state란"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-0 (wsl에서 우분투설치)"
 pubDatetime: 2024-05-21T13:57:14.460Z
 description: "차가운 리눅스"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-0-느린-노트북-리눅스-들먹이기"
 velogSeries: ["linux 생존일지"]
 ---

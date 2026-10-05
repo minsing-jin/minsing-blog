@@ -2,7 +2,7 @@
 title: "ModuleNotFoundError: No module named 'modAL'\\n억까"
 pubDatetime: 2024-09-13T08:29:02.558Z
 description: "지웠다가 다시 깔기"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/ModuleNotFoundError-No-module-named-modAL억까"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

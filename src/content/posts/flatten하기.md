@@ -2,7 +2,7 @@
 title: "flatten하기"
 pubDatetime: 2023-11-17T06:53:17.059Z
 description: "list comprehension 오남용"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/flatten하기"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

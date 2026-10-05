@@ -2,7 +2,7 @@
 title: "Error note: Invalid dom property ---. Did you mean ---?"
 pubDatetime: 2023-01-07T13:50:50.135Z
 description: "왜 class가 아니라 className??"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/왜-class가-아니라-className"
 velogSeries: ["web_study"]
 ---

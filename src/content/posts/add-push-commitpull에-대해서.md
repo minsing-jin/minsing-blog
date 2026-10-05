@@ -2,7 +2,7 @@
 title: "add/push-commit/pull-fetch에 대해서"
 pubDatetime: 2023-06-09T14:03:45.788Z
 description: "개념정리"
-category: "깃허브"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/addPush-commitpull에-대해서"
 velogSeries: ["깃허브"]
 ---

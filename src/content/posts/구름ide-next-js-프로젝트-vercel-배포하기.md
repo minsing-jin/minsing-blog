@@ -2,7 +2,7 @@
 title: "구름ide next js 프로젝트 vercel 배포하기"
 pubDatetime: 2023-06-15T14:20:29.779Z
 description: "3월간의 수많은 시도와 기도메타로 다져진 배포성공"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/구름ide-next-js-프로젝트-vercel-배포하기"
 velogSeries: ["web_study"]
 ---

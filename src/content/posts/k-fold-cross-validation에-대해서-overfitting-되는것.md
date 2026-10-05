@@ -2,7 +2,7 @@
 title: "k-fold cross validation에 대해서 Overfitting 되는것"
 pubDatetime: 2024-12-05T03:30:12.928Z
 description: "하이퍼 파라미터 튜닝 cv 과적합"
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/k-fold-cross-validation에-대해서-Overfitting-되는것"
 velogSeries: ["Classical machine learning"]
 ---

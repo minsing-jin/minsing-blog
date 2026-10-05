@@ -2,7 +2,7 @@
 title: "수능 llm 벤치마크 테스트 방법"
 pubDatetime: 2024-11-18T04:32:22.371Z
 description: "내 모델은 수능에서 얼마의 점수를 딸수 있을까?"
-category: "Playground"
+category: "Build Log"
 canonicalURL: "https://velog.io/@minsing-jin/수능-llm-벤치마크-테스트-방법"
 velogSeries: ["Playground"]
 ---

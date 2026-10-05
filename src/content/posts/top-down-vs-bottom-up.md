@@ -2,7 +2,7 @@
 title: "Top-Down vs Bottom-Up"
 pubDatetime: 2022-07-10T04:22:59.697Z
 description: "\\\"계획대로\\\""
-category: "소프트웨어 설계"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Top-Down-vs-Bottom-Up"
 velogSeries: ["소프트웨어 설계"]
 ---

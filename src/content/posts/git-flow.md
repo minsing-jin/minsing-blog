@@ -2,7 +2,7 @@
 title: "Git flow"
 pubDatetime: 2023-02-11T14:24:58.954Z
 description: "메인브랜치는 건드리지 마라"
-category: "깃허브"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Git-flow"
 velogSeries: ["깃허브"]
 ---

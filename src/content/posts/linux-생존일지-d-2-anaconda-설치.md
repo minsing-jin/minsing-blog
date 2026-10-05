@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-1 (Anaconda 설치)"
 pubDatetime: 2024-05-21T15:43:52.704Z
 description: "파이썬 ai 개발환경을 만들기 위한 한걸음을 또 나아갔다. 아주굿"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-2-Anaconda-설치"
 velogSeries: ["linux 생존일지"]
 ---

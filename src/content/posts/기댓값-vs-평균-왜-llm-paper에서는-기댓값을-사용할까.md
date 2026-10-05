@@ -2,7 +2,7 @@
 title: "기댓값 vs 평균, 왜 llm paper에서는 기댓값을 사용할까?"
 pubDatetime: 2025-03-03T07:01:54.057Z
 description: "기댓값: 미래를 예측하기 위해서 확률들을 기반으로 구한값, 미래 가능한 결과에 대한 예측값(귀납-경험/관찰/증거에 기반한 미래 예측 판단)평균: 빈도주의 관점으로 기존 데이터들을 가지고 구한값, 이미 관측된 데이터를 가지고 확실한 값(연역-이미 알고있는 데이터 가지고"
-category: "Background Knowledge"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/기댓값-vs-평균-왜-llm-paper에서는-기댓값을-사용할까"
 velogSeries: ["Background Knowledge"]
 ---

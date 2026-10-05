@@ -2,7 +2,7 @@
 title: "Overfitting & Underfitting"
 pubDatetime: 2022-10-13T14:32:44.616Z
 description: "오버피팅이 뭐야?"
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Overfitting-Underfitting"
 velogSeries: ["Classical machine learning"]
 ---

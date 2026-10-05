@@ -2,7 +2,7 @@
 title: "Merge 레전드 설명"
 pubDatetime: 2024-01-24T14:18:32.382Z
 description: "merge종류"
-category: "깃허브"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Merge-레전드-설명"
 velogSeries: ["깃허브"]
 ---

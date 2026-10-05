@@ -2,7 +2,7 @@
 title: "C++ vector 요소 algrithm 라이브러리 없이 삭제하는 알고리즘"
 pubDatetime: 2024-03-14T05:41:56.565Z
 description: "백터요소를 알고리즘 없이 해결시치하는 neis한 코드"
-category: "GOAT 알고리즘 (c++, python...)"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/C-vector-요소-algrithm-라이브러리-없이-삭제하는-알고리즘"
 velogSeries: ["GOAT 알고리즘 (c++, python...)"]
 ---

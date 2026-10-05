@@ -1,5 +1,9 @@
 import type { CollectionEntry } from "astro:content";
-import { getCategorySlug, PUBLIC_CATEGORIES } from "./categories";
+import {
+  getCategorySlug,
+  getImportedCategory,
+  PUBLIC_CATEGORIES,
+} from "./categories";
 import { postFilter } from "./postFilter";
 
 export type CategorySummary = {
@@ -18,11 +22,16 @@ export function getUniqueCategories(
     category: getCategorySlug(category.name),
     categoryName: category.name,
     description: category.description,
-    count: visiblePosts.filter(post => post.data.category === category.name)
-      .length,
+    count: visiblePosts.filter(
+      post =>
+        post.data.category === category.name ||
+        post.data.velogSeries?.some(
+          series => getImportedCategory(series) === category.name
+        )
+    ).length,
   }));
-  const known = new Set<string>(base.map(category => category.categoryName));
-  const dynamic = [
+  return base;
+  /* const dynamic = [
     ...new Set(
       visiblePosts.flatMap(post =>
         post.data.velogSeries?.length
@@ -42,5 +51,5 @@ export function getUniqueCategories(
           post.data.velogSeries?.includes(name) || post.data.category === name
       ).length,
     }));
-  return [...base, ...dynamic];
+  return [...base, ...dynamic]; */
 }

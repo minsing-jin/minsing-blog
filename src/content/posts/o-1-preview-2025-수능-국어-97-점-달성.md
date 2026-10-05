@@ -2,7 +2,7 @@
 title: "o1-preview 2025 수능 국어 97점 달성"
 pubDatetime: 2024-11-17T06:17:51.589Z
 description: "인간시대의 끝이 도래했다"
-category: "Playground"
+category: "Build Log"
 canonicalURL: "https://velog.io/@minsing-jin/o1-preview-2025-수능-국어-97점-달성"
 velogSeries: ["Playground"]
 ---

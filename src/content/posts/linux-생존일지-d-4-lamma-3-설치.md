@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-4 (ollama  설치후 local LLM 실행시켜보기)"
 pubDatetime: 2024-05-24T16:59:34.079Z
 description: "Local llm lets go"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-4-lamma3-설치"
 velogSeries: ["linux 생존일지"]
 ---

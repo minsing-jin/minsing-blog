@@ -2,7 +2,7 @@
 title: "pandas dataframe 중복 값 기준으로 row 값들merge하는법"
 pubDatetime: 2023-11-30T13:36:01.666Z
 description: "판다스는 유용하다. 유용한 도구를 쓰려면 다양한 상황에서 판다스를 시전해야하는 상황을 접해야할듯 하다. 고오오오맙다 groupby 메서드 시치와 agg시치야~"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/pandas-dataframe-중복-값-기준으로-row-값들merge하는법"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

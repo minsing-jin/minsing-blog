@@ -2,7 +2,7 @@
 title: "Supervised Learning(Classification)"
 pubDatetime: 2022-10-10T10:35:44.073Z
 description: "Classification을 알아봅시다"
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Supervised-LearningClassification"
 velogSeries: ["Classical machine learning"]
 ---

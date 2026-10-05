@@ -2,7 +2,7 @@
 title: "얇은 복사 copy() , 깊은 복사 deepcopy()"
 pubDatetime: 2023-10-17T06:12:18.404Z
 description: "분신술!"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/얇은-복사-copy-깊은-복사-deepcopy"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

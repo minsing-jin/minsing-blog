@@ -2,7 +2,7 @@
 title: "unittest로 놀아보기"
 pubDatetime: 2024-05-23T14:37:04.528Z
 description: "TDD 렛츠고"
-category: "소프트웨어 설계"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/unittest로-놀아보기"
 velogSeries: ["소프트웨어 설계"]
 ---

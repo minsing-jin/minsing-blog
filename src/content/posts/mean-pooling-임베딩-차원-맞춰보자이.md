@@ -2,7 +2,7 @@
 title: "Mean pooling - 임베딩 차원 맞춰보자이"
 pubDatetime: 2025-05-10T14:33:50.208Z
 description: "\\n문제\\nLyrics와 quantized f0된 melody를 FFT encoding을 하면 [batch size, hidden channel, time(seq_len)-> 시퀀스 Length]가 나온다.\\nsequence length가 다를 수도 있지 않누??\\n\\n해결\\nm"
-category: "ML"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/Mean-pooling-임베딩-차원-맞춰보자이"
 velogSeries: ["ML"]
 ---

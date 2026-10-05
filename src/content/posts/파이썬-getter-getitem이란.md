@@ -2,7 +2,7 @@
 title: "파이썬 getter -> __getitem__이란?"
 pubDatetime: 2025-05-05T07:19:35.178Z
 description: "\\n\\ngetitem은 파이썬에서 객체가 인덱싱(obj[key]) 또는 슬라이싱(obj[start:stop])될 때 호출되는 메서드입니다. 이 메서드를 클래스 안에 정의하면, 해당 클래스의 인스턴스를 리스트나 딕셔너리처럼 사용할 수 있습니다.\\n\\n📌 기본 사용법\\n\\n🎯 주요 특징\\n\\nobj[key]가 호출되면 obj.getitem(key)가 자동으로 호출됩니다...."
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/파이썬-getter-getitem이란"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

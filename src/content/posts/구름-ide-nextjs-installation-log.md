@@ -2,7 +2,7 @@
 title: "구름 ide nextjs installation log"
 pubDatetime: 2022-12-30T14:53:50.597Z
 description: "next js 설치"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/구름-ide-nextjs-installation-log"
 velogSeries: ["web_study"]
 ---

@@ -2,7 +2,7 @@
 title: "Zip함수, Variable argument(*/가변인자), keyword argument(**/키워드인자) 악당녀석들"
 pubDatetime: 2022-10-03T07:39:32.437Z
 description: "*이 도대체 뭐야~~~~~"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Zip함수-Variable-argument가변인자-keyword-argument키워드인자-악당녀석들"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

@@ -2,7 +2,7 @@
 title: "Async에서 결과가 순서대로 안나옴"
 pubDatetime: 2024-09-11T04:30:52.714Z
 description: "비동기 처리의 결과가 뒤죽박죽 나오는것임!!"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Async에서-결과가-순서대로-안나옴"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

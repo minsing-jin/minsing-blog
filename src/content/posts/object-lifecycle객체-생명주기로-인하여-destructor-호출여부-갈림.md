@@ -2,7 +2,7 @@
 title: "object lifecycle(객체 생명주기로 인하여 destructor 호출여부 갈림)"
 pubDatetime: 2024-05-20T16:25:50.025Z
 description: "destructor가 호출될때와 안될때(keyword: 오브젝트 라이프 사이클)"
-category: "GOAT 알고리즘 (c++, python...)"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/object-lifecycle객체-생명주기로-인하여-destructor-호출여부-갈림"
 velogSeries: ["GOAT 알고리즘 (c++, python...)"]
 ---

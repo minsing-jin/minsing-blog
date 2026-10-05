@@ -2,7 +2,7 @@
 title: "enumerate()가 뭐야?"
 pubDatetime: 2022-11-26T14:19:08.845Z
 description: "리스트에서 인덱스랑 element들을 한꺼번에 뽑고 싶다?"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/enumerate가-뭐야"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

@@ -2,7 +2,7 @@
 title: "Mac vsc 개발환경 설치하기"
 pubDatetime: 2024-02-18T08:28:46.089Z
 description: "개발환경은 언제나 억까다."
-category: "MAC과 Vsc 화해시키기"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Mac-vsc-개발환경-설치하기"
 velogSeries: ["MAC과 Vsc 화해시키기"]
 ---

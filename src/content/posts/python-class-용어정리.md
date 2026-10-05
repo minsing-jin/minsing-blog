@@ -2,7 +2,7 @@
 title: "Python Class 용어정리"
 pubDatetime: 2022-11-23T14:18:10.671Z
 description: "class 악당 용어들"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Python-Class-용어정리"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

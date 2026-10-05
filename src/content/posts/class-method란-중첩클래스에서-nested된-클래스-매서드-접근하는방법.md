@@ -2,7 +2,7 @@
 title: "class method란? 중첩클래스에서 nested된 클래스 매서드 접근하는방법?"
 pubDatetime: 2024-11-28T12:44:21.470Z
 description: "중첩된 클래스(nested class)에서 메서드를 사용할 때 인스턴스 메서드가 아닌 클래스 메서드를 사용하는 이유는 중첩 클래스와 외부 클래스 간의 관계와 인스턴스 메서드와 클래스 메서드의 동작 방식의 차이점에서 비롯됩니다.중첩 클래스(nested class)는 외부"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/class-method란-중첩클래스에서-nested된-클래스-매서드-접근하는방법"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

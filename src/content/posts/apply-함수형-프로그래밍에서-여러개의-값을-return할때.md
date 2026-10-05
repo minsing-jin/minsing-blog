@@ -2,7 +2,7 @@
 title: "apply 함수형 프로그래밍에서 여러개의 값을 return할때"
 pubDatetime: 2023-11-17T07:13:57.495Z
 description: "apply함수형 프로그래밍에서 apply parameter에 들어가는 함수가 여러개 값을 return하면? -> zip으로 만들어서 언패킹하자!"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/apply-함수형-프로그래밍에서-여러개의-값을-return할때"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

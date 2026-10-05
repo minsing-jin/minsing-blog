@@ -2,7 +2,7 @@
 title: "문제에서 A와 B가 종속적이라는 정보만 있고, 교집합 확률이나 조건부 확률이 주어지지 않았다면"
 pubDatetime: 2025-01-30T07:06:42.013Z
 description: "LLM시대이전 내가 고등학교에서 의문을 품었지만 질문을 구체화하지 못해서 미궁으로 빠졌었다. 문제에서 교집합 확률이나 조건부확률을 주지 않았고, 문제에서 A와 B가 종속적이라는 정보만 있고 조건부 확률도 직접 주어지지 않았다면 어떻게 해야하지?"
-category: "Background Knowledge"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/문제에서-A와-B가-종속적이라는-정보만-있고-교집합-확률이나-조건부-확률이-주어지지-않았다면"
 velogSeries: ["Background Knowledge"]
 ---

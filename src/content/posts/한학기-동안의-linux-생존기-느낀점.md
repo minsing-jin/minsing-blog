@@ -2,7 +2,7 @@
 title: "한학기 동안의 linux 생존기 느낀점"
 pubDatetime: 2024-05-28T14:48:35.546Z
 description: "리눅스 토발즈"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/한학기-동안의-linux-생존기-느낀점"
 velogSeries: ["linux 생존일지"]
 ---

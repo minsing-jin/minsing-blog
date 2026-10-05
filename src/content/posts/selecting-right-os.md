@@ -2,7 +2,7 @@
 title: "Selecting right OS"
 pubDatetime: 2024-04-13T12:25:24.670Z
 description: "머신러닝은 우분투가 GOAT에유:"
-category: "About Minsing"
+category: "Founder Notes"
 canonicalURL: "https://velog.io/@minsing-jin/Selecting-right-OS"
 velogSeries: ["About Minsing"]
 ---

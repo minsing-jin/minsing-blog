@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-7 (Slack 설치)"
 pubDatetime: 2024-05-24T17:09:45.503Z
 description: "slack 설치"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-7-ChatGPT-설치"
 velogSeries: ["linux 생존일지"]
 ---

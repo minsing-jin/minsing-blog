@@ -2,7 +2,7 @@
 title: "Merge하는법"
 pubDatetime: 2023-06-10T14:39:36.295Z
 description: "퓨우우전~~"
-category: "깃허브"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Merge하는법"
 velogSeries: ["깃허브"]
 ---

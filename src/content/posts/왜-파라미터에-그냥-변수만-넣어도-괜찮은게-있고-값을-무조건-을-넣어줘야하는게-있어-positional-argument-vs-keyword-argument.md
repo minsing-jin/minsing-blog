@@ -2,7 +2,7 @@
 title: "왜 파라미터에 그냥 변수만 넣어도 괜찮은게 있고, 값을 무조건 =을 넣어줘야하는게 있어? (Positional argument vs Keyword argument)"
 pubDatetime: 2023-10-24T10:50:30.089Z
 description: "왜 값을 넣어줘야하는 파라미터가 있고, 안넣어도 되는 파라미터가 있지?"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/왜-파라미터에-그냥-변수만-넣어도-괜찮은게-있고-값을-무조건-을-넣어줘야하는게-있어-Positional-argument-vs-Keyword-argument"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

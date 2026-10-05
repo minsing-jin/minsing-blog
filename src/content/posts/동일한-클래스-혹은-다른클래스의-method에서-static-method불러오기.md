@@ -2,7 +2,7 @@
 title: "동일한 클래스 혹은 다른클래스의 method에서 static method불러오기"
 pubDatetime: 2023-12-01T13:35:03.988Z
 description: "static method의 class명.매서드명을 쓰면 된다."
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/동일한-클래스-혹은-다른클래스의-method에서-static-method불러오기"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

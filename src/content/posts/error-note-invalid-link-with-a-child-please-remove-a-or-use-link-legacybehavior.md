@@ -2,7 +2,7 @@
 title: "Error note: Invalid <Link> with <a> child. Please remove <a> or use <Link legacyBehavior\\n"
 pubDatetime: 2023-01-07T11:07:26.657Z
 description: "태그 <link>오류"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Error-note-Invalid-Link-with-a-child.-Please-remove-a-or-use-Link-legacyBehavior"
 velogSeries: ["web_study"]
 ---

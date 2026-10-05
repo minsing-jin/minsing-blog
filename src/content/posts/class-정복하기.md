@@ -2,7 +2,7 @@
 title: "Class 정복하기"
 pubDatetime: 2023-10-06T16:31:29.399Z
 description: "Fucking 객체지향을 깨달아보자"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Class-정복하기"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

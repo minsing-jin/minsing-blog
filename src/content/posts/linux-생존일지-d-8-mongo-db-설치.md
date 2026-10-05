@@ -2,7 +2,7 @@
 title: "linux 생존일지 D-8 (MongoDB 설치)"
 pubDatetime: 2024-05-24T17:10:23.912Z
 description: "RAG 오픈소스 프로젝트에 참여했을 당시 RAG를 위해서 사용했던 DB가 MongoDB였다. DB 연결은 나의 task가 아니어서 할수 있는 기회는 없었지만 리눅스로 한학기 살아보기에서 직접 리눅스에 설치하여 사용해보면서 재미있는 프로젝트 아이디어가 생기면 바로 사용해"
-category: "linux 생존일지"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/linux-생존일지-D-8-MongoDB-설치"
 velogSeries: ["linux 생존일지"]
 ---

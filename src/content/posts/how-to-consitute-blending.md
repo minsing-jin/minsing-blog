@@ -2,7 +2,7 @@
 title: "Blending"
 pubDatetime: 2022-11-06T14:50:59.664Z
 description: "맛있는 커피 블랜딩 넷플릭스 예측대회 1등 알고리즘이라는데??"
-category: "Founder Notes"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/How-to-consitute-Blending"
 velogSeries: ["Classical machine learning"]
 ---

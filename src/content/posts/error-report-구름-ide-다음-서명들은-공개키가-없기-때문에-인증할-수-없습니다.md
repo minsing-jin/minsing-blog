@@ -2,7 +2,7 @@
 title: "Error report: 구름 ide 다음 서명들은 공개키가 없기 때문에 인증할 수 없습니다"
 pubDatetime: 2023-02-18T14:34:05.968Z
 description: "fucking error"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Error-report-구름-ide-다음-서명들은-공개키가-없기-때문에-인증할-수-없습니다"
 velogSeries: ["web_study"]
 ---

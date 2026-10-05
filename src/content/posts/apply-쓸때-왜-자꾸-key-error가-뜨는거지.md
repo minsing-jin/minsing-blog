@@ -2,7 +2,7 @@
 title: "apply 쓸때 왜 자꾸 key error가 뜨는거지?"
 pubDatetime: 2023-12-30T18:10:02.460Z
 description: "axis설정하세유"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/apply-쓸때-왜-자꾸-key-error가-뜨는거지"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

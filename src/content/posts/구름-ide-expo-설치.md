@@ -2,7 +2,7 @@
 title: "구름 ide expo 설치"
 pubDatetime: 2022-12-24T10:56:57.322Z
 description: "리눅스 에러 꺼...꺼져! (expo설치 안되는분 컴온컴온~)"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/구름-ide-expo-설치"
 velogSeries: ["web_study"]
 ---

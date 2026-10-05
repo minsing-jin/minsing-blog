@@ -2,7 +2,7 @@
 title: "비전공자들을 위한 이해할 수 있는 IT 지식"
 pubDatetime: 2022-10-22T07:55:03.733Z
 description: "난 몰라유 그딴거 나는 잘 몰라유"
-category: "악당 개념패거리들 정리"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/비전공자들을-위한-이해할-수-있는-IT-지식"
 velogSeries: ["악당 개념패거리들 정리"]
 ---

@@ -2,7 +2,7 @@
 title: "Error report: 오타를 조심하자"
 pubDatetime: 2023-02-05T13:47:21.315Z
 description: "역시 스택오버플로우의 갓 행님들!!"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Error-report-오타를-조심하자"
 velogSeries: ["web_study"]
 ---

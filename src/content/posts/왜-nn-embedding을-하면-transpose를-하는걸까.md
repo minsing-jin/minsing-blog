@@ -2,7 +2,7 @@
 title: "왜 nn.Embedding을 하면 transpose를 하는걸까?"
 pubDatetime: 2025-05-12T11:34:32.990Z
 description: "lyrics encoder과 melodyU encoder를 Summation한 뒤의 shape는 (1, 192, 1) - (b, h, time(seq_len))이다. 요녀석들은 enhanced condition encoder에서 다시 FFT 연산을 하는데 동일하게 nn"
-category: "ML"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/왜-nn.Embedding을-하면-transpose를-하는걸까"
 velogSeries: ["ML"]
 ---

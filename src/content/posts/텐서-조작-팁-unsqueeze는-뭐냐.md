@@ -2,7 +2,7 @@
 title: "텐서 조작 팁 - unsqueeze는 뭐냐?"
 pubDatetime: 2025-05-12T11:54:15.892Z
 description: "unsqueeze는 PyTorch에서 텐서에 새로운 차원(길이 1인 축)을 추가하는 함수입니다.예를 들어,  quantized_f0의 shape이 (1703,)라면,  quantized_f0.unsq"
-category: "ML"
+category: "Data & ML"
 canonicalURL: "https://velog.io/@minsing-jin/텐서-조작-팁-unsqueeze는-뭐냐"
 velogSeries: ["ML"]
 ---

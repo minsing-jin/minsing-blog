@@ -2,7 +2,7 @@
 title: "Pandas: How to Drop Rows that Contain a Specific Value without drop() method and for loop?"
 pubDatetime: 2023-11-23T13:16:42.950Z
 description: "알고리즘 안짜게 해줘서 고오오맙다 판다스시치야~ drop() 더 비트~"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Pandas-How-to-Drop-Rows-that-Contain-a-Specific-Value"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

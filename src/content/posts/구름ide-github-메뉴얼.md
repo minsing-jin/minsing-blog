@@ -2,7 +2,7 @@
 title: "구름ide github 메뉴얼"
 pubDatetime: 2023-06-09T13:53:35.392Z
 description: "깃허브 사용방법을 몰라서 태초마을로 간것에 대하여...."
-category: "깃허브"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/구름ide-github-메뉴얼"
 velogSeries: ["깃허브"]
 ---

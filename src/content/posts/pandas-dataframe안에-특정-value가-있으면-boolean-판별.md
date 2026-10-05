@@ -2,7 +2,7 @@
 title: "pandas dataframe안에 특정 value가 있으면 boolean 판별"
 pubDatetime: 2023-11-30T15:42:23.152Z
 description: "판다스 데이터프레임에 특정 값이 있는지 true false로 확인해보자~"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/pandas-dataframe안에-특정-value가-있으면-boolean-판별"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

@@ -2,7 +2,7 @@
 title: "Error report:구름 ide next js에 tailwind css 적용 안됨 issue 해결"
 pubDatetime: 2023-01-01T04:39:19.122Z
 description: "5일간의 삽질"
-category: "web_study"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/구름-ide-next-js에-tailwind-css-적용-안됨-issue-해결"
 velogSeries: ["web_study"]
 ---

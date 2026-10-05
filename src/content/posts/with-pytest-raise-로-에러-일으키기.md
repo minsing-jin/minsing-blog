@@ -2,7 +2,7 @@
 title: "with pytest.raise() 로 에러 일으키기"
 pubDatetime: 2023-11-23T06:13:16.367Z
 description: "대답해 자비스!!"
-category: "고오급 스킬들 공략집"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/with-pytest.raise-로-에러-일으키기"
 velogSeries: ["고오급 스킬들 공략집"]
 ---

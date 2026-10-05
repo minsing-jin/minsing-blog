@@ -2,7 +2,7 @@
 title: "Branch rule 보호하는 법 레전드 설명"
 pubDatetime: 2024-01-24T14:22:18.307Z
 description: "\\b레전드 설명"
-category: "깃허브"
+category: "Programming & CS"
 canonicalURL: "https://velog.io/@minsing-jin/Branch-rule-보호하는-법-레전드-설명"
 velogSeries: ["깃허브"]
 ---

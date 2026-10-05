@@ -2,7 +2,7 @@
 title: "o1-preview Achieves 97 Points on the 2025 Korean CSAT Language Section!"
 pubDatetime: 2024-11-18T06:34:45.900Z
 description: "csat eng.ver"
-category: "영어홍보글"
+category: "Founder Notes"
 canonicalURL: "https://velog.io/@minsing-jin/o1-preview-Achieves-97-Points-on-the-2025-Korean-CSAT-Language-Section"
 velogSeries: ["영어홍보글"]
 ---
