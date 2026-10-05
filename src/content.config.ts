@@ -2,7 +2,7 @@ import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 import config from "@/config";
-import { DEFAULT_CATEGORY, PUBLIC_CATEGORY_NAMES } from "@/utils/categories";
+import { DEFAULT_CATEGORY } from "@/utils/categories";
 
 export const BLOG_PATH = "src/content/posts";
 
@@ -16,7 +16,8 @@ const posts = defineCollection({
       title: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
-      category: z.enum(PUBLIC_CATEGORY_NAMES).default(DEFAULT_CATEGORY),
+      category: z.string().default(DEFAULT_CATEGORY),
+      velogSeries: z.array(z.string()).optional(),
       language: z.enum(["ko", "en"]).default("ko"),
       translationOf: z.string().optional(),
       translationStatus: z

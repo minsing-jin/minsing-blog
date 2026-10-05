@@ -319,6 +319,7 @@ function renderPost({ sourceDir, sourcePath, sourceStat, parsed, frontmatter }) 
     "summary",
     "concepts",
     "related",
+    "velogSeries",
     "language",
     "translationOf",
     "translationStatus",
@@ -394,9 +395,8 @@ function parseTags(block) {
 }
 
 function inferCategory({ frontmatter, sourceDir, sourcePath, tags }) {
-  const directCategory = normalizePublicCategory(
-    getStringValue(frontmatter.category?.value)
-  );
+  const rawCategory = getStringValue(frontmatter.category?.value);
+  const directCategory = normalizePublicCategory(rawCategory) || rawCategory;
   if (directCategory) return directCategory;
 
   const relativeDir = path.relative(sourceDir, path.dirname(sourcePath));

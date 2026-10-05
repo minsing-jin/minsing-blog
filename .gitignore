@@ -30,6 +30,9 @@ public/pagefind
 # pnpm
 .pnpm-store
 
+# Velog import response cache
+.velog-import-cache/
+
 # docker compose
 compose.override.yaml
 

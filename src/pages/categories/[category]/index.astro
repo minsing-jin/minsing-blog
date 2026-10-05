@@ -25,7 +25,11 @@ export const getStaticPaths = (async () => {
       categoryDescription: category.description,
       categoryName: category.categoryName,
       posts: getSortedPosts(
-        posts.filter(post => post.data.category === category.categoryName)
+        posts.filter(
+          post =>
+            post.data.category === category.categoryName ||
+            post.data.velogSeries?.includes(category.categoryName)
+        )
       ),
     },
   }));
