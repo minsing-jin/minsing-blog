@@ -1,0 +1,44 @@
+---
+const repo = import.meta.env.PUBLIC_GISCUS_REPO ?? "minsing-jin/minsing-blog";
+const repoId = import.meta.env.PUBLIC_GISCUS_REPO_ID ?? "R_kgDOSxI_9g";
+const category = import.meta.env.PUBLIC_GISCUS_CATEGORY ?? "Q&A";
+const categoryId =
+  import.meta.env.PUBLIC_GISCUS_CATEGORY_ID ?? "DIC_kwDOSxI_9s4DHfhn";
+const enabled = import.meta.env.PUBLIC_GISCUS_ENABLED !== "false";
+const lang = Astro.currentLocale === "en" ? "en" : "ko";
+---
+
+{enabled && (
+  <section class="mt-12" aria-labelledby="comments-title">
+    <h2 id="comments-title" class="text-accent mb-4 text-xl font-bold">
+      {lang === "ko" ? "댓글" : "Comments"}
+    </h2>
+    <p class="text-muted-foreground mb-5 text-sm">
+      {lang === "ko"
+        ? "GitHub 계정으로 로그인해 댓글을 남길 수 있습니다."
+        : "Sign in with GitHub to leave a comment."}
+    </p>
+    <div class="giscus" data-testid="giscus-comments"></div>
+  </section>
+)}
+
+{enabled && (
+  <script
+    is:inline
+    data-astro-rerun
+    data-repo={repo}
+    data-repo-id={repoId}
+    data-category={category}
+    data-category-id={categoryId}
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang={lang}
+    data-loading="lazy"
+    crossorigin="anonymous"
+    src="https://giscus.app/client.js"
+  ></script>
+)}

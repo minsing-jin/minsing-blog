@@ -6,25 +6,26 @@
 
 ## 1. 게시 폴더 정하기
 
-기본 게시 폴더는 이 저장소 안의 `obsidian-publish/`입니다. macOS가
-`Documents` 폴더 접근을 막을 수 있으므로, 이 폴더를 Obsidian에서 별도 vault로
-열어 쓰는 방식을 권장합니다.
-
-예시:
+게시 원본은 기존 Obsidian vault 안의 이 폴더로 고정합니다.
 
 ```text
-minsing-blog/
-  obsidian-publish/
-    첫 글.md
+/Users/jinminseong/Documents/Obsidian Vault/SecondBrain/Blog/
+```
+
+`SecondBrain` 전체가 아니라 `Blog` 폴더만 읽습니다. `Blog` 밖의 노트, 첨부,
+설정 파일은 동기화 대상이 아닙니다. 폴더가 없으면 다음 명령으로 만드세요.
+
+```sh
+mkdir -p "/Users/jinminseong/Documents/Obsidian Vault/SecondBrain/Blog"
 ```
 
 ## 2. `.env`에 경로 연결
 
-`.env.example`을 참고해 `.env`에 실제 경로를 넣습니다. 기본값은 이미 로컬
-publish inbox를 가리킵니다.
+`.env.example`을 참고해 `.env`에 실제 경로를 넣습니다. 현재 로컬 `.env`는
+이미 아래 `Blog` 폴더를 가리킵니다.
 
 ```sh
-OBSIDIAN_POSTS_DIR=obsidian-publish
+OBSIDIAN_POSTS_DIR="/Users/jinminseong/Documents/Obsidian Vault/SecondBrain/Blog"
 ```
 
 ## 3. Obsidian 노트 frontmatter
@@ -58,8 +59,7 @@ status: "evergreen"
 - `title`: 없으면 파일명을 제목으로 씁니다.
 - `pubDatetime`: 없으면 파일 수정 시간을 사용합니다.
 - `description`: 없으면 본문 첫 문단에서 자동 생성합니다.
-- `category`: 공개 블로그의 큰 클러스터입니다. 허용값은 `AI & Agents`,
-  `Build Log`, `Open Source`, `Founder Notes`입니다.
+- `category`: 공개 블로그의 큰 클러스터입니다. 허용값은 아래 6개입니다.
 - `summary`: 글 상세의 `LLM wiki` 블록과 `/llms.txt`에 노출됩니다.
 - `concepts`: 글이 다루는 핵심 개념 목록입니다.
 - `related`: 연결할 글의 slug 또는 제목 목록입니다.
@@ -169,13 +169,15 @@ pnpm hermes:reject -- --file "글.md"
 
 ## 카테고리 규칙
 
-Obsidian 최상위 폴더는 내부 정리 구조이고, 공개 블로그에는 아래 4개 카테고리만
+Obsidian 최상위 폴더는 내부 정리 구조이고, 공개 블로그에는 아래 6개 카테고리만
 노출합니다.
 
 - `AI & Agents`
 - `Build Log`
 - `Open Source`
 - `Founder Notes`
+- `Data & ML`
+- `Programming & CS`
 
 Hermes는 Obsidian 최상위 폴더를 참고해 위 카테고리 중 하나로 매핑합니다. 애매한
 경우 Discord에서 확인한 뒤 승인합니다.

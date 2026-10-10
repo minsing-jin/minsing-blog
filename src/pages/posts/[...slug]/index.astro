@@ -19,6 +19,7 @@ import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import AdSlot from "@/components/AdSlot.astro";
 import NewsletterCta from "@/components/NewsletterCta.astro";
+import Comments from "@/components/Comments.astro";
 import config from "@/config";
 
 export async function getStaticPaths() {
@@ -228,6 +229,8 @@ const ogImage = ogImageUrl
     </ul>
 
     <ShareLinks />
+
+    <Comments />
 
     <hr class="my-8 border-dashed" />
 
