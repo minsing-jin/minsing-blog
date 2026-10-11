@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Main from "@/components/Main.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import { getKoreanPosts } from "@/utils/localizedPosts";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { getProgrammingSeries } from "@/utils/programmingSeries";
+import config from "@/config";
+
+export const getStaticPaths = (async () => {
+  const posts = getKoreanPosts(
+    await getCollection("posts", ({ data }) => !data.draft)
+  );
+  return getProgrammingSeries(posts).map(group => ({
+    params: { series: group.slug },
+    props: { name: group.name, posts: getSortedPosts(group.posts) },
+  }));
+}) satisfies GetStaticPaths;
+
+const { name, posts } = Astro.props;
+---
+
+<Layout title={`${name} | ${config.site.title}`}>
+  <Header />
+  <Main pageTitle={name} pageDesc={`Programming & CS · ${posts.length}개 글`}>
+    <a
+      class="text-accent mb-8 inline-block underline-offset-4 hover:underline"
+      href="/categories/programming-and-cs/">← Programming & CS</a
+    >
+    <ul>{posts.map(post => <Card {...post} />)}</ul>
+  </Main>
+  <Footer />
+</Layout>
