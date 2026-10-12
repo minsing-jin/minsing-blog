@@ -25,6 +25,7 @@ const pathWithoutTrailingSlash =
     : relativePath;
 
 const currentPath = stripLocale(pathWithoutTrailingSlash, locale);
+const languageSwitchPath = currentPath.replace(/^\//, "");
 
 const isActive = (path: string) => {
   const currentPathArray = currentPath.split("/").filter(p => p.trim());
@@ -122,7 +123,7 @@ const isActive = (path: string) => {
           class="col-span-2 flex items-center justify-center gap-2 text-sm sm:col-span-1"
         >
           <a
-            href={getRelativeLocaleUrl("ko", "")}
+            href={getRelativeLocaleUrl("ko", languageSwitchPath)}
             class:list={[
               "hover:text-accent px-1",
               { "text-accent font-semibold": locale === "ko" },
@@ -133,7 +134,7 @@ const isActive = (path: string) => {
           </a>
           <span class="text-muted-foreground" aria-hidden="true">/</span>
           <a
-            href="/en/"
+            href={getRelativeLocaleUrl("en", languageSwitchPath)}
             class:list={[
               "hover:text-accent px-1",
               { "text-accent font-semibold": locale === "en" },
