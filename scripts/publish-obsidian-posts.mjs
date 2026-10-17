@@ -35,6 +35,7 @@ if (args.dryRun) process.exit(0);
 
 const postChanges = gitOutput(["status", "--short", "--", outputPathspec]);
 const hasPostChanges = Boolean(postChanges);
+if (hasPostChanges) verifyInsightTranslations();
 if (!hasPostChanges && !args.deploy) {
   console.log("No Obsidian post changes to publish.");
   process.exit(0);
@@ -148,6 +149,34 @@ function gitOutput(commandArgs) {
     encoding: "utf8",
     env: process.env,
   }).trim();
+}
+
+function verifyInsightTranslations() {
+  const changed = gitOutput(["status", "--porcelain", "--untracked-files=all", "--", outputPathspec]);
+  for (const line of changed.split("\n")) {
+    if (!line) continue;
+    const relativePostPath = line.slice(3).replace(/^"|"$/g, "");
+    if (!/\.(md|mdx)$/i.test(relativePostPath)) continue;
+    const postPath = path.resolve(repoRoot, relativePostPath);
+    if (!postPath.startsWith(`${outputDir}${path.sep}`) || !existsSync(postPath)) continue;
+    if (path.relative(outputDir, postPath).startsWith(`en${path.sep}`)) continue;
+
+    const post = readFileSync(postPath, "utf8");
+    if (!/^category:\s*["']?깨달음 리스트["']?\s*$/m.test(post)) continue;
+    const translationPath = path.join(outputDir, "en", path.basename(postPath));
+    if (!existsSync(translationPath)) {
+      fail(`Insight post needs an approved English translation before publish: ${path.basename(postPath)}`);
+    }
+    const translation = readFileSync(translationPath, "utf8");
+    const slug = path.basename(postPath, path.extname(postPath));
+    if (
+      !/^language:\s*["']?en["']?\s*$/m.test(translation) ||
+      !translation.includes(`translationOf: "${slug}"`) ||
+      /^draft:\s*true\s*$/m.test(translation)
+    ) {
+      fail(`Insight translation is not approved or is not linked to ${slug}.`);
+    }
+  }
 }
 
 function loadDotEnv(envPath) {
