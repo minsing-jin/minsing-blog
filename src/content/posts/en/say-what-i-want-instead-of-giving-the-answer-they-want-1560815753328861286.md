@@ -4,7 +4,7 @@ pubDatetime: 2026-10-17T00:46:06.077Z
 description: "A reflection on repeating what I want instead of giving the answer someone else is trying to elicit, without treating persuasion as an obligation."
 category: "깨달음 리스트"
 tags: ["insight", "boundaries", "self-determination"]
-modDatetime: 2026-10-17T00:47:31.644Z
+modDatetime: 2026-10-17T01:14:49.852Z
 draft: false
 summary: "A reflection on repeating what I want instead of giving the answer someone else is trying to elicit, without treating persuasion as an obligation."
 concepts: ["action triggers", "self-expression", "repetition", "persuasion"]
