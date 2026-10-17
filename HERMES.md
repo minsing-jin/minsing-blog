@@ -1,5 +1,21 @@
 # Hermes / Discord 게시 승인 흐름
 
+## Linus 공개 채널 예외
+
+Discord `깨달음-리스트` (1558469787334484050)에서 소유자
+785076561141432330이 제공하는 새 깨달음 원고는 즉시 공개를 사전 승인한
+것으로 처리합니다. 명시적인 게시/수정 지시도 승인으로 인정하며 재확인을
+요구하지 않습니다. 아래 일반 승인 규칙보다 이 채널 예외가 우선합니다.
+질문, 상담, 미리보기 또는 "보완만" 요청은 게시하지 않습니다.
+
+Linus는 원문에 없는 경험을 만들지 않고 한국어를 보완하고 영어로 번역합니다.
+카테고리는 `깨달음 리스트`, 영문은 `language: en`과 원문 slug를 가리키는
+`translationOf`를 사용합니다. 품질 검사와 개인정보 검토는 생략하지 않습니다.
+게시 후 수정 지시는 기존 원본 파일을 수정하여 URL과 최초 게시일을 유지합니다.
+답장 대상이 모호하면 먼저 확인하고, 중복 글을 만들지 않습니다.
+실제 빌드/푸시/배포 및 공개 본문 확인 후에만 완료를 알립니다.
+이 예외는 개인 inbox, 회고 채널 또는 기존 비공개 노트에 적용하지 않습니다.
+
 게시 후보를 검토하거나 승인할 때 프로젝트 Skill
 `$hermes-quality-publisher`를 먼저 적용합니다. Skill은 광고를 본문과 분리하고,
 품질 검사를 통과한 글만 사용자 승인 후 배포하도록 강제합니다.
@@ -13,8 +29,9 @@ Obsidian 게시 파이프라인이 담당합니다.
 1. Discord에서 글 초안 작성 또는 Obsidian note 감지
 2. Hermes가 미리보기와 메타데이터를 Discord에 보여줌
 3. 사용자가 Discord에서 승인
-4. Hermes가 `publish: true`로 바꾸고 게시 파이프라인 실행
-5. 빌드, 커밋, 푸시, Cloudflare Pages 배포
+4. Hermes가 한국어·영문 원고 모두 `publish: true`, `draft: false`로 승인
+5. 두 언어의 품질 검사를 모두 통과한 뒤 `pnpm obsidian:publish:deploy`를 한 번만 실행
+6. 하나의 깨끗한 빌드, 커밋, 푸시, Cloudflare Pages 배포로 두 언어를 함께 공개
 
 ## Hermes가 호출할 명령
 
@@ -35,7 +52,7 @@ pnpm hermes:draft -- --title "글 제목" --body-file /path/to/body.md
 `status`를 자동으로 보강합니다.
 
 ```sh
-pnpm hermes:approve -- --file "글-제목.md" --deploy
+pnpm hermes:approve -- --file "글-제목.md"
 ```
 
 거절:
@@ -85,8 +102,9 @@ pnpm hermes:approve -- \
   --file "English/starting-a-public-journey.md" \
   --language en \
   --translation-of "start-public-journey" \
-  --translation-status approved \
-  --deploy
+  --translation-status approved
+
+pnpm obsidian:publish:deploy
 ```
 
 영문 승인본은 `src/content/posts/en/` 아래로 동기화되고 `/en/posts/...`에서
@@ -155,11 +173,11 @@ Obsidian 최상위 폴더는 내부 정리 구조입니다. Hermes는 그 폴더
 Hermes Discord bot 쪽에서는 slash command나 승인 버튼을 아래처럼 매핑하면 됩니다.
 
 - `/blog draft title body`: `pnpm hermes:draft -- --title ... --body ...`
-- `/blog approve file`: `pnpm hermes:approve -- --file ... --deploy`
+- `/blog approve file`: `pnpm hermes:approve -- --file ...` (deploy once after both languages pass)
 - `/blog reject file`: `pnpm hermes:reject -- --file ...`
-- `/blog publish title body`: `pnpm hermes:publish -- --title ... --body ... --deploy`
+- `/blog publish title body`: approve both language files, then run `pnpm obsidian:publish:deploy` once
 - `/blog translate file`: 영문 번역 초안 생성 후 사용자 승인 시
-  `pnpm hermes:approve -- --language en --translation-of ... --deploy`
+  `pnpm hermes:approve -- --language en --translation-of ...`
 
 배포까지 성공하면 Hermes가 Discord에 공개 URL을 회신하면 됩니다.
 
@@ -204,8 +222,10 @@ Obsidian source:
    - related 후보
    - 영어 버전이 필요한지 여부
    - 공개될지 여부
-3. 사용자가 승인하면 블로그 repo에서 아래 명령을 실행한다.
-   pnpm hermes:approve -- --file "<Obsidian 파일명 또는 상대경로>" --category "<공개 카테고리>" --summary "<요약>" --tags "<태그들>" --concepts "<개념들>" --related "<관련글들>" --deploy
+3. 사용자가 승인하면 한국어·영문 파일 각각에 아래 승인 명령을 실행한다. `--deploy`는 붙이지 않는다.
+   pnpm hermes:approve -- --file "<Obsidian 파일명 또는 상대경로>" --category "<공개 카테고리>" --summary "<요약>" --tags "<태그들>" --concepts "<개념들>" --related "<관련글들>"
+# 한·영 원고를 모두 승인한 뒤 한 번만 실행
+pnpm obsidian:publish:deploy
 4. 사용자가 거절하면 아래 명령을 실행한다.
    pnpm hermes:reject -- --file "<Obsidian 파일명 또는 상대경로>"
 5. 배포 성공 후 공개 URL을 Discord에 알려준다.
@@ -218,6 +238,6 @@ Obsidian source:
 - OBSIDIAN_POSTS_DIR 밖 파일은 만지지 않는다.
 - 비공개 일기, 계정, 키, 개인정보, 대화 로그는 게시 후보에서 제외하거나 경고한다.
 - 글이 너무 거칠면 바로 게시하지 말고 수정 제안을 먼저 한다.
-- 사용자가 "바로 올려"라고 해도 승인 확인 1회는 반드시 받는다.
-- 영어 버전은 /en/에서 UI가 영어로 보인다. 영문 본문이 필요하면 원문 게시와 별도 승인으로 영문 번역 초안을 제안하고, 승인 후 language: en으로 게시한다.
+- 깨달음 리스트 채널의 소유자 게시 요청은 HERMES 예외에 따라 승인으로 처리한다.
+- 한국어·영문 모두 품질 검사와 `publish: true`, `draft: false`를 확인한 뒤 단일 `pnpm obsidian:publish:deploy`로 배포한다. 언어별 `--deploy`는 사용하지 않는다.
 ```

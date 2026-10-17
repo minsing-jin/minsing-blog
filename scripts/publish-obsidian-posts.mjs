@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 import { execFileSync, spawnSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, rmSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -34,33 +34,49 @@ run("node", [
 if (args.dryRun) process.exit(0);
 
 const postChanges = gitOutput(["status", "--short", "--", outputPathspec]);
-if (!postChanges) {
+const hasPostChanges = Boolean(postChanges);
+if (!hasPostChanges && !args.deploy) {
   console.log("No Obsidian post changes to publish.");
   process.exit(0);
 }
 
-console.log(postChanges);
+if (hasPostChanges) {
+  console.log(postChanges);
+} else {
+  console.log("No Obsidian post changes; rebuilding and deploying the current published HEAD.");
+}
 
 if (!args.noBuild) {
+  // Astro's prerender workers can import stale hashed chunks from a prior build.
+  // Build from clean generated output so each publish is self-contained.
+  rmSync(path.join(repoRoot, "dist"), { force: true, recursive: true });
+  rmSync(path.join(repoRoot, ".astro"), { force: true, recursive: true });
   run("pnpm", ["build"]);
 }
 
-run("git", ["add", outputPathspec]);
+let committed = false;
+if (hasPostChanges) {
+  run("git", ["add", outputPathspec]);
 
-const staged = gitOutput(["diff", "--cached", "--name-only", "--", outputPathspec]);
-if (!staged) {
-  console.log("No staged Obsidian post changes after sync.");
-  process.exit(0);
+  const staged = gitOutput(["diff", "--cached", "--name-only", "--", outputPathspec]);
+  if (staged) {
+    run("git", ["commit", "-m", commitMessage, "--", outputPathspec]);
+    committed = true;
+  }
 }
 
-run("git", ["commit", "-m", commitMessage, "--", outputPathspec]);
-
-if (!args.noPush) {
+if (committed && !args.noPush) {
   run("git", ["push", "origin", "main"]);
 }
 
 if (args.deploy) {
   const head = gitOutput(["rev-parse", "HEAD"]);
+  // Wrangler uploads the static site only; Astro's internal prerender modules
+  // are build-time artifacts and can disappear during concurrent upload.
+  rmSync(path.join(repoRoot, "dist", ".prerender"), {
+    force: true,
+    recursive: true,
+  });
   run("npx", [
     "-p",
     "wrangler@latest",
