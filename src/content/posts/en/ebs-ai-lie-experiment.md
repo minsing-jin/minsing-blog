@@ -15,7 +15,7 @@ translationStatus: "approved"
 status: "published"
 ---
 
-> "If you don't live the way you think, you end up thinking the way you live."
+> If you don't live the way you think, you end up thinking the way you live.
 
 How can we tell when an AI is lying? Perhaps, instead of verifying AI, we already believe it.
 
