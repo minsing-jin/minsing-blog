@@ -1,0 +1,76 @@
+---
+import type { RelatedLink } from "@/utils/postMeta";
+
+type Props = {
+  locale: "ko" | "en";
+  summary?: string;
+  concepts: string[];
+  related: RelatedLink[];
+  status?: string;
+};
+
+const { locale, summary, concepts, related, status } = Astro.props;
+const labels =
+  locale === "en"
+    ? { summary: "Summary", concepts: "Concepts", related: "Related posts" }
+    : { summary: "요약", concepts: "개념", related: "연결된 글" };
+// "published" is the default state and carries no information for readers.
+const visibleStatus = status && status !== "published" ? status : undefined;
+const hasContent =
+  Boolean(summary) || concepts.length > 0 || related.length > 0 || visibleStatus;
+---
+
+{
+  hasContent && (
+    <aside
+      aria-label="LLM wiki"
+      class="border-border mt-12 border-t pt-6 text-sm"
+    >
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        <span class="text-accent text-xs font-semibold tracking-widest uppercase">
+          LLM wiki
+        </span>
+        {visibleStatus && (
+          <span class="border-border text-muted-foreground rounded-full border px-2.5 py-0.5 text-xs">
+            {visibleStatus}
+          </span>
+        )}
+      </div>
+      {summary && (
+        <section class="mb-5">
+          <h2 class="sr-only">{labels.summary}</h2>
+          <p class="text-foreground text-base leading-relaxed">{summary}</p>
+        </section>
+      )}
+      {related.length > 0 && (
+        <section class="mb-5">
+          <h2 class="text-foreground mb-2 font-semibold">{labels.related}</h2>
+          <ul class="space-y-1 sm:space-y-0.5">
+            {related.map(item => (
+              <li>
+                <a
+                  class="text-accent inline-flex min-h-11 items-center underline-offset-4 hover:underline sm:min-h-0 sm:py-1"
+                  href={item.href}
+                >
+                  → {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {concepts.length > 0 && (
+        <section>
+          <h2 class="text-foreground mb-2 font-semibold">{labels.concepts}</h2>
+          <ul class="flex flex-wrap gap-2">
+            {concepts.map(concept => (
+              <li class="bg-background text-muted-foreground rounded-full px-3 py-1">
+                {concept}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </aside>
+  )
+}

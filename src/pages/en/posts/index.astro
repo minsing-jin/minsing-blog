@@ -5,14 +5,9 @@ import Header from "@/components/Header.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
-import CategoryPill from "@/components/CategoryPill.astro";
-import { getPostUrl } from "@/utils/getPostPaths";
+import Card from "@/components/Card.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
-import {
-  getEnglishOrKoreanPosts,
-  getEnglishPostUrl,
-  isEnglishPost,
-} from "@/utils/localizedPosts";
+import { getEnglishOrKoreanPosts } from "@/utils/localizedPosts";
 import config from "@/config";
 
 const posts = getSortedPosts(
@@ -31,24 +26,7 @@ const posts = getSortedPosts(
     pageDesc="English editions of every public post."
   >
     <ul>
-      {
-        posts.map(post => (
-          <li class="my-6">
-            <CategoryPill category={post.data.category} size="sm" />
-            <a
-              href={
-                isEnglishPost(post)
-                  ? getEnglishPostUrl(post)
-                  : getPostUrl(post.id, post.filePath, "ko")
-              }
-              class="text-accent mt-2 inline-block text-lg font-medium underline-offset-4 hover:underline"
-            >
-              {post.data.title}
-            </a>
-            <p class="text-muted-foreground">{post.data.description}</p>
-          </li>
-        ))
-      }
+      {posts.map(post => <Card {...post} />)}
     </ul>
   </Main>
   <Footer />

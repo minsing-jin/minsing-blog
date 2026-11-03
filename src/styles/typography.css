@@ -43,8 +43,16 @@
       @apply border-border mx-auto border;
     }
 
+    figure {
+      @apply my-8;
+
+      img {
+        @apply my-0 rounded-md;
+      }
+    }
+
     figcaption {
-      @apply opacity-75;
+      @apply text-muted-foreground mt-2 text-center text-sm leading-relaxed;
     }
 
     table {

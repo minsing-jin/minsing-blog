@@ -39,9 +39,7 @@ export function resolveDefaultOgImagePath(
   }
 
   if (!existsInPublic(filename)) {
-    throw new Error(
-      `AstroPaper: missing public/${filename}. Add that file, or set site.ogImage to an existing file under public/, or enable features.dynamicOgImage to fall back to /og.png.`
-    );
+    return getAssetPath("og.png");
   }
 
   return getAssetPath(filename);

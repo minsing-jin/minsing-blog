@@ -21,6 +21,11 @@ export const PUBLIC_CATEGORIES = [
       "Startup thinking, learning loops, growth, and personal strategy.",
   },
   {
+    name: "깨달음 리스트",
+    description:
+      "Small insights, lived experience, and lessons worth carrying forward.",
+  },
+  {
     name: "Data & ML",
     description: "Machine learning, data work, and applied AI foundations.",
   },
@@ -36,6 +41,8 @@ export const PUBLIC_CATEGORY_NAMES = PUBLIC_CATEGORIES.map(
 ) as [string, ...string[]];
 
 export const DEFAULT_CATEGORY = "Founder Notes";
+
+export const INSIGHT_CATEGORY = "깨달음 리스트";
 
 export function getCategorySlug(category: string): string {
   return slugifyStr(category);

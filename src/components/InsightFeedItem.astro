@@ -1,0 +1,83 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { getEnglishPostUrl, isEnglishPost } from "@/utils/localizedPosts";
+import Datetime from "./Datetime.astro";
+
+type Props = { post: CollectionEntry<"posts">; locale?: string };
+const { post, locale = "ko" } = Astro.props;
+const english = locale === "en";
+const href = isEnglishPost(post)
+  ? getEnglishPostUrl(post)
+  : getPostUrl(post.id, post.filePath, "ko");
+const { Content } = await render(post);
+const plain = (post.body ?? "")
+  .replace(/```[\s\S]*?```/g, "")
+  .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+  .replace(/<[^>]*>/g, "")
+  .replace(/[#*_`>~]/g, "")
+  .replace(/\s+/g, " ")
+  .trim();
+const long = plain.length > 500;
+---
+
+<li class="insight-entry border-border border-b py-7 first:pt-2">
+  <div
+    class="text-muted-foreground mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm"
+  >
+    <Datetime {...post.data} />
+    <span>{isEnglishPost(post) ? "EN" : "KO"}</span>
+  </div>
+  <h2 class="mb-3 text-lg leading-snug font-semibold wrap-break-word">
+    <a href={href} class="hover:text-accent underline-offset-4 hover:underline"
+      >{post.data.title}</a
+    >
+  </h2>
+  {
+    long ? (
+      <details class="insight-expand">
+        <summary class="cursor-pointer list-none">
+          <span class="insight-preview block leading-relaxed wrap-break-word">
+            {plain.slice(0, 320)}…
+          </span>
+          <span class="insight-more text-accent mt-2 inline-block text-sm font-medium">
+            {english ? "Show more" : "더 보기"}
+          </span>
+          <span class="insight-less text-accent text-sm font-medium">
+            {english ? "Show less" : "접기"}
+          </span>
+        </summary>
+        <div class="app-prose mt-3 max-w-none wrap-break-word">
+          <Content />
+        </div>
+      </details>
+    ) : (
+      <div class="app-prose max-w-none wrap-break-word">
+        <Content />
+      </div>
+    )
+  }
+  <a
+    href={href}
+    class="text-muted-foreground hover:text-accent mt-4 inline-block text-sm underline-offset-4 hover:underline"
+  >
+    {english ? "Permalink & discussion" : "글 링크 · 댓글"}
+  </a>
+</li>
+
+<style>
+  .insight-expand > summary::-webkit-details-marker {
+    display: none;
+  }
+  .insight-less {
+    display: none;
+  }
+  .insight-expand[open] .insight-preview,
+  .insight-expand[open] .insight-more {
+    display: none;
+  }
+  .insight-expand[open] .insight-less {
+    display: inline;
+  }
+</style>

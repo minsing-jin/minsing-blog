@@ -21,7 +21,7 @@ export const GET: APIRoute = async () => {
     "",
     "- Obsidian notes are published only when frontmatter has publish: true.",
     "- Hermes/Discord approval should write or approve notes in obsidian-publish/ and then run the blog publish command.",
-    "- Public categories are AI & Agents, Build Log, Open Source, and Founder Notes.",
+    "- Public categories are AI & Agents, Build Log, Open Source, Founder Notes, and 깨달음 리스트.",
     "- LLM wiki fields are category, summary, concepts, related, and status.",
     "",
     "## Posts",

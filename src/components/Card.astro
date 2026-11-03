@@ -1,33 +1,42 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getPostUrl } from "@/utils/getPostPaths";
+import { getPostHref } from "@/utils/postMeta";
+import { INSIGHT_CATEGORY } from "@/utils/categories";
 import { toTransitionName } from "@/utils/toTransitionName";
 import Datetime from "./Datetime.astro";
 import CategoryPill from "./CategoryPill.astro";
+import InsightFeedItem from "./InsightFeedItem.astro";
 
 type Props = {
   variant?: "h2" | "h3";
 } & CollectionEntry<"posts">;
 
-const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+const { variant: Heading = "h2", data } = Astro.props;
 
 const { title, description, category, ...props } = data;
+const href = getPostHref(Astro.props);
 ---
 
-<li class="my-6">
-  <CategoryPill {category} size="sm" />
-  <a
-    href={getPostUrl(id, filePath, Astro.currentLocale)}
-    class:list={[
-      "text-accent inline-block text-lg font-medium",
-      "decoration-dashed underline-offset-4 hover:underline",
-      "focus-visible:no-underline focus-visible:underline-offset-0",
-    ]}
-  >
-    <Heading transition:name={toTransitionName(title)}>
-      {title}
-    </Heading>
-  </a>
-  <Datetime {...props} />
-  <p class="text-muted-foreground">{description}</p>
-</li>
+{
+  category === INSIGHT_CATEGORY ? (
+    <InsightFeedItem post={Astro.props} locale={Astro.currentLocale ?? "ko"} />
+  ) : (
+    <li class="border-border border-b py-6 last:border-b-0">
+      <CategoryPill {category} size="sm" />
+      <a
+        {href}
+        class:list={[
+          "text-accent mt-2 block text-lg leading-snug font-semibold wrap-break-word",
+          "decoration-dashed underline-offset-4 hover:underline",
+          "focus-visible:no-underline focus-visible:underline-offset-0",
+        ]}
+      >
+        <Heading transition:name={toTransitionName(title)}>{title}</Heading>
+      </a>
+      <Datetime {...props} class="mt-1.5" />
+      <p class="text-muted-foreground mt-2 line-clamp-3 leading-relaxed">
+        {description}
+      </p>
+    </li>
+  )
+}
