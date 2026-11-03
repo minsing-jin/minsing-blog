@@ -6,6 +6,7 @@ category: "AI & Agents"
 tags: ["AI", "교육", "LLM", "EBS", "NomaDamas", "오픈소스"]
 modDatetime: 2026-11-03T06:16:48.224Z
 draft: false
+ogImage: "https://jinminseong.com/images/posts/ebs-ai-lie-experiment/og.jpg"
 summary: "EBS 다큐프라임 〈생각의 멸종〉 실험에서 진실과 거짓을 섞어 말하는 수업용 AI 에이전트와 교사용 대시보드를 만들었다. 중학생들은 수업·과제·토론 내내 챗봇의 거짓 정보를 알아채지 못했고, 문제는 AI의 오답이 아니라 그럴듯한 답 앞에서 판단을 내려놓는 사람이었다."
 concepts: ["AI 리터러시", "환각", "검증", "교육용 에이전트", "판단 위임"]
 related: ["ai의-긴-답변을-읽다-보면-내-생각이-사라진다", "여러분은-ai-답변을-어떻게-신뢰하시나요"]

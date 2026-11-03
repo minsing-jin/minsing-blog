@@ -6,6 +6,7 @@ category: "AI & Agents"
 tags: ["AI", "Education", "LLM", "EBS", "NomaDamas", "Open Source"]
 modDatetime: 2026-11-03T06:16:48.383Z
 draft: false
+ogImage: "https://jinminseong.com/images/posts/ebs-ai-lie-experiment/og.jpg"
 summary: "For the EBS Docuprime 'Extinction of Thinking' experiment, I built a classroom AI agent that mixes truth with lies and a teacher dashboard. Middle school students never caught the false information; the issue was not AI's wrong answers but how easily people set aside judgment before plausible ones."
 concepts: ["AI literacy", "hallucination", "verification", "educational agents", "delegated judgment"]
 related: ["ai의-긴-답변을-읽다-보면-내-생각이-사라진다", "여러분은-ai-답변을-어떻게-신뢰하시나요"]
