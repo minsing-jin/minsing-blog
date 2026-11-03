@@ -19,7 +19,7 @@ status: "published"
 
 저는 이번에 EBS 다큐프라임 〈생각의 멸종〉에서 진행한 실험에 NomaDamas로 참여해, 실험 설계와 수업용 AI 에이전트 및 교사용 모니터링 대시보드를 개발했습니다.
 
-![EBS 다큐프라임 〈생각의 멸종〉 예고편 장면. 학생이 태블릿으로 'EBS with ChatGPT' 수업용 챗봇을 사용하고 있고, "나보다 더 똑똑한 AI가 말한 거면 무조건 맞겠지?"라는 자막이 보인다.](/images/posts/ebs-ai-lie-experiment/01-trailer-tablet.jpg)
+![EBS 다큐프라임 〈생각의 멸종〉 예고편 장면. 학생이 태블릿으로 'EBS with ChatGPT' 수업용 챗봇을 사용하고 있고, "나보다 더 똑똑한 AI가 말한 거면 무조건 맞겠지?"라는 자막이 보인다.](/images/posts/ebs-ai-lie-experiment/01-trailer-tablet.jpg "EBS 다큐프라임 〈생각의 멸종〉 예고편")
 
 이번 실험에서 가장 흥미로웠던 부분은 AI가 얼마나 그럴듯하게 거짓말을 할 수 있는지가 아니라, **배우는 학생들 입장에서 얼마나 쉽게 그 거짓말을 믿어버리는가**였습니다.
 
@@ -39,15 +39,15 @@ status: "published"
 
 저는 이를 실제 수업에서 활용할 수 있도록 거짓말 에이전트와 교사가 학생들의 대화 및 답변 과정을 모니터링할 수 있는 대시보드를 구현했습니다.
 
-![학생용 'EBS with ChatGPT' 화면. 도덕 수업에서 학생이 "칸트의 기준은 무엇이야?"라고 묻자 AI가 "칸트는 행위자의 동기보다 행동이 가져온 결과를 더 중요하게 보았다"라는 거짓 답변을 한다.](/images/posts/ebs-ai-lie-experiment/03-student-chat.jpg)
+![학생용 'EBS with ChatGPT' 화면. 도덕 수업에서 학생이 "칸트의 기준은 무엇이야?"라고 묻자 AI가 "칸트는 행위자의 동기보다 행동이 가져온 결과를 더 중요하게 보았다"라는 거짓 답변을 한다.](/images/posts/ebs-ai-lie-experiment/03-student-chat.jpg "학생용 화면: AI가 칸트에 대해 거짓 답변을 한다")
 
-![교사용 '실시간 교실 관찰' 대시보드. 학생 목록, 학생에게 보인 대화, 정답 기준과 거짓 주장 레벨을 나란히 보여주는 교사용 검수 영역으로 구성되어 있다.](/images/posts/ebs-ai-lie-experiment/04-teacher-dashboard.jpg)
+![교사용 '실시간 교실 관찰' 대시보드. 학생 목록, 학생에게 보인 대화, 정답 기준과 거짓 주장 레벨을 나란히 보여주는 교사용 검수 영역으로 구성되어 있다.](/images/posts/ebs-ai-lie-experiment/04-teacher-dashboard.jpg "교사용 실시간 교실 관찰 대시보드")
 
 ## 학생들은 알아채지 못했다
 
 그리고 실제 중학생을 대상으로 역사·도덕 수업에서 실험을 진행했습니다.
 
-![EBS 다큐프라임 〈생각의 멸종〉 예고편 장면. 교실 화면에 'EBS with ChatGPT' 첫 화면이 띄워져 있고 "어느 틈에 생긴"이라는 자막이 보인다.](/images/posts/ebs-ai-lie-experiment/02-trailer-classroom.jpg)
+![EBS 다큐프라임 〈생각의 멸종〉 예고편 장면. 교실 화면에 'EBS with ChatGPT' 첫 화면이 띄워져 있고 "어느 틈에 생긴"이라는 자막이 보인다.](/images/posts/ebs-ai-lie-experiment/02-trailer-classroom.jpg "실제 수업 화면 (EBS 〈생각의 멸종〉 예고편)")
 
 결과는 놀라웠습니다. **실험에 참여한 학생들은 수업을 듣고, 과제를 수행하고, 토론하는 과정에서도 챗봇이 전달한 거짓 정보를 알아채지 못했습니다.**
 

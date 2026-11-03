@@ -21,7 +21,7 @@ How can we tell when an AI is lying? Perhaps, instead of verifying AI, we alread
 
 With NomaDamas, I took part in an experiment for the EBS Docuprime documentary *Extinction of Thinking* (〈생각의 멸종〉). I designed the experiment and built the classroom AI agent and the teacher monitoring dashboard.
 
-![A scene from the EBS Docuprime 'Extinction of Thinking' trailer. A student uses the 'EBS with ChatGPT' classroom chatbot on a tablet, with the subtitle "If an AI smarter than me said it, it must be right, right?"](/images/posts/ebs-ai-lie-experiment/01-trailer-tablet.jpg)
+![A scene from the EBS Docuprime 'Extinction of Thinking' trailer. A student uses the 'EBS with ChatGPT' classroom chatbot on a tablet, with the subtitle "If an AI smarter than me said it, it must be right, right?"](/images/posts/ebs-ai-lie-experiment/01-trailer-tablet.jpg "EBS Docuprime 'Extinction of Thinking' trailer")
 
 The most interesting part of the experiment was not how convincingly an AI can lie, but **how easily students who are still learning end up believing those lies**.
 
@@ -41,15 +41,15 @@ Based on false information and examples prepared in advance by the teachers, I d
 
 To make this usable in a real classroom, I built the lying agent and a dashboard where teachers can monitor students' conversations and how they arrive at their answers.
 
-![The student-facing 'EBS with ChatGPT' screen. In an ethics class, a student asks "What is Kant's standard?" and the AI falsely answers that Kant valued the consequences of an action more than the agent's motive.](/images/posts/ebs-ai-lie-experiment/03-student-chat.jpg)
+![The student-facing 'EBS with ChatGPT' screen. In an ethics class, a student asks "What is Kant's standard?" and the AI falsely answers that Kant valued the consequences of an action more than the agent's motive.](/images/posts/ebs-ai-lie-experiment/03-student-chat.jpg "Student view: the AI gives a false answer about Kant")
 
-![The teacher's 'Live Classroom Observation' dashboard, showing the student list, the conversation the student saw, and a teacher review panel with the correct standard and the level of the false claim side by side.](/images/posts/ebs-ai-lie-experiment/04-teacher-dashboard.jpg)
+![The teacher's 'Live Classroom Observation' dashboard, showing the student list, the conversation the student saw, and a teacher review panel with the correct standard and the level of the false claim side by side.](/images/posts/ebs-ai-lie-experiment/04-teacher-dashboard.jpg "Teacher's live classroom observation dashboard")
 
 ## The Students Did Not Notice
 
 We then ran the experiment in history and ethics classes with real middle school students.
 
-![A scene from the EBS Docuprime 'Extinction of Thinking' trailer. The 'EBS with ChatGPT' start screen is displayed on a classroom screen.](/images/posts/ebs-ai-lie-experiment/02-trailer-classroom.jpg)
+![A scene from the EBS Docuprime 'Extinction of Thinking' trailer. The 'EBS with ChatGPT' start screen is displayed on a classroom screen.](/images/posts/ebs-ai-lie-experiment/02-trailer-classroom.jpg "The classroom screen (EBS 'Extinction of Thinking' trailer)")
 
 The results were striking. **Throughout the lesson, the assignment, and the discussion, the participating students did not notice the false information the chatbot gave them.**
 

@@ -244,7 +244,7 @@ method overriding을 통해 문짝은 어떻게 열리는지, 바퀴는 어떻�
 - 부모 클래스의 기능이름을 명시해주고(깡통에 뭘 붙어줘야할지 정도 알려줌), 자식 클래스에서는 부모클래스에서 상속받은 메서드를 가지고 이것저것 기능들을 붙여넣음. 자식 클래스의 성격에 맞춰서 알아서 맞춰줘야한다.
 
 **cf)**
-- Abstract class를 만들어서 사용. Abstract class는 빈깡통들만 모아둬서 인스턴스를 만들지 못한다. 때문에 Abstract class를 상속받은 자식 클래스만이 인스턴스를 만들수 있고, 자식클래스는 Abstract class의 Abstract method들의 성격들을 물려받아 기능들을 구현해야만 오류가 나지 않는다.
+- Abstract class를 만들어서 사용. Abstract class는 빈깡통들만 모아둬서 인스턴스를 만들지 못한다. 때문에 Abstract class를 상속받은 자식 클래스만이 인스턴스를 만들수 있고 자식클래스는 Abstract class의 Abstract method들의 성격들을 물려받아 기능들을 구현해야만 오류가 나지 않는다.
 
 **여기서 나올 수 있는 물음**
 - Abstract class안에는 Abstract method만이 들어갈 수 있는것인가?
@@ -421,14 +421,14 @@ TEST_DOCUMENT = test_doc.PYTHON_TEST_DOCUMENT()
 
 위에서 `PYTHON_TEST_DOCUMENT`의 파라미터가 없다로 에러가 뜬다.
 
-난 분명히 생성자에서 `PYTHON_TEST_DOCUMENT: Document = None`으로 미리 default value를 설정해 주었고, 
+난 분명히 생성자에서 `PYTHON_TEST_DOCUMENT: Document = None`으로 미리 default value를 설정해 주었고
 `self.PYTHON_TEST_DOCUMENT = PYTHON_TEST_DOCUMENT`로 인스턴스 변수화 시켜주었다.
 그리고 매서드에 `def PYTHON_TEST_DOCUMENT(self, PYTHON_TEST_DOCUMENT):`로 생성자에서 선언한 인스턴스 변수를 매서드 파라미터로 input을 했다고 생각했다.
 
 **해결**
 => 위의 매서드 `def PYTHON_TEST_DOCUMENT(self, PYTHON_TEST_DOCUMENT):` 의 `PYTHON_TEST_DOCUMENT`는 매서드 내의 local variable이므로 생성자의 `self.PYTHON_TEST_DOCUMENT`과는 이름은 같지만 아예 다른 녀석이다.
 
-따라서 `def PYTHON_TEST_DOCUMENT(self):` 로 고치고,
+따라서 `def PYTHON_TEST_DOCUMENT(self):` 로 고치고
 `if self.PYTHON_TEST_DOCUMENT is None:`로 생성자의 인스턴스 변수를 매서드에 이런식으로 불러오면 된다!
 
 

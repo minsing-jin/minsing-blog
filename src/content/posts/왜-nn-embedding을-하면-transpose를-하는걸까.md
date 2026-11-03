@@ -32,8 +32,8 @@ PyTorch의 `nn.Conv1d` 레이어는 입력 텐서의 shape이 **[batch, channels
 - 임베딩 후 텐서: `[batch, time, hidden]`  
 - Conv1d 기대 입력: `[batch, hidden, time]`
 
-따라서, **Conv1d에 입력하기 전에 `transpose` 또는 `permute`를 사용해 두 차원의 순서를 바꿔줘야 합니다**.  
-이렇게 해야만 Conv1d가 임베딩 차원을 채널로 인식하고, 시퀀스 길이를 커널이 따라가며 합성곱 연산을 올바르게 수행할 수 있습니다[6][8].
+따라서 **Conv1d에 입력하기 전에 `transpose` 또는 `permute`를 사용해 두 차원의 순서를 바꿔줘야 합니다**.  
+이렇게 해야만 Conv1d가 임베딩 차원을 채널로 인식하고 시퀀스 길이를 커널이 따라가며 합성곱 연산을 올바르게 수행할 수 있습니다[6][8].
 
 > "In pytorch your input shape of[6] should actually be[6] where the feature length is represented by the channel dimension and sequence length is the length dimension. Then you can define your conv1d with in/out channels of 768 and 100 respectively to get an output of[6].  
 > ... you can convert it to the correct shape with Tensor.transpose."[6]
@@ -41,7 +41,7 @@ PyTorch의 `nn.Conv1d` 레이어는 입력 텐서의 shape이 **[batch, channels
 즉,  
 - **transpose는 임베딩 결과([batch, seq_len, hidden])를 Conv1d가 기대하는 입력([batch, hidden, seq_len])으로 맞추기 위해 반드시 필요합니다.**
 
-이것이 바로 Conv1d 앞에서 transpose를 하는 이유입니다.
+그래서 Conv1d 앞에서 transpose를 합니다.
 
 Citations:
 [1] https://cumulu-s.tistory.com/29
@@ -112,7 +112,7 @@ Answer from Perplexity: pplx.ai/share
 ---
 
 **정리:**  
-임베딩 레이어는 입력이 `[batch, sequence_length]`일 때, 각 인덱스를 임베딩 벡터로 변환해 `[batch, sequence_length, embedding_dim]` 형태의 텐서를 반환합니다. 이 구조는 자연어 처리에서 각 문장(배치), 각 단어(시퀀스), 각 임베딩 벡터(임베딩 차원)로 구성되기 때문입니다[5][6][3].
+임베딩 레이어는 입력이 `[batch, sequence_length]`일 때, 각 인덱스를 임베딩 벡터로 변환해 `[batch, sequence_length, embedding_dim]` 형태의 텐서를 반환합니다. 자연어 처리에서는 데이터가 각 문장(배치), 각 단어(시퀀스), 각 임베딩 벡터(임베딩 차원)로 구성되므로 이런 구조가 됩니다[5][6][3].
 
 Citations:
 [1] https://tech.kakao.com/posts/585

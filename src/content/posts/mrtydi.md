@@ -46,7 +46,7 @@ The goal of this resource is to spur research in dense retrieval techniques in n
 
 ## 왜 멀쩡한 tydi를 냅두고 Mr.tydi를 만들었는가?
 
-Mr.tydi는 기존 tydi dataset이 충분하지 않는데에 기반한다. 왜 충분하지 않냐면 아래 설명에서 이어진다.
+Mr.tydi는 기존 tydi dataset이 충분하지 않아서 만들어졌다. 왜 충분하지 않냐면 아래 설명에서 이어진다.
 
 ### Mr.tydi는 뭐가 다른가?
 
@@ -58,7 +58,7 @@ Mr.tydi는 기존 tydi dataset이 충분하지 않는데에 기반한다. 왜 �
 > This dataset can be viewed as the “open retrieval” condition of the TYDI multi-lingual question answering (QA) dataset (Clark et al., 2020), and “Mr” in Mr. TYDI stands for “multi-lingual retrieval”.
 [reference](https://arxiv.org/abs/2108.08787)
 
-tydi의 한계를 보완하기 위해서 Mr.tydi가 만들어진것이다. Mr은 multi-lingual 즉, 다중언어 retrieval을 의미한다. 
+tydi의 한계를 보완하기 위해서 Mr.tydi가 만들어진것이다. Mr은 multi-lingual(다중언어) retrieval을 의미한다. 
 
 **약점)**
 (1) 기존 tydi는 SQuAD dataset과 같이 machine reading comprehension task에 지나치지 않다.
@@ -69,7 +69,7 @@ tydi의 한계를 보완하기 위해서 Mr.tydi가 만들어진것이다. Mr은
 -> 논문에서 tydi weakness 설명하는부분의 the dataset은 query - answer - candidate passages
 
 
-=> mr.tydi는 따라서 open-retrieval의 extension으로 볼수 있으며 단답형이 아닌 줄글로 만든 passages들로 조금더 open-domain, open-retrieval스럽게 재구성했다.
+=> 그래서 mr.tydi는 open-retrieval의 extension으로 볼수 있으며 단답형이 아닌 줄글로 만든 passages들로 조금더 open-domain, open-retrieval스럽게 재구성했다.
 
 
 ### huggingface(mr.tydi)
@@ -79,9 +79,9 @@ tydi의 한계를 보완하기 위해서 Mr.tydi가 만들어진것이다. Mr은
 
 ## 이 데이터 셋을 하는 의의
 
-기존은 영어로만 되어있던 dataset을 train하고, 이를 통해 retrieval하고 evaluate하는것에 끝났다면 mr.tydi는 11개의 language들로 각각의 언어에 특화된 mono-lingual model이다.모든언어에 다 잘 되는 retrieval을 위한 dataset으로써 사용하는데에 의의가 있다.
+기존은 영어로만 되어있던 dataset을 train하고 그걸로 retrieval하고 evaluate하는것에 끝났다면 mr.tydi는 11개의 language들로 각각의 언어에 특화된 mono-lingual model이다.모든언어에 다 잘 되는 retrieval을 위한 dataset으로써 사용하는데에 의의가 있다.
 
-우리가 진행하는 RAG에서 non-english retrieval에 대한 evaluate를 하는 benchmarck로써 Mr.tydi는 의의가 있다.
+우리가 진행하는 RAG에서 non-english retrieval을 evaluate하는 benchmarck로써 Mr.tydi는 의의가 있다.
 
 --------
 
@@ -92,7 +92,7 @@ tydi의 한계를 보완하기 위해서 Mr.tydi가 만들어진것이다. Mr은
 1. answer passage와 question은 항상 같은 language로 작성
 
 2. passage들은 google search를 통해서 wikipedia article에서 가져왔으며 snippet으로 답할 수 없는 query에 대해 annotators들이 작성하게끔함. 
-그리고 annotator들이 직접 주어진 top wikipedia article에 대해서 각각의 article에 대해서 passage들의 relevancy를 최소한의 답변범위를 바탕으로 답변을 만들어낸다.
+그리고 annotator들이 직접 주어진 top wikipedia article 각각에 대해서 passage들의 relevancy를 최소한의 답변범위를 바탕으로 답변을 만들어낸다.
 따라서 wikipedia의 article로부터 가져온 passage들에서 질문에 대한 답변을 찾을 수 없을수도 있다.
 cf) snippet은 검색 결과에 대한 웹페이지 내용을 간략하게 요약한것
 
@@ -232,7 +232,7 @@ strategyQA 처럼 corpus로 한꺼번에 ingest 한다음 retrieve 시키기
 **2. MRR@100(mean reciprocal rank) → rank aware한 녀석**
 - 뭐에 대한 rank인가?
 => 
-→ bm25 retrieval이 100 hit를 가지고 top-k중 retrieve한 녀석의 rank를 역수로 취해서 rank가 점점 작은 수일수록 큰 수가 되고, 
+→ bm25 retrieval이 100 hit를 가지고 top-k중 retrieve한 녀석의 rank를 역수로 취해서 rank가 점점 작은 수일수록 큰 수가 되고
 다른 순위로 retrieve한 passages들의 rank의 역수를 다 더해서 mean 값을 구한것임. 
 
 찾고자 하는 retrieval gt로 bm25가 retrieve한  녀석의 순위를 체크후 그 순위를 역수로 취한것이 → reciprocal rank
@@ -274,13 +274,13 @@ mrr은 각각의 다른 추천 아이템의 역수 RR을 구한후 mean값을 �
 ### (5) 논문에서는 어떻게 evalute했는지 예제코드 참고하기(- 결과적으로 논문에서는 수많은 corpus중 하나를 찾는건지를 한번 체크해볼 필요가 있음)
 ⇒ 대부분의 pyserini를 활용한 예제라서 예제 코드를 참고하기 어려움.
 
-⇒ negative passage와 positive passage 모두 corpus에서 나온것이고, Mr.tydi가 직접 tuned된 bm25 retrieval이 retrieve한 negative passage들의 성능과 사용자가 직접 만든 retrieval의 성능을 비교하고 싶다면
+⇒ negative passage와 positive passage 모두 corpus에서 나온것이고 Mr.tydi가 직접 tuned된 bm25 retrieval이 retrieve한 negative passage들의 성능과 사용자가 직접 만든 retrieval의 성능을 비교하고 싶다면
 negative passage를 활용하면 될듯.
 
 ### (6) 빈 passage가 있는가 검증
 
-⇒ negative passage에 하나 있음. 하지만 채택된 evalutation 방식에서 negative passages는 활용하지 않기 때문이고, negative passages는 비어있지만 써야할 positive passages는 있기 때문에 영향은 없다.
-(annotator가 snippet으로 만들 수 없는 답변들에 해당하는 질문들에 대하여 직접 positive passage를 작성한것으로 보임) 
+⇒ negative passage에 하나 있음. 하지만 채택된 evalutation 방식에서 negative passages는 활용하지 않기 때문이고 negative passages는 비어있지만 써야할 positive passages는 있기 때문에 영향은 없다.
+(snippet으로 답변을 만들 수 없는 질문들에는 annotator가 직접 positive passage를 작성한것으로 보임) 
 
 
 ### (7) positive passage는 여러개 있는가? 그 사이에는 rank가 있는가? → 근데 MRR이라는 rank aware metric으로 evaluate한다면 rank가 있다고 추정
