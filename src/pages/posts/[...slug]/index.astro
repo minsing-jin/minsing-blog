@@ -231,7 +231,7 @@ const ogImage = ogImageUrl
 
   function addHeadingLinks() {
     const headings = Array.from(
-      document.querySelectorAll("h2, h3, h4, h5, h6")
+      document.querySelectorAll("#article :is(h2, h3, h4, h5, h6)[id]")
     );
     for (const heading of headings) {
       heading.classList.add("group");
